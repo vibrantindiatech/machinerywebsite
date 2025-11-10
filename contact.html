@@ -15,35 +15,44 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
   <style>
+    /* === Base === */
     body {
       font-family: 'Poppins', sans-serif;
       background: radial-gradient(circle at top right, #081019, #0f1729);
       color: #e9f6ff;
       overflow-x: hidden;
+      margin: 0;
+      padding: 0;
     }
 
-    /* Header Section */
+    h1, h3, h5 {
+      word-break: keep-all;
+    }
+
+    /* === Header Section === */
     .contact-header {
       background: linear-gradient(120deg, rgba(0,255,204,0.25), rgba(0,180,255,0.25));
-      padding: 100px 0;
+      padding: clamp(80px, 15vw, 120px) 0;
       text-align: center;
       color: #fff;
     }
 
     .contact-header h1 {
       font-weight: 700;
-      font-size: 2.8rem;
+      font-size: clamp(1.8rem, 4vw, 3rem);
       text-shadow: 0 0 20px rgba(0,255,204,0.5);
     }
 
     .contact-header p {
-      font-size: 1.1rem;
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
       color: #d6faff;
+      max-width: 650px;
+      margin: 10px auto 0;
     }
 
-    /* Info Cards */
+    /* === Info Cards === */
     .contact-info {
-      padding: 80px 0 50px;
+      padding: 70px 0 50px;
     }
 
     .info-card {
@@ -55,6 +64,7 @@
       border: 1px solid rgba(0,255,204,0.2);
       box-shadow: 0 5px 20px rgba(0,0,0,0.3);
       transition: all 0.4s ease;
+      height: 100%;
     }
 
     .info-card:hover {
@@ -72,21 +82,23 @@
     .info-card h5 {
       color: #00d9ff;
       font-weight: 600;
+      margin-bottom: 8px;
     }
 
     .info-card p, .info-card a {
       color: #d8f7ff;
       font-size: 0.95rem;
+      line-height: 1.6;
     }
 
     .info-card a:hover {
       color: #00ffcc;
     }
 
-    /* Contact Form */
+    /* === Contact Form === */
     .contact-form {
       background: rgba(255,255,255,0.08);
-      padding: 50px;
+      padding: clamp(25px, 5vw, 50px);
       border-radius: 20px;
       border: 1px solid rgba(0,255,204,0.25);
       box-shadow: 0 8px 30px rgba(0,0,0,0.3);
@@ -96,6 +108,12 @@
 
     .contact-form:hover {
       box-shadow: 0 10px 40px rgba(0,255,204,0.25);
+    }
+
+    .contact-form h3 {
+      color: #00ffcc;
+      font-weight: 600;
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
     }
 
     .form-control {
@@ -124,6 +142,7 @@
       font-weight: 600;
       color: #00131b;
       transition: all 0.3s ease;
+      font-size: 1rem;
     }
 
     .btn-submit:hover {
@@ -131,7 +150,7 @@
       box-shadow: 0 0 20px rgba(0,255,204,0.5);
     }
 
-    /* Map Section */
+    /* === Map === */
     .map-container {
       margin-top: 70px;
       border-radius: 20px;
@@ -146,7 +165,7 @@
       filter: brightness(0.85);
     }
 
-    /* Business Hours */
+    /* === Business Hours === */
     .business-hours {
       margin-top: 80px;
       text-align: center;
@@ -161,49 +180,38 @@
       color: #00ffcc;
       font-weight: 600;
       margin-bottom: 25px;
+      font-size: clamp(1.3rem, 3vw, 1.6rem);
     }
 
     .business-hours ul {
       list-style: none;
       padding: 0;
       color: #d8f7ff;
+      font-size: clamp(0.95rem, 2vw, 1rem);
     }
 
     .business-hours ul li {
       margin: 8px 0;
-      font-size: 1rem;
     }
 
-    /* Floating WhatsApp Button */
-    .floating-buttons {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      z-index: 999;
-    }
-
+    /* === Floating WhatsApp === */
     .floating-buttons a {
       position: fixed;
-    right: 22px;
-    bottom: 80px;
-    z-index: 1100;
-    display: flex
-;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #25d366, #128c7e);
-    color: #fff;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    font-size: 28px;
-    transition: all 0.35s 
-ease;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-    text-decoration: none;
+      right: 22px;
+      bottom: 80px;
+      z-index: 1100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: #fff;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      font-size: 28px;
+      transition: all 0.35s ease;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+      text-decoration: none;
     }
 
     .floating-buttons a:hover {
@@ -211,7 +219,7 @@ ease;
       box-shadow: 0 0 25px rgba(0,255,204,0.6);
     }
 
-    /* Scroll To Top Button */
+    /* === Scroll To Top === */
     .scroll-top-btn {
       position: fixed;
       bottom: 163px;
@@ -237,26 +245,38 @@ ease;
       box-shadow: 0 0 25px rgba(0,255,204,0.6);
     }
 
-    /* Responsive */
+    /* === Responsive === */
+    @media(max-width: 992px) {
+      .info-card { padding: 30px 15px; }
+      .contact-header { padding: 80px 0; }
+    }
+
     @media(max-width: 768px) {
       .contact-header h1 { font-size: 2rem; }
-      .contact-form { padding: 30px 20px; }
+      .contact-form { padding: 25px 20px; }
+      .info-card i { font-size: 2rem; }
       .floating-buttons a,
       .scroll-top-btn {
         width: 48px;
         height: 48px;
         font-size: 20px;
       }
+      iframe { height: 320px; }
+    }
+
+    @media(max-width: 480px) {
+      .contact-header p { font-size: 0.9rem; padding: 0 15px; }
+      .btn-submit { width: 100%; }
       .scroll-top-btn { bottom: 75px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header Component -->
+  <!-- Header Include -->
   <div id="header"></div>
 
-  <!-- Header -->
+  <!-- Contact Header -->
   <section class="contact-header">
     <div class="container">
       <h1>Get In Touch With Us</h1>
@@ -264,7 +284,7 @@ ease;
     </div>
   </section>
 
-  <!-- Contact Info -->
+  <!-- Info Cards -->
   <section class="contact-info">
     <div class="container">
       <div class="row g-4">
@@ -311,7 +331,7 @@ ease;
       <div class="row justify-content-center" data-animate>
         <div class="col-lg-8">
           <div class="contact-form">
-            <h3 class="fw-bold mb-4 text-center text-gradient">Send Us a Message</h3>
+            <h3 class="fw-bold mb-4 text-center">Send Us a Message</h3>
             <form>
               <div class="row g-3">
                 <div class="col-md-6"><input type="text" class="form-control" placeholder="Full Name" required></div>
@@ -341,24 +361,22 @@ ease;
   </div>
 
   <!-- Scroll to Top Button -->
-  <button id="scrollTopBtn" class="scroll-top-btn">
-    <i class="fa-solid fa-arrow-up"></i>
-  </button>
+  <button id="scrollTopBtn" class="scroll-top-btn"><i class="fa-solid fa-arrow-up"></i></button>
 
-  <!-- Footer -->
+  <!-- Footer Include -->
   <div id="footer"></div>
   <script src="js/include.js"></script>
 
   <script>
-    // GSAP Scroll Animation
+    // GSAP Animation
     gsap.utils.toArray("[data-animate]").forEach((el) => {
       gsap.fromTo(el, { y: 40, opacity: 0 }, {
         y: 0, opacity: 1, duration: 1,
-        scrollTrigger: { trigger: el, start: "top 80%" }
+        scrollTrigger: { trigger: el, start: "top 85%" }
       });
     });
 
-    // Scroll to Top Button
+    // Scroll to Top
     const scrollBtn = document.getElementById("scrollTopBtn");
     window.addEventListener("scroll", () => {
       scrollBtn.style.display = window.scrollY > 300 ? "flex" : "none";
