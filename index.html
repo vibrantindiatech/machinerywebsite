@@ -346,6 +346,7 @@
   backdrop-filter: blur(10px);
   transition: 0.4s ease;
   height: 100%;
+  position: relative;
 }
 .product-card:hover {
   transform: translateY(-10px);
@@ -369,7 +370,7 @@
   transform: scale(1.1);
 }
 
-/* Overlay */
+/* Overlay (fixed to trigger on card hover, not just image) */
 .product-overlay {
   position: absolute;
   bottom: -100%;
@@ -385,9 +386,16 @@
   opacity: 0;
   transition: 0.5s;
 }
-.product-image:hover .product-overlay {
+.product-card:hover .product-overlay {
   bottom: 0;
   opacity: 1;
+  animation: fadeUp 0.5s ease;
+}
+
+/* Subtle fade-up animation for overlay text */
+@keyframes fadeUp {
+  0% { transform: translateY(30px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
 /* Content */
@@ -451,8 +459,8 @@
   .product-image{height:220px;}
   .btn-group{flex-direction:column;gap:8px;}
 }
-
 </style>
+
 
 
   <!-- ==== REVIEWS ==== -->
