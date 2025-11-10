@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About Us | Vibrant India Machinery</title>
+<title>About Us | Shree Baneshwari Industries</title>
 
 <!-- Bootstrap 5 -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -34,6 +34,7 @@ body {
   text-align: center;
   color: #00ffcc;
   position: relative;
+  padding: 60px 15px;
 }
 .hero::after {
   content: '';
@@ -58,12 +59,14 @@ h2.section-title {
 .company-intro img {
   border-radius:20px;
   width:100%;
+  height:auto;
   box-shadow:0 10px 30px rgba(0,255,204,0.2);
+  object-fit:cover;
 }
 .company-intro .intro-text h3 { color:#00ffcc; margin-bottom:20px; }
 .company-intro .intro-text p { color:#d8f7ff; font-size:1rem; line-height:1.6; }
 
-/* Core Values Cards */
+/* Core Values / Mission / Vision Cards */
 .values-card, .mv-card, .leadership-card {
   background: rgba(0,0,0,0.55);
   border-radius:20px;
@@ -87,7 +90,9 @@ h2.section-title {
 
 /* Leadership */
 .leadership-card img {
-  width:100%;
+  width:120px;
+  height:120px;
+  object-fit:cover;
   border-radius:50%;
   margin-bottom:15px;
   box-shadow:0 8px 25px rgba(0,255,204,0.2);
@@ -95,46 +100,95 @@ h2.section-title {
 .leadership-card h5 { color:#00ffcc; margin-bottom:5px; }
 .leadership-card p { color:#d8f7ff; font-size:0.95rem; }
 
-/* Roadmap Timeline */
-.timeline-section { padding:80px 0; }
+/* Timeline Section */
+.timeline-section { padding: 80px 0; }
 .timeline {
   position: relative;
-  max-width:900px;
-  margin:auto;
-  padding-left:40px;
+  max-width: 950px;
+  margin: auto;
+  padding: 40px 0;
 }
 .timeline::before {
-  content:'';
-  position:absolute;
-  left:20px;
-  top:0;
-  bottom:0;
-  width:4px;
-  background: linear-gradient(180deg,#00ffcc,#00b4ff);
-  border-radius:2px;
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 50%;
+  width: 4px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, #00ffcc, #00b4ff);
+  border-radius: 2px;
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
 }
 .timeline-item {
   position: relative;
-  margin-bottom:50px;
-  padding-left:40px;
-  opacity:0;
+  width: 50%;
+  padding: 20px 40px;
+  box-sizing: border-box;
 }
+.timeline-item .content-box {
+  background: rgba(0, 0, 0, 0.55);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 255, 204, 0.25);
+  transition: all 0.4s ease;
+}
+.timeline-item .content-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(0, 255, 204, 0.35);
+}
+.timeline-item h5 {
+  color: #00ffcc;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.timeline-item p {
+  color: #d8f7ff;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.timeline-item.left { left: 0; text-align: right; }
+.timeline-item.right { left: 50%; }
 .timeline-item::before {
-  content:'';
-  position:absolute;
-  left:-10px;
-  top:0;
-  width:20px;
-  height:20px;
-  background:#00ffcc;
-  border-radius:50%;
-  border:4px solid #0f1729;
+  content: '';
+  position: absolute;
+  top: 25px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: #00ffcc;
+  border: 4px solid #0f1729;
+  z-index: 2;
+  animation: pulse 2s infinite;
 }
-.timeline-item h5 { color:#00ffcc; font-weight:600; }
-.timeline-item p { color:#d8f7ff; font-size:1rem; line-height:1.6; }
+.timeline-item.left::before { right: -10px; }
+.timeline-item.right::before { left: -10px; }
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 255, 204, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(0, 255, 204, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 255, 204, 0); }
+}
+
+/* Responsive */
+@media(max-width: 992px){
+  .company-intro .row { flex-direction: column-reverse; gap:30px; }
+  .hero h1 { font-size:2rem; }
+}
+@media(max-width: 768px){
+  .timeline::before { left: 10px; }
+  .timeline-item {
+    width: 100%;
+    padding-left: 40px;
+    text-align: left;
+  }
+  .timeline-item.left, .timeline-item.right { left: 0; }
+  .timeline-item::before { left: -2px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero p { font-size: 1rem; }
+  .section-title { font-size: 1.6rem; }
+}
 
 /* Floating WhatsApp Button */
-.floating-buttons { position: fixed; bottom: 20px; right: 20px; z-index: 999; }
+.floating-buttons {
+  position: fixed; bottom: 20px; right: 20px; z-index: 999;
+}
 .floating-buttons a {
   display:flex; align-items:center; justify-content:center;
   background:linear-gradient(135deg,#25d366,#128c7e);
@@ -153,45 +207,72 @@ h2.section-title {
   background:linear-gradient(135deg,#00ffcc,#00b4ff);
   color:#00131b; border:none; border-radius:50%;
   display:none; align-items:center; justify-content:center;
-  font-size:22px; cursor:pointer; box-shadow:0 0 15px rgba(0,255,204,0.4);
+  font-size:22px; cursor:pointer;
+  box-shadow:0 0 15px rgba(0,255,204,0.4);
   transition:all 0.3s ease; z-index:1000;
 }
 .scroll-top-btn:hover {
   transform:scale(1.1) rotate(10deg);
   box-shadow:0 0 25px rgba(0,255,204,0.6);
 }
-
-/* Responsive */
-@media(max-width:992px){
-  .company-intro .row { flex-direction: column-reverse; gap:30px; }
-  .hero h1 { font-size:2rem; }
-  .timeline { padding-left:20px; }
-}
 </style>
 </head>
 <body>
 
-<!-- Header Placeholder -->
+<!-- Header -->
 <div id="header"></div>
 
-<!-- Hero Section -->
-<section class="hero" data-animate>
+<!-- Hero -->
+<section class="hero">
   <div class="container">
-    <h1>About Vibrant India Machinery</h1>
+    <h1>About Shree Baneshwari Industries</h1>
     <p>Innovation, Precision & Excellence in Industrial Machinery</p>
   </div>
 </section>
+<style>
+  /* Hero */
+.hero {
+  background: url('https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+.hero::after {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+}
+.hero .container { position: relative; z-index:2; }
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg,#00ffcc,#00b4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero p { font-size: 1.2rem; margin: 15px 0 25px; color:#fff; }
+/* Responsive */
+@media(max-width:767px){
+  .hero h1{font-size:2rem;margin-top: 60px;}
+  .hero p{font-size:1rem;}
+}
+</style>
+
 
 <!-- Who We Are -->
 <section class="company-intro" data-animate>
   <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-6">
-        <img src="https://images.unsplash.com/photo-1581093588401-7a8dbf9d3c5d?auto=format&fit=crop&w=800&q=80" alt="Vibrant India Machinery">
+        <img src="https://images.unsplash.com/photo-1581093588401-7a8dbf9d3c5d?auto=format&fit=crop&w=800&q=80" alt="Shree Baneshwari Industries">
       </div>
       <div class="col-lg-6 intro-text">
         <h3>Who We Are</h3>
-        <p>Vibrant India Machinery is a leading manufacturer of industrial hydraulic machinery, delivering innovative, high-performance solutions for industries worldwide. Our commitment to precision, technology, and customer satisfaction sets us apart.</p>
+        <p>Shree Baneshwari Industries is a leading manufacturer of industrial hydraulic machinery, delivering innovative, high-performance solutions for industries worldwide. Our commitment to precision, technology, and customer satisfaction sets us apart.</p>
         <p>Founded in Ahmedabad, we combine decades of experience with modern smart manufacturing techniques, ensuring every product meets international quality standards.</p>
       </div>
     </div>
@@ -203,28 +284,28 @@ h2.section-title {
   <div class="container">
     <h2 class="section-title">Our Core Values</h2>
     <div class="row g-4 justify-content-center">
-      <div class="col-md-6 col-lg-3">
+      <div class="col-sm-6 col-md-4 col-lg-3">
         <div class="values-card">
           <i class="fa-solid fa-lightbulb"></i>
           <h4>Innovation</h4>
           <p>We push the boundaries of technology to deliver innovative machinery solutions.</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3">
+      <div class="col-sm-6 col-md-4 col-lg-3">
         <div class="values-card">
           <i class="fa-solid fa-leaf"></i>
           <h4>Sustainability</h4>
           <p>Eco-friendly production and responsible resource management are our priorities.</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3">
+      <div class="col-sm-6 col-md-4 col-lg-3">
         <div class="values-card">
           <i class="fa-solid fa-handshake"></i>
           <h4>Integrity</h4>
           <p>We uphold the highest standards of professionalism and trust with clients.</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3">
+      <div class="col-sm-6 col-md-4 col-lg-3">
         <div class="values-card">
           <i class="fa-solid fa-users"></i>
           <h4>Teamwork</h4>
@@ -263,21 +344,21 @@ h2.section-title {
   <div class="container">
     <h2 class="section-title">Meet Our Leadership</h2>
     <div class="row g-4 justify-content-center">
-      <div class="col-md-6 col-lg-3">
+      <div class="col-sm-6 col-lg-3">
         <div class="leadership-card">
           <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="CEO">
           <h5>John Doe</h5>
           <p>Chief Executive Officer – Driving innovation and global expansion.</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3">
+      <div class="col-sm-6 col-lg-3">
         <div class="leadership-card">
           <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="COO">
           <h5>Jane Smith</h5>
           <p>Chief Operating Officer – Ensuring operational excellence across all units.</p>
         </div>
       </div>
-      <div class="col-md-6 col-lg-3">
+      <div class="col-sm-6 col-lg-3">
         <div class="leadership-card">
           <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="CTO">
           <h5>Robert Brown</h5>
@@ -290,55 +371,253 @@ h2.section-title {
 
 <!-- Roadmap Timeline -->
 <section class="timeline-section py-5" data-animate>
-  <div class="container">
-    <h2 class="section-title">Roadmap to 2025</h2>
+  <div class="container text-center">
+    <h2 class="section-title mb-5 gradient-text">Our Journey: 2010 – 2025</h2>
+
     <div class="timeline">
-      <div class="timeline-item">
-        <h5>2023</h5>
-        <p>Expanded production lines for semi-automatic hydraulic machines and introduced precision machinery for packaging industries.</p>
+      <!-- 2010 -->
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h4>2010 – Foundation Year</h4>
+          <p>Shree Baneshwari Industriesbegan with a mission to bring efficient and innovative hydraulic solutions to Indian industries.</p>
+        </div>
       </div>
-      <div class="timeline-item">
-        <h5>2024</h5>
-        <p>Launched AI-integrated predictive maintenance systems, enhanced global client network, and increased R&D investments.</p>
+
+      <!-- 2013 -->
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h4>2013 – First Breakthrough</h4>
+          <p>Introduced our first Hydraulic Barrel Cutting Machine, establishing a reputation for quality and reliability.</p>
+        </div>
       </div>
-      <div class="timeline-item">
-        <h5>2025</h5>
-        <p>Goal to become top 5 global suppliers of smart hydraulic machinery, fully automated production lines, and sustainable industrial solutions.</p>
+
+      <!-- 2016 -->
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h4>2016 – Nationwide Growth</h4>
+          <p>Expanded our operations with a modern facility and strong service network to support growing demand.</p>
+        </div>
+      </div>
+
+      <!-- 2019 -->
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h4>2019 – Global Reach</h4>
+          <p>Started exporting to Middle East and African markets with high-performance, precision-engineered machines.</p>
+        </div>
+      </div>
+
+      <!-- 2022 -->
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h4>2022 – Smart Innovation</h4>
+          <p>Launched semi-automatic and IoT-enabled machinery focused on smarter, data-driven manufacturing.</p>
+        </div>
+      </div>
+
+      <!-- 2025 -->
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h4>2025 – Future Ahead</h4>
+          <p>Continuing to drive sustainable, AI-powered industrial solutions for the global manufacturing industry.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Floating WhatsApp Button -->
+<!-- ===== CSS ===== -->
+<style>
+.timeline-section {
+  background: radial-gradient(circle at top right, #0a0f1f, #101a2b);
+  color: #fff;
+  overflow: hidden;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: 2.4rem;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #00fff7, #00b4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Timeline wrapper */
+.timeline {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+/* Center line */
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  background: linear-gradient(180deg, #00ffcc, #00b4ff);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+  border-radius: 2px;
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
+}
+
+/* Each item */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px 40px;
+  box-sizing: border-box;
+}
+
+.timeline-item.left { left: 0; text-align: right; }
+.timeline-item.right { left: 50%; text-align: left; }
+
+/* Circle markers */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: #00ffcc;
+  border-radius: 50%;
+  top: 30px;
+  z-index: 10;
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.8);
+}
+
+.timeline-item.left::before { right: -9px; }
+.timeline-item.right::before { left: -9px; }
+
+/* Content box */
+.timeline-content {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 255, 204, 0.15);
+  transition: all 0.6s ease;
+  opacity: 0;
+  transform: translateY(50px);
+  position: relative;
+  z-index: 5;
+}
+
+.timeline-content.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-content h4 {
+  color: #00ffcc;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.timeline-content p {
+  color: #e9f6ff;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Hover animation */
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 35px rgba(0, 255, 204, 0.3);
+}
+
+/* ===== RESPONSIVE FIX ===== */
+@media (max-width: 992px) {
+  .timeline::after {
+    left: 20px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding: 20px 25px 20px 60px;
+    text-align: left !important;
+  }
+
+  .timeline-item::before {
+    left: 20px;
+  }
+
+  .timeline-item.left,
+  .timeline-item.right {
+    left: 0;
+  }
+
+  .timeline-content {
+    margin-top: 15px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+  .timeline::after {
+    left: 15px;
+  }
+  .timeline-item {
+    padding: 15px 20px 15px 50px;
+  }
+  .timeline-content {
+    padding: 20px;
+  }
+}
+</style>
+
+<!-- ===== Animation JS ===== -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const items = document.querySelectorAll(".timeline-content");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("active");
+    });
+  }, { threshold: 0.2 });
+  items.forEach(i => observer.observe(i));
+});
+</script>
+
+<!-- Floating Buttons -->
 <div class="floating-buttons">
   <a href="https://wa.me/919876543210" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
 </div>
 
-<!-- Scroll To Top Button -->
+<!-- Scroll To Top -->
 <button id="scrollTopBtn" class="scroll-top-btn"><i class="fa-solid fa-arrow-up"></i></button>
 
-<!-- Footer Placeholder -->
+<!-- Footer -->
 <div id="footer"></div>
 
-<!-- Scripts -->
+<!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
- <script src="js/include.js"></script>
+<script src="js/include.js"></script>
+
 <script>
-  // GSAP Scroll Animations
-  gsap.utils.toArray('[data-animate]').forEach((el,i)=>{
-    gsap.from(el, {
-      y:50, opacity:0, duration:1, delay:i*0.2, ease:"power3.out",
-      scrollTrigger:{ trigger:el, start:"top 85%" }
-    });
+gsap.utils.toArray('[data-animate]').forEach((el,i)=>{
+  gsap.from(el,{ y:50, opacity:0, duration:1, delay:i*0.2, ease:"power3.out",
+    scrollTrigger:{ trigger:el, start:"top 85%" }
   });
-
-  // Scroll to Top
-  const scrollBtn = document.getElementById("scrollTopBtn");
-  window.addEventListener("scroll", ()=>{
-    scrollBtn.style.display = window.scrollY > 300 ? "flex" : "none";
+});
+const scrollBtn=document.getElementById("scrollTopBtn");
+window.addEventListener("scroll",()=>{scrollBtn.style.display=window.scrollY>300?"flex":"none";});
+scrollBtn.addEventListener("click",()=>{window.scrollTo({top:0,behavior:'smooth'});});
+gsap.utils.toArray(".timeline-item").forEach((item)=>{
+  const isLeft=item.classList.contains("left");
+  gsap.fromTo(item,{x:isLeft?-100:100,opacity:0},{x:0,opacity:1,duration:1,ease:"power3.out",
+    scrollTrigger:{trigger:item,start:"top 85%"}
   });
-  scrollBtn.addEventListener("click", ()=>{ window.scrollTo({top:0, behavior:'smooth'}); });
+});
 </script>
-
 </body>
 </html>

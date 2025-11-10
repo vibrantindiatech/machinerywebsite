@@ -1,24 +1,31 @@
-<!-- HEADER START -->
+<!-- ✅ HEADER START -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
 <nav class="navbar navbar-expand-lg next-level-navbar fixed-top">
-  <div class="container-fluid px-4 px-lg-5">
+  <div class="container-fluid px-3 px-md-4 px-lg-5">
 
-    <!-- Left: Logo -->
-    <a class="navbar-brand d-flex align-items-center fw-bold fs-3 me-4" href="index.html">
-      <i class="fa-solid fa-droplet me-2"></i>
-      <span class="brand-text">HydroTech <span>Machinery</span></span>
+    <!-- ✅ Brand -->
+    <a class="navbar-brand fw-bold fs-5 fs-md-3 me-2" href="index.html">
+      <span class="brand-text">Shree Baneshwari <span>Industries</span></span>
     </a>
 
-    <!-- Mobile Toggler -->
-    <button class="navbar-toggler border-0 shadow-none text-white" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
-      <i class="fa-solid fa-bars fs-2"></i>
+    <!-- ✅ Mobile Toggler -->
+    <button
+      class="navbar-toggler border-0 shadow-none text-white"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#mainMenu"
+      aria-controls="mainMenu"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fa-solid fa-bars fs-3"></i>
     </button>
 
-    <!-- Center: Nav Links -->
-    <div class="collapse navbar-collapse justify-content-around" id="mainMenu">
-      <ul class="navbar-nav align-items-lg-center gap-3 gap-lg-4">
+    <!-- ✅ Nav Links -->
+    <div class="collapse navbar-collapse justify-content-lg-center mt-3 mt-lg-0" id="mainMenu">
+      <ul class="navbar-nav align-items-lg-center gap-2 gap-lg-4">
         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
         <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
@@ -26,9 +33,16 @@
         <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
       </ul>
+
+      <!-- ✅ Button (inside collapse for mobile) -->
+      <div class="d-lg-none text-center mt-3">
+        <a href="quote.html" class="btn btn-glow w-100 py-2 fw-semibold rounded-pill">
+          Get Quote <i class="fa-solid fa-arrow-right ms-2"></i>
+        </a>
+      </div>
     </div>
 
-    <!-- Right: Button -->
+    <!-- ✅ Button (desktop) -->
     <div class="d-none d-lg-block ms-auto">
       <a href="quote.html" class="btn btn-glow px-4 py-2 fw-semibold rounded-pill">
         Get Quote <i class="fa-solid fa-arrow-right ms-2"></i>
@@ -37,20 +51,26 @@
   </div>
 </nav>
 
-<!-- PREMIUM STYLE -->
+<!-- ✅ STYLE -->
 <style>
-/* Base Navbar */
+/* === Base Navbar === */
 .next-level-navbar {
   background: linear-gradient(120deg, #06142f, #0a1931, #1b262c);
-  backdrop-filter: blur(25px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 40px rgba(0, 255, 204, 0.1);
+  backdrop-filter: blur(25px);
+  box-shadow: 0 4px 25px rgba(0, 255, 204, 0.1);
   transition: all 0.4s ease;
+  padding: 0.8rem 0;
   z-index: 1000;
-  padding: 0.9rem 0;
 }
 
-/* Brand */
+/* === Scroll Shadow === */
+.next-level-navbar.scrolled {
+  background: rgba(6, 20, 47, 0.95);
+  box-shadow: 0 8px 30px rgba(0, 255, 204, 0.15);
+}
+
+/* === Brand === */
 .navbar-brand {
   background: linear-gradient(90deg, #00e0ff, #00ff99);
   -webkit-background-clip: text;
@@ -58,25 +78,26 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 .navbar-brand:hover {
-  text-shadow: 0 0 18px rgba(0, 255, 204, 0.6);
+  text-shadow: 0 0 15px rgba(0, 255, 204, 0.7);
   transform: scale(1.03);
 }
 .brand-text span {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.75);
   font-weight: 400;
 }
 
-/* Nav Links */
+/* === Nav Links === */
 .nav-link {
   color: #e8e8e8 !important;
   font-size: 1.05rem;
   font-weight: 500;
-  letter-spacing: 0.6px;
-  text-transform: capitalize;
+  letter-spacing: 0.5px;
   position: relative;
-  padding: 8px 12px;
+  text-transform: capitalize;
+  padding: 6px 12px;
   transition: all 0.3s ease-in-out;
 }
 .nav-link:hover {
@@ -95,16 +116,16 @@
 }
 .nav-link:hover::after,
 .nav-link.active::after {
-  width: 70%;
+  width: 60%;
 }
 
-/* Active Link */
+/* === Active Link === */
 .nav-link.active {
   color: #00ffcc !important;
   text-shadow: 0 0 10px rgba(0, 255, 204, 0.6);
 }
 
-/* Button */
+/* === Button === */
 .btn-glow {
   background: linear-gradient(90deg, #00ffcc, #00b4ff);
   color: #0b132b;
@@ -118,45 +139,62 @@
 }
 .btn-glow:hover {
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 0 35px rgba(0, 255, 204, 0.7);
+  box-shadow: 0 0 30px rgba(0, 255, 204, 0.6);
 }
 
-/* Responsive */
+/* === Responsive === */
 @media (max-width: 991px) {
   .navbar-collapse {
-    background: rgba(10, 20, 45, 0.97);
-    border-radius: 16px;
+    background: rgba(10, 20, 45, 0.98);
+    border-radius: 14px;
     padding: 20px;
-    margin-top: 15px;
+    margin-top: 10px;
   }
   .nav-link {
     text-align: center;
     font-size: 1.1rem;
     padding: 10px 0;
   }
+  .navbar-toggler {
+    color: #00ffcc;
+  }
+  .navbar-toggler i {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 575px) {
+  .navbar-brand {
+    font-size: 1.1rem;
+    white-space: normal;
+    text-align: left;
+  }
+  .nav-link {
+    font-size: 1rem;
+  }
   .btn-glow {
-    width: 100%;
-    margin-top: 1rem;
+    font-size: 0.9rem;
   }
 }
 </style>
 
-<!-- JS -->
+<!-- ✅ SCRIPT -->
 <script>
-  // Scroll effect for header
-  window.addEventListener("scroll", function() {
+  // Add shadow on scroll
+  window.addEventListener("scroll", function () {
     const nav = document.querySelector(".next-level-navbar");
     nav.classList.toggle("scrolled", window.scrollY > 40);
   });
 
-  // Active link highlight
+  // Highlight active link
   document.addEventListener("DOMContentLoaded", () => {
     const current = window.location.pathname.split("/").pop();
-    document.querySelectorAll(".nav-link").forEach(link => {
+    document.querySelectorAll(".nav-link").forEach((link) => {
       const href = link.getAttribute("href");
-      if (href.includes(current) && current !== "") link.classList.add("active");
-      else if (current === "" && href.includes("index.html")) link.classList.add("active");
+      if (href.includes(current) && current !== "")
+        link.classList.add("active");
+      else if (current === "" && href.includes("index.html"))
+        link.classList.add("active");
     });
   });
 </script>
-<!-- HEADER END -->
+<!-- ✅ HEADER END -->
