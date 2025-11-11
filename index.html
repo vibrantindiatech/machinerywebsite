@@ -122,75 +122,7 @@
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     }
 
-    /* ==== FLOATING BUTTONS ==== */
-    .floating-buttons a {
-      position: fixed;
-      right: 22px;
-      bottom: 80px;
-      z-index: 1100;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #25d366, #128c7e);
-      color: #fff;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      font-size: 28px;
-      transition: all 0.35s ease;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-      text-decoration: none;
-    }
-    .floating-buttons a:hover {
-      transform: scale(1.15) rotate(5deg);
-      box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
-    }
-
-    /* ==== SCROLL TOP BUTTON ==== */
-    .scroll-top-btn {
-      position: fixed;
-      bottom: 160px;
-      right: 22px;
-      background: linear-gradient(135deg, #007bff, #00b4d8);
-      color: #fff;
-      border: none;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      font-size: 24px;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 1100;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-      transition: all 0.35s ease;
-    }
-    .scroll-top-btn:hover {
-      transform: scale(1.1);
-      background: linear-gradient(135deg, #0d6efd, #23a6d5);
-    }
-
-    /* ==== RESPONSIVE ==== */
-    @media (max-width: 992px) {
-      .hero { min-height: 60vh; }
-      .hero-title { font-size: 2.2rem; }
-    }
-
-    @media (max-width: 768px) {
-      .hero { min-height: 55vh; }
-      .hero-title { font-size: 1.8rem;margin-top: 50px; }
-      .hero-subtitle { font-size: 1rem; }
-      .floating-buttons a,
-      .scroll-top-btn {
-        width: 50px;
-        height: 50px;
-        font-size: 22px;
-        right: 16px;
-      }
-      .scroll-top-btn { bottom: 140px; }
-      .floating-buttons a { bottom: 70px; }
-    }
+    
   </style>
 </head>
 
@@ -352,7 +284,7 @@ window.onload = type;
 .counter {
   font-size: 3rem;
   font-weight: 700;
-  background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #1dd1a1);
+  background: linear-gradient(45deg, #0a8f99, #0a8f99);
   background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -471,7 +403,7 @@ counters.forEach(counter => {
 
 <style>
 .gradient-text {
-  background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb);
+  background: linear-gradient(90deg, #000000, #000000, #000000);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -556,7 +488,7 @@ p.lead {
               <span class="feature-badge">350 Kg</span>
             </div>
             <div class="btn-group">
-              <a href="tel:+919876543210" class="btn btn-outline"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
+              <a href="tel:+919876543210" class="btn btn-outline"><i class=" fa-solid fa-phone me-1 "></i> Call Now</a>
               <a href="#" class="btn btn-primary btn-quote"><i class="fa-solid fa-quote-right me-1"></i> Get Quote</a>
             </div>
           </div>
@@ -832,7 +764,7 @@ document.getElementById('quoteForm').addEventListener('submit', function(e){
 <style>
 /* --- General Styles --- */
 .product-section { background: #fdfdfd; color: #333; position: relative; overflow: hidden; }
-.text-gradient { background: linear-gradient(90deg, #00b4ff, #00ffcc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.text-gradient { background: linear-gradient(90deg, #46daee, #4feaf0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
 /* Product Cards */
 .product-card { background: #fff; border-radius: 20px; overflow: hidden; transition: transform 0.4s ease, box-shadow 0.4s ease; cursor: pointer; border: 1px solid rgba(0,0,0,0.08); }
@@ -850,7 +782,7 @@ document.getElementById('quoteForm').addEventListener('submit', function(e){
 
 /* Card Content */
 .product-content { padding: 20px; text-align: center; }
-.product-content h5 { color: #00b4ff; font-weight: 600; margin-bottom: 1rem; font-size: 1.1rem; }
+.product-content h5 { color: #000000; font-weight: 600; margin-bottom: 1rem; font-size: 1.1rem; }
 
 /* Feature Badges */
 .feature-badge { background: #e0f7fa; color: #00b4ff; font-size: 0.85rem; font-weight: 500; padding: 5px 10px; border-radius: 20px; }
@@ -870,7 +802,7 @@ document.getElementById('quoteForm').addEventListener('submit', function(e){
 /* Responsive */
 @media (max-width: 767px) {
   .product-image { height: 220px; }
-  .btn-group { flex-direction: column; gap: 8px; }
+  .btn-group {  gap: 8px; }
   .feature-badge { margin-bottom: 5px; }
 }
 </style>
@@ -920,7 +852,7 @@ document.getElementById('quoteForm').addEventListener('submit', function(e){
 
 /* Gradient heading */
 .text-gradient {
-  background: linear-gradient(90deg,#00b4ff,#00ffcc);
+  background: linear-gradient(90deg,#000000,#000000);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -929,14 +861,14 @@ document.getElementById('quoteForm').addEventListener('submit', function(e){
 .review-card {
   background: #ffffff;
   border-radius: 20px;
+  border-color: #000000!important;
   padding: 30px 20px;
   min-height: 220px;
-  box-shadow: 0 6px 15px rgba(0,180,255,0.1);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition: transform 0.4s ease;
 }
 .review-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 15px 30px rgba(0,180,255,0.2);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 .quote-icon {
   color: #00b4ff; /* Primary vibrant color */
@@ -973,74 +905,7 @@ document.getElementById('quoteForm').addEventListener('submit', function(e){
   <!-- ==== FOOTER ==== -->
   <div id="footer"></div>
 
-  <!-- ==== FLOATING BUTTONS ==== -->
-<!-- Floating WhatsApp Button -->
-<div class="floating-buttons">
-  <a href="https://wa.me/919876543210" target="_blank" aria-label="WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-</div>
-
-<!-- Scroll to Top Button -->
-<button class="scroll-top-btn" id="scrollTopBtn">
-  <i class="fa-solid fa-arrow-up"></i>
-</button>
-
-<style>
-/* Floating Buttons */
-.floating-buttons {
-  position: fixed;
-  bottom: 80px;
-  right: 25px;
-  z-index: 9999;
-}
-.floating-buttons a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg,#00b4ff,#00ffcc);
-  color: #fff;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  font-size: 24px;
-  box-shadow: 0 8px 20px rgba(0,180,255,0.3);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.floating-buttons a:hover {
-  transform: scale(1.2);
-  box-shadow: 0 12px 25px rgba(0,180,255,0.5);
-}
-
-/* Scroll to Top Button */
-.scroll-top-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 25px;
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg,#00b4ff,#00ffcc);
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  font-size: 20px;
-  cursor: pointer;
-  z-index: 9999;
-  box-shadow: 0 8px 20px rgba(0,180,255,0.3);
-  transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
-  opacity: 0.9;
-}
-.scroll-top-btn:hover {
-  transform: scale(1.2);
-  box-shadow: 0 12px 25px rgba(0,180,255,0.5);
-  opacity: 1;
-}
-
-/* Optional: Smooth Scroll Behavior */
-html {
-  scroll-behavior: smooth;
-}
-</style>
+c
 
 <script>
 // Scroll to Top functionality

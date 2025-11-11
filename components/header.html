@@ -1,4 +1,4 @@
-<!-- ✅ HEADER START -->
+<!-- ✅ HEADER START (LIGHT THEME) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,12 +11,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-    /* === Navbar Base === */
+    /* === Navbar Base (Light Theme) === */
     .next-level-navbar {
-      background: linear-gradient(120deg, #06142f, #0a1931, #1b262c);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(25px);
-      box-shadow: 0 4px 25px rgba(0, 255, 204, 0.1);
+      background: #ffffff; /* White background */
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      backdrop-filter: blur(15px);
+      box-shadow: 0 4px 25px rgba(0,0,0,0.05);
       transition: all 0.4s ease;
       padding: 0.7rem 0;
       z-index: 1000;
@@ -24,14 +24,14 @@
 
     /* === On Scroll Effect === */
     .next-level-navbar.scrolled {
-      background: rgba(6, 20, 47, 0.95);
-      box-shadow: 0 8px 30px rgba(0, 255, 204, 0.15);
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
       padding: 0.5rem 0;
     }
 
     /* === Brand === */
     .navbar-brand {
-      background: linear-gradient(90deg, #00e0ff, #00ff99);
+      background: linear-gradient(90deg, #007bff, #00ccff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-transform: uppercase;
@@ -43,20 +43,20 @@
       align-items: center;
       gap: 0.5rem;
       white-space: nowrap;
-       font-family: 'Poppins', sans-serif!important;
+      font-family: 'Poppins', sans-serif !important;
     }
     .navbar-brand:hover {
-      text-shadow: 0 0 15px rgba(0, 255, 204, 0.7);
+      text-shadow: 0 0 10px rgba(0, 204, 255, 0.4);
       transform: scale(1.03);
     }
     .brand-text span {
-      color: rgba(255, 255, 255, 0.75);
+      color: #333;
       font-weight: 400;
     }
 
     /* === Nav Links === */
     .nav-link {
-      color: #e8e8e8 !important;
+      color: #111 !important; /* Dark text */
       font-size: 1.05rem;
       font-weight: 500;
       letter-spacing: 0.5px;
@@ -66,7 +66,7 @@
       transition: all 0.3s ease-in-out;
     }
     .nav-link:hover {
-      color: #00ffcc !important;
+      color: #007bff !important; /* Accent blue on hover */
     }
     .nav-link::after {
       content: "";
@@ -76,7 +76,7 @@
       transform: translateX(-50%);
       width: 0%;
       height: 2px;
-      background: linear-gradient(90deg, #00e0ff, #00ff99);
+      background: linear-gradient(90deg, #007bff, #00ccff);
       transition: width 0.35s ease;
     }
     .nav-link:hover::after,
@@ -86,35 +86,35 @@
 
     /* === Active Link === */
     .nav-link.active {
-      color: #00ffcc !important;
-      text-shadow: 0 0 10px rgba(0, 255, 204, 0.6);
+      color: #007bff !important;
+      text-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
     }
 
     /* === Quote Button === */
     .btn-glow {
-      background: linear-gradient(90deg, #00ffcc, #00b4ff);
-      color: #0b132b;
+      background: linear-gradient(90deg, #00ccff, #007bff);
+      color: #fff;
       font-weight: 600;
       font-size: 1rem;
       border: none;
-      box-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
+      box-shadow: 0 0 15px rgba(0,123,255,0.3);
       transition: all 0.4s ease;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
     .btn-glow:hover {
       transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 0 30px rgba(0, 255, 204, 0.6);
+      box-shadow: 0 0 25px rgba(0,123,255,0.5);
     }
 
     /* === Responsive Styles === */
     @media (max-width: 991px) {
       .navbar-collapse {
-        background: rgba(10, 20, 45, 0.98);
+        background: #f9f9f9;
         border-radius: 12px;
         padding: 20px 10px;
         margin-top: 10px;
-        box-shadow: 0 0 20px rgba(0, 255, 204, 0.15);
+        box-shadow: 0 0 15px rgba(0,0,0,0.05);
       }
       .nav-link {
         text-align: center;
@@ -122,7 +122,7 @@
         padding: 10px 0;
       }
       .navbar-toggler {
-        color: #00ffcc;
+        color: #007bff;
       }
       .navbar-toggler i {
         font-size: 1.8rem;
@@ -164,7 +164,7 @@
 
       <!-- Toggler -->
       <button
-        class="navbar-toggler border-0 shadow-none text-white"
+        class="navbar-toggler border-0 shadow-none"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#mainMenu"
@@ -226,4 +226,4 @@
   </script>
 </body>
 </html>
-<!-- ✅ HEADER END -->
+<!-- ✅ HEADER END (LIGHT THEME) -->

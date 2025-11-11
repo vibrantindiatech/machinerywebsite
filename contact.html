@@ -1,624 +1,608 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Contact Us | Shree Baneshwari Industries</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us | Shree Baneshwari Industries</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <style>
+    /* --- Base Styles --- */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #ffffff;
+      color: #333;
+      padding-top: 80px;
+      margin: 0;
+      overflow-x: hidden;
+    }
 
-    <style>
-        /* --- Global and Base Styles --- 
-        */
-        body {
-            font-family: 'Poppins', sans-serif!important;
-            /* Adjusted to account for fixed header */
-            padding-top: 80px; 
-            background: radial-gradient(circle at top right, #081019, #0f1729);
-            color: #e9f6ff;
-            overflow-x: hidden;
-            margin: 0;
-        }
-        
-        h1, h3, h5 {
-            word-break: keep-all;
-        }
+    h1, h3, h5 {
+      color: #111;
+      word-break: keep-all;
+    }
 
-        /* --- Navbar (Header) Styles --- 
-        */
-        .next-level-navbar {
-            background: linear-gradient(120deg, #06142f, #0a1931, #1b262c);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(25px);
-            box-shadow: 0 4px 25px rgba(0, 255, 204, 0.1);
-            transition: all 0.4s ease;
-            padding: 0.7rem 0;
-            z-index: 1000;
-        }
+   
+   
+    /* --- Info Cards --- */
+    .contact-info {
+      padding: 70px 0;
+    }
+    .info-card {
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 15px;
+      text-align: center;
+      padding: 35px 20px;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+      transition: 0.3s;
+      height: 100%;
+    }
+    .info-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 25px rgba(0,119,182,0.15);
+    }
+    .info-card i {
+      font-size: 2.2rem;
+      color: #00a8e8;
+      margin-bottom: 15px;
+    }
+    .info-card h5 {
+      color: #0077b6;
+      font-weight: 600;
+    }
+    .info-card p, .info-card a {
+      color: #555;
+      text-decoration: none;
+    }
+    .info-card a:hover {
+      color: #0077b6;
+    }
 
-        .next-level-navbar.scrolled {
-            background: rgba(6, 20, 47, 0.95);
-            box-shadow: 0 8px 30px rgba(0, 255, 204, 0.15);
-            padding: 0.5rem 0;
-        }
+    /* --- Contact Form --- */
+    .contact-form {
+      background: #ffffff;
+      border-radius: 15px;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+      padding: 40px 30px;
+    }
+    .contact-form h3 {
+      color: #0077b6;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .form-control {
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      padding: 12px 14px;
+      font-size: 0.95rem;
+    }
+    .form-control:focus {
+      border-color: #00a8e8;
+      box-shadow: 0 0 0 0.15rem rgba(0,168,232,0.25);
+    }
+    .btn-submit {
+      background: linear-gradient(90deg, #00a8e8, #0077b6);
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 35px;
+      width: 100%;
+      transition: 0.3s;
+    }
+    .btn-submit:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0,168,232,0.4);
+    }
 
-        .navbar-brand {
-            background: linear-gradient(90deg, #00e0ff, #00ff99);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
-            font-weight: 700;
-            font-size: clamp(1.1rem, 3vw, 1.6rem);
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            white-space: nowrap;
-        }
-        .navbar-brand:hover {
-            text-shadow: 0 0 15px rgba(0, 255, 204, 0.7);
-            transform: scale(1.03);
-        }
-        .brand-text span {
-            color: rgba(255, 255, 255, 0.75);
-            font-weight: 400;
-        }
+    /* --- Map --- */
+    .map-container {
+      margin-top: 70px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 5px 25px rgba(0,168,232,0.2);
+    }
+    iframe {
+      border: none;
+      width: 100%;
+      height: 400px;
+    }
 
-        .nav-link {
-            color: #e8e8e8 !important;
-            font-size: 1.05rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            position: relative;
-            text-transform: capitalize;
-            padding: 6px 12px;
-            transition: all 0.3s ease-in-out;
-        }
-        .nav-link:hover {
-            color: #00ffcc !important;
-        }
-        .nav-link::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0%;
-            height: 2px;
-            background: linear-gradient(90deg, #00e0ff, #00ff99);
-            transition: width 0.35s ease;
-        }
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 60%;
-        }
+    /* --- Business Hours --- */
+    .business-hours {
+      background: #f9fcff;
+      border-radius: 15px;
+      border: 1px solid #e0e0e0;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .business-hours h3 {
+      color: #0077b6;
+      margin-bottom: 20px;
+    }
+    .business-hours ul {
+      list-style: none;
+      padding: 0;
+      color: #444;
+    }
 
-        .nav-link.active {
-            color: #00ffcc !important;
-            text-shadow: 0 0 10px rgba(0, 255, 204, 0.6);
-        }
+    /* --- Floating Buttons --- */
+    .floating-buttons a {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      background: #25d366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 28px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      transition: 0.3s;
+      text-decoration: none;
+      z-index: 1100;
+    }
+    .floating-buttons a:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px rgba(37,211,102,0.4);
+    }
 
-        .btn-glow {
-            background: linear-gradient(90deg, #00ffcc, #00b4ff);
-            color: #0b132b;
-            font-weight: 600;
-            font-size: 1rem;
-            border: none;
-            box-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
-            transition: all 0.4s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .btn-glow:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 0 30px rgba(0, 255, 204, 0.6);
-        }
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 100px;
+      right: 25px;
+      background: #0077b6;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      transition: 0.3s;
+      z-index: 1000;
+    }
+    .scroll-top-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(0,168,232,0.5);
+    }
 
-        /* --- Contact Page Specific Styles --- 
-        */
-        .contact-header {
-            background: linear-gradient(120deg, rgba(0,255,204,0.25), rgba(0,180,255,0.25));
-            padding: clamp(30px, 10vw, 80px) 0; 
-            text-align: center;
-            color: #fff;
-        }
-
-        .contact-header h1 {
-            font-weight: 700;
-            font-size: clamp(1.8rem, 4vw, 3rem);
-            text-shadow: 0 0 20px rgba(0,255,204,0.5);
-        }
-
-        .contact-header p {
-            font-size: clamp(0.95rem, 2vw, 1.15rem);
-            color: #d6faff;
-            max-width: 650px;
-            margin: 10px auto 0;
-        }
-
-        .contact-info {
-            padding: 70px 0 50px;
-        }
-
-        .info-card {
-            background: rgba(255,255,255,0.08);
-            border-radius: 20px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #f0faff;
-            border: 1px solid rgba(0,255,204,0.2);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            transition: all 0.4s ease;
-            height: 100%; 
-        }
-
-        .info-card:hover {
-            transform: translateY(-8px);
-            border-color: #00ffcc;
-            box-shadow: 0 0 25px rgba(0,255,204,0.3);
-        }
-
-        .info-card i {
-            font-size: 2.5rem;
-            color: #00ffcc;
-            margin-bottom: 15px;
-        }
-
-        .info-card h5 {
-            color: #00d9ff;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .info-card p, .info-card a {
-            color: #d8f7ff;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .info-card a:hover {
-            color: #00ffcc;
-        }
-
-        .contact-form {
-            background: rgba(255,255,255,0.08);
-            padding: clamp(25px, 5vw, 50px);
-            border-radius: 20px;
-            border: 1px solid rgba(0,255,204,0.25);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-            color: #f0faff;
-            transition: all 0.4s ease;
-        }
-
-        .contact-form:hover {
-            box-shadow: 0 10px 40px rgba(0,255,204,0.25);
-        }
-
-        .contact-form h3 {
-            color: #00ffcc;
-            font-weight: 600;
-            font-size: clamp(1.4rem, 3vw, 1.8rem);
-        }
-
-        .form-control {
-            background: rgba(255,255,255,0.12);
-            border: none;
-            color: #fff;
-            border-radius: 10px;
-            padding: 12px 15px;
-            font-size: 0.95rem;
-        }
-
-        .form-control::placeholder {
-            color: #b0cfe0;
-        }
-
-        .form-control:focus {
-            background: rgba(255,255,255,0.18);
-            box-shadow: 0 0 10px rgba(0,255,204,0.4);
-        }
-
-        .btn-submit {
-            background: linear-gradient(90deg, #00ffcc, #00b4ff);
-            border: none;
-            border-radius: 40px;
-            padding: 12px 35px;
-            font-weight: 600;
-            color: #00131b;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            width: 100%; 
-        }
-        
-        .btn-submit:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(0,255,204,0.5);
-        }
-
-        .map-container {
-            margin-top: 70px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 8px 30px rgba(0,255,204,0.2);
-        }
-
-        iframe {
-            border: none;
-            width: 100%;
-            height: 400px;
-            filter: brightness(0.85);
-        }
-
-        .business-hours {
-            margin-top: 80px;
-            text-align: center;
-            background: rgba(255,255,255,0.05);
-            border-radius: 20px;
-            padding: 40px 20px;
-            border: 1px solid rgba(0,255,204,0.25);
-            box-shadow: 0 6px 25px rgba(0,255,204,0.15);
-        }
-
-        .business-hours h3 {
-            color: #00ffcc;
-            font-weight: 600;
-            margin-bottom: 25px;
-            font-size: clamp(1.3rem, 3vw, 1.6rem);
-        }
-
-        .business-hours ul {
-            list-style: none;
-            padding: 0;
-            color: #d8f7ff;
-            font-size: clamp(0.95rem, 2vw, 1rem);
-        }
-
-        .business-hours ul li {
-            margin: 8px 0;
-        }
-
-        /* --- Floating Buttons (Fixed) --- 
-        */
-        .floating-buttons a {
-            position: fixed;
-            right: 25px; 
-            bottom: 25px; 
-            z-index: 1100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #25d366, #128c7e);
-            color: #fff;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            font-size: 28px;
-            transition: all 0.35s ease;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-            text-decoration: none;
-        }
-
-        .floating-buttons a:hover {
-            transform: scale(1.1) rotate(6deg);
-            box-shadow: 0 0 25px rgba(0,255,204,0.6);
-        }
-
-        .scroll-top-btn {
-            position: fixed;
-            bottom: 100px; 
-            right: 25px;
-            width: 55px;
-            height: 55px;
-            background: linear-gradient(135deg, #00ffcc, #00b4ff);
-            color: #00131b;
-            border: none;
-            border-radius: 50%;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            cursor: pointer;
-            box-shadow: 0 0 15px rgba(0,255,204,0.4);
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .scroll-top-btn:hover {
-            transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 0 25px rgba(0,255,204,0.6);
-        }
-
-        /* --- Responsive Styles Adjustments --- 
-        */
-
-        /* Desktop/Tablet (>= 992px) - Revert submit button to inline */
-        @media (min-width: 992px) {
-            .btn-submit {
-                width: auto;
-            }
-        }
-        
-        /* Tablet & Small Desktop (<= 1200px) */
-        @media (max-width: 1200px) {
-            .contact-info {
-                padding: 50px 0 30px;
-            }
-        }
-
-        /* Medium Devices (Tablets, <992px) */
-        @media (max-width: 991px) {
-            .navbar-collapse {
-                background: rgba(10, 20, 45, 0.98);
-                border-radius: 12px;
-                padding: 20px 10px;
-                margin-top: 10px;
-                box-shadow: 0 0 20px rgba(0, 255, 204, 0.15);
-            }
-            .nav-link {
-                text-align: center;
-                font-size: 1.05rem;
-                padding: 10px 0;
-            }
-            .navbar-toggler {
-                color: #00ffcc;
-            }
-            .navbar-toggler i {
-                font-size: 1.8rem;
-            }
-            .btn-glow {
-                width: 100%;
-                margin-top: 10px;
-            }
-            
-            /* IMPROVED: Allow info cards to adjust height naturally */
-            .info-card {
-                height: auto; 
-                min-height: 250px; /* Optional: keep a minimum height */
-            }
-            .map-container {
-                margin-top: 50px;
-            }
-        }
-
-        /* Small Devices (Small Tablets/Large Phones, <768px) */
-        @media (max-width: 767px) {
-            .contact-header h1 { font-size: 2.2rem; }
-            .contact-form { padding: 30px 20px; }
-            .info-card { 
-                padding: 30px 15px; 
-                margin-bottom: 20px; /* Space between stacked cards */
-            }
-            .info-card i { font-size: 2rem; }
-            iframe { height: 350px; }
-            
-            /* Floating Button Size Adjustment */
-            .floating-buttons a,
-            .scroll-top-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 24px;
-            }
-            .scroll-top-btn {
-                bottom: 85px; /* Adjust position */
-            }
-        }
-
-        /* Extra Small Devices (Mobile Phones, <576px) */
-        @media (max-width: 575px) {
-            body { padding-top: 65px; } /* Smaller header on mobile */
-            .next-level-navbar { padding: 0.5rem 0; }
-            .navbar-brand {
-                font-size: 1rem;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0;
-                line-height: 1.3;
-            }
-            .navbar-toggler i { font-size: 1.5rem; }
-            .nav-link { font-size: 0.95rem; }
-            
-            .contact-header h1 { font-size: 1.8rem; }
-            .contact-header p { font-size: 0.9rem; padding: 0 10px; }
-            
-            .info-card { 
-                min-height: auto;
-                padding: 25px 15px;
-            }
-            
-            .floating-buttons a { bottom: 15px; right: 15px; font-size: 22px; }
-            .scroll-top-btn { 
-                bottom: 75px; 
-                right: 17px; 
-                width: 45px;
-                height: 45px;
-                font-size: 20px;
-            }
-            
-            iframe { height: 280px; }
-        }
-    </style>
+    /* --- Responsive --- */
+    @media (max-width: 767px) {
+      .info-card {
+        margin-bottom: 20px;
+      }
+      .floating-buttons a, .scroll-top-btn {
+        width: 50px; height: 50px; font-size: 22px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg next-level-navbar fixed-top">
-        <div class="container-fluid px-3 px-md-4 px-lg-5">
+  <!-- ✅ HEADER START (LIGHT THEME) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shree Baneshwari Industries</title>
 
-            <a class="navbar-brand fw-bold me-2" href="index.html">
-                <img src="assets/logo.png" alt="" height="36" class="me-2">
-                <span class="brand-text">Shree Baneshwari <span>Industries</span></span>
-            </a>
+  <!-- Bootstrap & FontAwesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-            <button
-                class="navbar-toggler border-0 shadow-none text-white"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#mainMenu"
-                aria-controls="mainMenu"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-            >
-                <i class="fa-solid fa-bars"></i>
-            </button>
+  <style>
+    /* === Navbar Base (Light Theme) === */
+    .next-level-navbar {
+      background: #ffffff; /* White background */
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      backdrop-filter: blur(15px);
+      box-shadow: 0 4px 25px rgba(0,0,0,0.05);
+      transition: all 0.4s ease;
+      padding: 0.7rem 0;
+      z-index: 1000;
+    }
 
-            <div class="collapse navbar-collapse justify-content-lg-center mt-3 mt-lg-0" id="mainMenu">
-                <ul class="navbar-nav align-items-lg-center gap-2 gap-lg-4">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
-                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li> </ul>
+    /* === On Scroll Effect === */
+    .next-level-navbar.scrolled {
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      padding: 0.5rem 0;
+    }
 
-                <div class="d-lg-none text-center mt-3">
-                    <a href="quote.html" class="btn btn-glow py-2 fw-semibold rounded-pill">
-                        Get Quote <i class="fa-solid fa-arrow-right ms-2"></i>
-                    </a>
-                </div>
-            </div>
+    /* === Brand === */
+    .navbar-brand {
+      background: linear-gradient(90deg, #007bff, #00ccff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: clamp(1.1rem, 3vw, 1.6rem);
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+      font-family: 'Poppins', sans-serif !important;
+    }
+    .navbar-brand:hover {
+      text-shadow: 0 0 10px rgba(0, 204, 255, 0.4);
+      transform: scale(1.03);
+    }
+    .brand-text span {
+      color: #333;
+      font-weight: 400;
+    }
 
-            <div class="d-none d-lg-block ms-auto">
-                <a href="quote.html" class="btn btn-glow px-4 py-2 fw-semibold rounded-pill">
-                    Get Quote <i class="fa-solid fa-arrow-right ms-2"></i>
-                </a>
-            </div>
+    /* === Nav Links === */
+    .nav-link {
+      color: #111 !important; /* Dark text */
+      font-size: 1.05rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      position: relative;
+      text-transform: capitalize;
+      padding: 6px 12px;
+      transition: all 0.3s ease-in-out;
+    }
+    .nav-link:hover {
+      color: #007bff !important; /* Accent blue on hover */
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, #007bff, #00ccff);
+      transition: width 0.35s ease;
+    }
+    .nav-link:hover::after {
+      width: 60%;
+    }
+
+    /* === Quote Button === */
+    .btn-glow {
+      background: linear-gradient(90deg, #00ccff, #007bff);
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      box-shadow: 0 0 15px rgba(0,123,255,0.3);
+      transition: all 0.4s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .btn-glow:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 0 25px rgba(0,123,255,0.5);
+    }
+
+    /* === Responsive Styles === */
+    @media (max-width: 991px) {
+      .navbar-collapse {
+        background: #f9f9f9;
+        border-radius: 12px;
+        padding: 20px 10px;
+        margin-top: 10px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.05);
+      }
+      .nav-link {
+        text-align: center;
+        font-size: 1.05rem;
+        padding: 10px 0;
+      }
+      .navbar-toggler {
+        color: #007bff;
+      }
+      .navbar-toggler i {
+        font-size: 1.8rem;
+      }
+      .btn-glow {
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .navbar-brand {
+        font-size: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        line-height: 1.3;
+      }
+      .navbar-toggler i {
+        font-size: 1.5rem;
+      }
+      .nav-link {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ Navbar -->
+  <nav class="navbar navbar-expand-lg next-level-navbar fixed-top">
+    <div class="container-fluid px-3 px-md-4 px-lg-5">
+
+      <!-- Brand -->
+      <a class="navbar-brand fw-bold me-2" href="index.html">
+        <img src="assets/logo.png" alt="" height="36" class="me-2">
+        <span class="brand-text">Baneshwari <span>Industries</span></span>
+      </a>
+
+      <!-- Toggler -->
+      <button
+        class="navbar-toggler border-0 shadow-none"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainMenu"
+        aria-controls="mainMenu"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <!-- Nav Links -->
+      <div class="collapse navbar-collapse justify-content-lg-center mt-3 mt-lg-0" id="mainMenu">
+        <ul class="navbar-nav align-items-lg-center gap-2 gap-lg-4">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+
+        <!-- Mobile Button -->
+        <div class="d-lg-none text-center mt-3">
+          <a href="quote.html" class="btn btn-glow py-2 fw-semibold rounded-pill">
+            Get Quote <i class="fa-solid fa-arrow-right ms-2"></i>
+          </a>
         </div>
-    </nav>
-    
-    <section class="contact-header">
-        <div class="container">
-            <h1>Get In Touch With Us</h1>
-            <p class="mt-3">We’re here to assist you with high-performance machinery & reliable service support.</p>
-        </div>
-    </section>
+      </div>
 
-    <section class="contact-info">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-4" data-animate>
-                    <div class="info-card">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <h5>Our Office</h5>
-                        <p>515, Fifth Floor, HillTown Impressa, Nikol, Ahmedabad, Gujarat 380049</p>
-                    </div>
-                </div>
-                <div class="col-md-4" data-animate>
-                    <div class="info-card">
-                        <i class="fa-solid fa-phone"></i>
-                        <h5>Call Us</h5>
-                        <p><a href="tel:+919876543210" class="text-decoration-none">+91 98765 43210</a></p>
-                    </div>
-                </div>
-                <div class="col-md-4" data-animate>
-                    <div class="info-card">
-                        <i class="fa-solid fa-envelope"></i>
-                        <h5>Email</h5>
-                        <p><a href="mailto:info@vibrantindiamachinery.com" class="text-decoration-none">info@vibrantindiamachinery.com</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="business-hours" data-animate>
-        <div class="container">
-            <h3><i class="fa-regular fa-clock me-2"></i>Business Hours</h3>
-            <ul>
-                <li><strong>Monday - Friday:</strong> 9:00 AM – 7:00 PM</li>
-                <li><strong>Saturday:</strong> 10:00 AM – 5:00 PM</li>
-                <li><strong>Sunday:</strong> Closed</li>
-            </ul>
-        </div>
-    </section>
-
-    <section class="py-5">
-        <div class="container">
-            <div class="row justify-content-center" data-animate>
-                <div class="col-lg-8">
-                    <div class="contact-form">
-                        <h3 class="fw-bold mb-4 text-center">Send Us a Message</h3>
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-md-6"><input type="text" class="form-control" placeholder="Full Name" required></div>
-                                <div class="col-md-6"><input type="email" class="form-control" placeholder="Email Address" required></div>
-                                <div class="col-md-6"><input type="text" class="form-control" placeholder="Phone Number" required></div>
-                                <div class="col-md-6"><input type="text" class="form-control" placeholder="Subject"></div>
-                                <div class="col-12"><textarea class="form-control" rows="5" placeholder="Your Message..." required></textarea></div>
-                                <div class="col-12 text-center mt-3">
-                                    <button type="submit" class="btn btn-submit"><i class="fa-solid fa-paper-plane me-2"></i>Send Message</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <div class="map-container mt-5" data-animate>
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.04753549666!2d72.63919657597148!3d23.05834907914856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e8654637d4037%3A0x6b4478f7736f8607!2sHillTown%20Impressa!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-                    width="100%"
-                    height="400px"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-        </div>
-    </section>
-    
-    <div class="floating-buttons">
-        <a href="https://wa.me/919876543210" target="_blank" aria-label="WhatsApp Us"><i class="fa-brands fa-whatsapp"></i></a>
+      <!-- Desktop Button -->
+      <div class="d-none d-lg-block ms-auto">
+        <a href="quote.html" class="btn btn-glow px-4 py-2 fw-semibold rounded-pill">
+          Get Quote <i class="fa-solid fa-arrow-right ms-2"></i>
+        </a>
+      </div>
     </div>
+  </nav>
 
-    <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
+  <!-- === Script === -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Navbar scroll effect
+    window.addEventListener("scroll", function () {
+      const nav = document.querySelector(".next-level-navbar");
+      nav.classList.toggle("scrolled", window.scrollY > 40);
+    });
+
+    // Active link highlight
+    document.addEventListener("DOMContentLoaded", () => {
+      const current = window.location.pathname.split("/").pop();
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        const href = link.getAttribute("href");
+        if (href.includes(current) && current !== "")
+          link.classList.add("active");
+        else if (current === "" && href.includes("index.html"))
+          link.classList.add("active");
+      });
+    });
+  </script>
+</body>
+</html>
+<!-- ✅ HEADER END (LIGHT THEME) -->
+
+
+  <section class="contact-header">
+    <div class="container">
+      <h1>Get In Touch With Us</h1>
+      <p>We’re here to assist you with high-performance machinery & reliable service support.</p>
+    </div>
+  </section>
+
+  <section class="contact-info">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4" data-animate>
+          <div class="info-card">
+            <i class="fa-solid fa-location-dot"></i>
+            <h5>Our Office</h5>
+            <p>515, Fifth Floor, HillTown Impressa, Nikol, Ahmedabad, Gujarat 380049</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-animate>
+          <div class="info-card">
+            <i class="fa-solid fa-phone"></i>
+            <h5>Call Us</h5>
+            <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+          </div>
+        </div>
+        <div class="col-md-4" data-animate>
+          <div class="info-card">
+            <i class="fa-solid fa-envelope"></i>
+            <h5>Email</h5>
+            <p><a href="mailto:info@vibrantindiamachinery.com">info@vibrantindiamachinery.com</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="business-hours" data-animate>
+    <div class="container">
+      <h3><i class="fa-regular fa-clock me-2"></i>Business Hours</h3>
+      <ul>
+        <li><strong>Monday - Friday:</strong> 9:00 AM – 7:00 PM</li>
+        <li><strong>Saturday:</strong> 10:00 AM – 5:00 PM</li>
+        <li><strong>Sunday:</strong> Closed</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div class="container">
+      <div class="row justify-content-center" data-animate>
+        <div class="col-lg-8">
+          <div class="contact-form">
+            <h3>Send Us a Message</h3>
+            <form>
+              <div class="row g-3">
+                <div class="col-md-6"><input type="text" class="form-control" placeholder="Full Name" required></div>
+                <div class="col-md-6"><input type="email" class="form-control" placeholder="Email Address" required></div>
+                <div class="col-md-6"><input type="text" class="form-control" placeholder="Phone Number" required></div>
+                <div class="col-md-6"><input type="text" class="form-control" placeholder="Subject"></div>
+                <div class="col-12"><textarea class="form-control" rows="5" placeholder="Your Message..." required></textarea></div>
+                <div class="col-12 text-center mt-3">
+                  <button type="submit" class="btn btn-submit"><i class="fa-solid fa-paper-plane me-2"></i>Send Message</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-container mt-5" data-animate>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.04753549666!2d72.63919657597148!3d23.05834907914856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e8654637d4037%3A0x6b4478f7736f8607!2sHillTown%20Impressa!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+   <!-- Scroll to Top Button -->
+<button class="scroll-top-btn" id="scrollTopBtn">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<!-- Floating Buttons -->
+<div class="floating-buttons">
+  <a href="https://wa.me/919876543210" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
+<style>
+  /* ==== FLOATING BUTTONS ==== */
+    .floating-buttons a {
+      position: fixed;
+      right: 22px;
+      bottom: 80px;
+      z-index: 1100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: #fff;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      font-size: 28px;
+      transition: all 0.35s ease;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+      text-decoration: none;
+    }
+    .floating-buttons a:hover {
+      transform: scale(1.15) rotate(5deg);
+      box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
+    }
+
+    /* ==== SCROLL TOP BUTTON ==== */
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 160px;
+      right: 22px;
+      background: linear-gradient(135deg, #007bff, #00b4d8);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 24px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1100;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      transition: all 0.35s ease;
+    }
+    .scroll-top-btn:hover {
+      transform: scale(1.1);
+      background: linear-gradient(135deg, #0d6efd, #23a6d5);
+    }
+
+    /* ==== RESPONSIVE ==== */
+    @media (max-width: 992px) {
+      .hero { min-height: 60vh; }
+      .hero-title { font-size: 2.2rem; }
+    }
+
+    @media (max-width: 768px) {
+      .hero { min-height: 55vh; }
+      .hero-title { font-size: 1.8rem;margin-top: 50px; }
+      .hero-subtitle { font-size: 1rem; }
+      .floating-buttons a,
+      .scroll-top-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+        right: 16px;
+      }
+      .scroll-top-btn { bottom: 140px; }
+      .floating-buttons a { bottom: 70px; }
+    }
+</style>
+
+
   <div id="footer"></div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/include.js"></script>
-    <script>
-        // Navbar scroll effect
-        window.addEventListener("scroll", function () {
-            const nav = document.querySelector(".next-level-navbar");
-            nav.classList.toggle("scrolled", window.scrollY > 40);
-        });
 
-        // Active link highlight
-        document.addEventListener("DOMContentLoaded", () => {
-            const current = window.location.pathname.split("/").pop();
-            document.querySelectorAll(".nav-link").forEach((link) => {
-                const href = link.getAttribute("href");
-                if (href.includes(current) && current !== "") {
-                    link.classList.add("active");
-                }
-                // Ensures 'contact.html' is active regardless of environment path
-                if (href.includes("contact.html")) {
-                     link.classList.add("active");
-                }
-            });
-        });
-        
-        // GSAP Scroll Animation
-        gsap.utils.toArray("[data-animate]").forEach((el) => {
-            gsap.fromTo(el, { y: 40, opacity: 0 }, {
-                y: 0, opacity: 1, duration: 1,
-                scrollTrigger: { trigger: el, start: "top 85%" }
-            });
-        });
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/include.js"></script>
+  <script>
+    // Navbar scroll effect
+    window.addEventListener("scroll", function () {
+      const nav = document.querySelector(".next-level-navbar");
+      nav.classList.toggle("scrolled", window.scrollY > 40);
+    });
 
-        // Scroll to Top functionality
-        const scrollBtn = document.getElementById("scrollTopBtn");
-        window.addEventListener("scroll", () => {
-            scrollBtn.style.display = window.scrollY > 300 ? "flex" : "none";
-        });
-        scrollBtn.addEventListener("click", () => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-    </script>
+    // GSAP scroll animations
+    gsap.utils.toArray("[data-animate]").forEach((el) => {
+      gsap.fromTo(el, { y: 40, opacity: 0 }, {
+        y: 0, opacity: 1, duration: 1,
+        scrollTrigger: { trigger: el, start: "top 85%" }
+      });
+    });
+
+    // Scroll to top
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.addEventListener("scroll", () => {
+      scrollBtn.style.display = window.scrollY > 300 ? "flex" : "none";
+    });
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
 </body>
 </html>
