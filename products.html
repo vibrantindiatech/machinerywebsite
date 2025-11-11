@@ -452,45 +452,137 @@ h1, h2, h3, h5 { font-weight: 700; }
         </div>
     </div>
 </section>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+<style>
+    /* Modal Look & Feel */
+    .modal-content {
+        border-radius: 15px;
+    }
+
+    /* FIX & FEATURE: Image Container for Zoom */
+    .image-container {
+        overflow: hidden;
+        border-radius: 10px;
+        height: 450px; 
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+        background-color: #f8f9fa;
+    }
+    .img-fluid { 
+        width: 100%; 
+        height: 100%; 
+        object-fit: contain; 
+        border-radius: 10px; 
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+        cursor: zoom-in;
+    }
+    .image-container:hover .img-fluid {
+        transform: scale(1.5); 
+        cursor: grab;
+    }
+    
+    /* Thumbnails */
+    .small-img { 
+        width: 80px; 
+        height: 80px; 
+        object-fit: cover; 
+        cursor: pointer; 
+        border-radius: 8px; 
+        border: 2px solid transparent;
+        transition: all 0.2s ease; 
+    }
+    .small-img:hover, .small-img.active { 
+        transform: scale(1.05);
+        border-color: #00b4ff; 
+    }
+
+    /* Related Products Carousel */
+    .related-products .item {
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+    .related-products .item:hover {
+        transform: translateY(-5px);
+    }
+    .related-products .item img { 
+        width: 100%; 
+        height: 150px; 
+        object-fit: contain; 
+        border-radius: 10px; 
+        background-color: #f1f1f1;
+    }
+
+    /* Text Styling */
+    .product-feature-list li {
+        margin-bottom: 8px;
+        color: #333;
+    }
+    .text-gradient { 
+        background: linear-gradient(90deg, #00b4ff, #00ffcc); 
+        -webkit-background-clip: text; 
+        -webkit-text-fill-color: transparent; 
+    }
+    .w-40 {
+        width: 45%;
+    }
+</style>
 <div class="modal fade" id="productModal1" tabindex="-1" aria-labelledby="productModalLabel1" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
-            <div class="modal-header border-0">
-                <h5 class="modal-title text-gradient" id="productModalLabel1">Hydraulic Barrel Drum Cutting Machine</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <div class="modal-header border-0 pb-0">
+                <h3 class="modal-title text-gradient fw-bold" id="productModalLabel1">Hydraulic Drum Cutter</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body pt-0">
+                <hr>
                 <div class="row g-4">
-                    <div class="col-md-6">
-                        <img id="modalMainImg1" src="assets/images/Hydraulic Barrel drum cutting machine manual.png" class="img-fluid rounded" alt="Drum Cutting Machine">
-                        <div class="mt-3 d-flex gap-2 flex-wrap">
-                            <img src="assets/images/Hydraulic Barrel drum cutting machine manual.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg1', this)">
-                            <img src="assets/images/Hydraulic Barrel drum cutting machine extra.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg1', this)">
-                            <img src="assets/images/Hydraulic Barrel drum cutting machine extra2.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg1', this)">
+                    <div class="col-lg-6 col-12">
+                        <div class="image-container shadow-lg">
+                            <img id="modalMainImg1" src="assets/images/Hydraulic Barrel drum cutting machine manual.png" class="img-fluid rounded" alt="Product Main Image">
+                        </div>
+                        <div id="productThumbnails1" class="mt-3 d-flex gap-2 flex-wrap justify-content-center"></div>
+                    </div>
+                    
+                    <div class="col-lg-6 col-12">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                <h5 class="text-primary fw-bold mb-3">Key Features:</h5>
+                                <ul id="productFeatures1" class="list-unstyled product-feature-list"></ul>
+                                
+                                <h5 class="text-primary fw-bold mt-4 mb-3">Technical Specifications:</h5>
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered" id="productSpecs1"></table>
+                                </div>
+                                
+                                <div class="mt-4 pt-3 border-top text-center">
+                                    <a href="tel:+919876543210" class="btn btn-outline-primary me-2 w-40"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
+                                    <a href="#" class="btn btn-primary w-40"><i class="fa-solid fa-quote-right me-1"></i> Inquire Now</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <h6 class="text-primary fw-bold">Features:</h6>
-                        <ul>
-                            <li>High-performance hydraulic operation</li>
-                            <li>Safe and smooth cutting mechanism</li>
-                            <li>Durable construction for long-lasting use</li>
-                            <li>Adjustable cutting speed and depth</li>
-                            <li>Low maintenance & easy to operate</li>
-                        </ul>
-                        <h6 class="text-primary fw-bold mt-3">Specifications:</h6>
-                        <table class="table table-bordered">
-                            <tr><td>Power</td><td>2 HP</td></tr>
-                            <tr><td>Cutting Capacity</td><td>200 L Drum</td></tr>
-                            <tr><td>Weight</td><td>350 Kg</td></tr>
-                            <tr><td>Dimension</td><td>1200x800x1300 mm</td></tr>
-                        </table>
-                        <div class="mt-4">
-                            <a href="tel:+919876543210" class="btn btn-outline me-2"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
-                            <a href="#" class="btn btn-primary btn-quote"><i class="fa-solid fa-quote-right me-1"></i> Inquire Now</a>
+                </div>
+                
+                <hr class="mt-5">
+                
+                <p class="text-center">
+                    <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#detailedDescription1" aria-expanded="false" aria-controls="detailedDescription1">
+                        View Detailed Description & Applications <i class="fa-solid fa-chevron-down ms-1 collapse-icon-1"></i>
+                    </button>
+                </p>
+                <div class="collapse" id="detailedDescription1">
+                    <div class="card card-body bg-light" id="detailedContent1">
                         </div>
-                    </div>
+                </div>
+                
+                <div class="related-products mt-5">
+                    <h4 class="text-center text-gradient mb-4">Explore Related Products</h4>
+                    <div class="owl-carousel owl-theme" id="relatedProducts1"></div>
                 </div>
             </div>
         </div>
@@ -500,39 +592,51 @@ h1, h2, h3, h5 { font-weight: 700; }
 <div class="modal fade" id="productModal2" tabindex="-1" aria-labelledby="productModalLabel2" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
-            <div class="modal-header border-0">
-                <h5 class="modal-title text-gradient" id="productModalLabel2">Hydraulic Bottle Cap Threading Machine</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <div class="modal-header border-0 pb-0">
+                <h3 class="modal-title text-gradient fw-bold" id="productModalLabel2">Manual Bottle Threader</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body pt-0">
+                <hr>
                 <div class="row g-4">
-                    <div class="col-md-6">
-                        <img id="modalMainImg2" src="assets/images/Hydraulic manual Bottle cap threading machine.png" class="img-fluid rounded" alt="Bottle Cap Machine">
-                        <div class="mt-3 d-flex gap-2 flex-wrap">
-                            <img src="assets/images/Hydraulic manual Bottle cap threading machine.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg2', this)">
-                            <img src="assets/images/Hydraulic manual Bottle cap threading machine extra.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg2', this)">
+                    <div class="col-lg-6 col-12">
+                        <div class="image-container shadow-lg">
+                            <img id="modalMainImg2" src="assets/images/Hydraulic manual Bottle cap threading machine.png" class="img-fluid rounded" alt="Product Main Image">
+                        </div>
+                        <div id="productThumbnails2" class="mt-3 d-flex gap-2 flex-wrap justify-content-center"></div>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                <h5 class="text-primary fw-bold mb-3">Key Features:</h5>
+                                <ul id="productFeatures2" class="list-unstyled product-feature-list"></ul>
+                                
+                                <h5 class="text-primary fw-bold mt-4 mb-3">Technical Specifications:</h5>
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered" id="productSpecs2"></table>
+                                </div>
+                                
+                                <div class="mt-4 pt-3 border-top text-center">
+                                    <a href="tel:+919876543210" class="btn btn-outline-primary me-2 w-40"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
+                                    <a href="#" class="btn btn-primary w-40"><i class="fa-solid fa-quote-right me-1"></i> Inquire Now</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <h6 class="text-primary fw-bold">Features:</h6>
-                        <ul>
-                            <li>Precision threading operation</li>
-                            <li>Durable hydraulic mechanism</li>
-                            <li>Consistent output with minimal effort</li>
-                            <li>Low maintenance</li>
-                        </ul>
-                        <h6 class="text-primary fw-bold mt-3">Specifications:</h6>
-                        <table class="table table-bordered">
-                            <tr><td>Power</td><td>1.5 HP</td></tr>
-                            <tr><td>Threading Capacity</td><td>Standard Bottles</td></tr>
-                            <tr><td>Weight</td><td>200 Kg</td></tr>
-                            <tr><td>Dimension</td><td>1000x700x1200 mm</td></tr>
-                        </table>
-                        <div class="mt-4">
-                            <a href="tel:+919876543210" class="btn btn-outline me-2"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
-                            <a href="#" class="btn btn-primary btn-quote"><i class="fa-solid fa-quote-right me-1"></i> Inquire Now</a>
+                </div>
+                <hr class="mt-5">
+                <p class="text-center">
+                    <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#detailedDescription2" aria-expanded="false" aria-controls="detailedDescription2">
+                        View Detailed Description & Applications <i class="fa-solid fa-chevron-down ms-1 collapse-icon-2"></i>
+                    </button>
+                </p>
+                <div class="collapse" id="detailedDescription2">
+                    <div class="card card-body bg-light" id="detailedContent2">
                         </div>
-                    </div>
+                </div>
+                <div class="related-products mt-5">
+                    <h4 class="text-center text-gradient mb-4">Explore Related Products</h4>
+                    <div class="owl-carousel owl-theme" id="relatedProducts2"></div>
                 </div>
             </div>
         </div>
@@ -542,466 +646,336 @@ h1, h2, h3, h5 { font-weight: 700; }
 <div class="modal fade" id="productModal3" tabindex="-1" aria-labelledby="productModalLabel3" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
-            <div class="modal-header border-0">
-                <h5 class="modal-title text-gradient" id="productModalLabel3">Hydraulic Semi Auto Edge Cutting Machine</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            <div class="modal-header border-0 pb-0">
+                <h3 class="modal-title text-gradient fw-bold" id="productModalLabel3">Edge Cutting Machine</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body pt-0">
+                <hr>
                 <div class="row g-4">
-                    <div class="col-md-6">
-                        <img id="modalMainImg3" src="assets/images/Hydraulic semi auto edge cutting & tooling machine.png" class="img-fluid rounded" alt="Edge Cutting Machine">
-                        <div class="mt-3 d-flex gap-2 flex-wrap">
-                            <img src="assets/images/Hydraulic semi auto edge cutting & tooling machine.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg3', this)">
-                            <img src="assets/images/Hydraulic semi auto edge cutting & tooling machine extra.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg3', this)">
+                    <div class="col-lg-6 col-12">
+                        <div class="image-container shadow-lg">
+                            <img id="modalMainImg3" src="assets/images/Hydraulic semi auto edge cutting & tooling machine.png" class="img-fluid rounded" alt="Product Main Image">
+                        </div>
+                        <div id="productThumbnails3" class="mt-3 d-flex gap-2 flex-wrap justify-content-center"></div>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                <h5 class="text-primary fw-bold mb-3">Key Features:</h5>
+                                <ul id="productFeatures3" class="list-unstyled product-feature-list"></ul>
+                                
+                                <h5 class="text-primary fw-bold mt-4 mb-3">Technical Specifications:</h5>
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered" id="productSpecs3"></table>
+                                </div>
+                                
+                                <div class="mt-4 pt-3 border-top text-center">
+                                    <a href="tel:+919876543210" class="btn btn-outline-primary me-2 w-40"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
+                                    <a href="#" class="btn btn-primary w-40"><i class="fa-solid fa-quote-right me-1"></i> Inquire Now</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <h6 class="text-primary fw-bold">Features:</h6>
-                        <ul>
-                            <li>High-precision semi-auto edge cutting</li>
-                            <li>Durable tooling machine</li>
-                            <li>Fast and consistent operation</li>
-                            <li>Easy to maintain</li>
-                        </ul>
-                        <h6 class="text-primary fw-bold mt-3">Specifications:</h6>
-                        <table class="table table-bordered">
-                            <tr><td>Power</td><td>3 HP</td></tr>
-                            <tr><td>Cutting Capacity</td><td>Edge up to 500 mm</td></tr>
-                            <tr><td>Weight</td><td>400 Kg</td></tr>
-                            <tr><td>Dimension</td><td>1400x900x1500 mm</td></tr>
-                        </table>
-                        <div class="mt-4">
-                            <a href="tel:+919876543210" class="btn btn-outline me-2"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
-                            <a href="#" class="btn btn-primary btn-quote"><i class="fa-solid fa-quote-right me-1"></i> Inquire Now</a>
+                </div>
+                <hr class="mt-5">
+                <p class="text-center">
+                    <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#detailedDescription3" aria-expanded="false" aria-controls="detailedDescription3">
+                        View Detailed Description & Applications <i class="fa-solid fa-chevron-down ms-1 collapse-icon-3"></i>
+                    </button>
+                </p>
+                <div class="collapse" id="detailedDescription3">
+                    <div class="card card-body bg-light" id="detailedContent3">
                         </div>
-                    </div>
+                </div>
+                <div class="related-products mt-5">
+                    <h4 class="text-center text-gradient mb-4">Explore Related Products</h4>
+                    <div class="owl-carousel owl-theme" id="relatedProducts3"></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="productModal4" tabindex="-1" aria-labelledby="productModalLabel4" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header border-0">
-                <h5 class="modal-title text-gradient" id="productModalLabel4">Hydraulic Round Beeding Machine</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row g-4">
-                    <div class="col-md-6">
-                        <img id="modalMainImg4" src="assets/images/Hydraulic Round beeding machine semi auto.png" class="img-fluid rounded" alt="Round Beeding Machine">
-                        <div class="mt-3 d-flex gap-2 flex-wrap">
-                            <img src="assets/images/Hydraulic Round beeding machine semi auto.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg4', this)">
-                            <img src="assets/images/Hydraulic Round beeding machine semi auto.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg4', this)">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h6 class="text-primary fw-bold">Features:</h6>
-                        <ul>
-                            <li>Semi-auto hydraulic operation</li>
-                            <li>Consistent and smooth beeding</li>
-                            <li>Robust design</li>
-                            <li>Excellent for round edges</li>
-                        </ul>
-                        <h6 class="text-primary fw-bold mt-3">Specifications:</h6>
-                        <table class="table table-bordered">
-                            <tr><td>Power</td><td>2.5 HP</td></tr>
-                            <tr><td>Beeding Type</td><td>Round Edges</td></tr>
-                            <tr><td>Weight</td><td>300 Kg</td></tr>
-                            <tr><td>Dimension</td><td>1100x750x1350 mm</td></tr>
-                        </table>
-                        <div class="mt-4">
-                            <a href="tel:+919876543210" class="btn btn-outline me-2"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
-                            <a href="#" class="btn btn-primary btn-quote"><i class="fa-solid fa-quote-right me-1"></i> Inquire Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="productModal5" tabindex="-1" aria-labelledby="productModalLabel5" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header border-0">
-                <h5 class="modal-title text-gradient" id="productModalLabel5">Manual Square Beeding Machine</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row g-4">
-                    <div class="col-md-6">
-                        <img id="modalMainImg5" src="assets/images/Manual square beeding machine 01.png" class="img-fluid rounded" alt="Manual Square Beeding Machine">
-                        <div class="mt-3 d-flex gap-2 flex-wrap">
-                            <img src="assets/images/Manual square beeding machine 01.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg5', this)">
-                            <img src="assets/images/Manual square beeding machine 01.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg5', this)">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h6 class="text-primary fw-bold">Features:</h6>
-                        <ul>
-                            <li>Manual operation, no power required</li>
-                            <li>Durable steel construction</li>
-                            <li>Ideal for square beeding applications</li>
-                            <li>Low operating cost</li>
-                        </ul>
-                        <h6 class="text-primary fw-bold mt-3">Specifications:</h6>
-                        <table class="table table-bordered">
-                            <tr><td>Power</td><td>Manual</td></tr>
-                            <tr><td>Beeding Type</td><td>Square Edges</td></tr>
-                            <tr><td>Weight</td><td>150 Kg</td></tr>
-                            <tr><td>Dimension</td><td>900x600x1100 mm</td></tr>
-                        </table>
-                        <div class="mt-4">
-                            <a href="tel:+919876543210" class="btn btn-outline me-2"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
-                            <a href="#" class="btn btn-primary btn-quote"><i class="fa-solid fa-quote-right me-1"></i> Inquire Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="productModal6" tabindex="-1" aria-labelledby="productModalLabel6" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header border-0">
-                <h5 class="modal-title text-gradient" id="productModalLabel6">Manual Square Beeding Machine 2</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row g-4">
-                    <div class="col-md-6">
-                        <img id="modalMainImg6" src="assets/images/Manual square beeding machine.png" class="img-fluid rounded" alt="Manual Square Beeding Machine 2">
-                        <div class="mt-3 d-flex gap-2 flex-wrap">
-                            <img src="assets/images/Manual square beeding machine.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg6', this)">
-                            <img src="assets/images/Manual square beeding machine.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg6', this)">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h6 class="text-primary fw-bold">Features:</h6>
-                        <ul>
-                            <li>Enhanced manual leverage for easier operation</li>
-                            <li>Improved design for stability</li>
-                            <li>Perfect for high-volume square beeding</li>
-                            <li>Durable and long-lasting build</li>
-                        </ul>
-                        <h6 class="text-primary fw-bold mt-3">Specifications:</h6>
-                        <table class="table table-bordered">
-                            <tr><td>Power</td><td>Manual</td></tr>
-                            <tr><td>Beeding Type</td><td>Square Edges</td></tr>
-                            <tr><td>Weight</td><td>180 Kg</td></tr>
-                            <tr><td>Dimension</td><td>950x650x1150 mm</td></tr>
-                        </table>
-                        <div class="mt-4">
-                            <a href="tel:+919876543210" class="btn btn-outline me-2"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
-                            <a href="#" class="btn btn-primary btn-quote"><i class="fa-solid fa-quote-right me-1"></i> Inquire Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="productModal7" tabindex="-1" aria-labelledby="productModalLabel7" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header border-0">
-                <h5 class="modal-title text-gradient" id="productModalLabel7">Out Cutter Machine</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row g-4">
-                    <div class="col-md-6">
-                        <img id="modalMainImg7" src="assets/images/Out cutter machine.png" class="img-fluid rounded" alt="Out Cutter Machine">
-                        <div class="mt-3 d-flex gap-2 flex-wrap">
-                            <img src="assets/images/Out cutter machine.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg7', this)">
-                            <img src="assets/images/Out cutter machine.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg7', this)">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h6 class="text-primary fw-bold">Features:</h6>
-                        <ul>
-                            <li>Electric powered out cutter</li>
-                            <li>Precision external cutting for various materials</li>
-                            <li>Compact and easy to place</li>
-                            <li>Single-phase power requirement</li>
-                        </ul>
-                        <h6 class="text-primary fw-bold mt-3">Specifications:</h6>
-                        <table class="table table-bordered">
-                            <tr><td>Power</td><td>1 HP</td></tr>
-                            <tr><td>Cutting Type</td><td>External Cut</td></tr>
-                            <tr><td>Weight</td><td>120 Kg</td></tr>
-                            <tr><td>Dimension</td><td>800x500x1000 mm</td></tr>
-                        </table>
-                        <div class="mt-4">
-                            <a href="tel:+919876543210" class="btn btn-outline me-2"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
-                            <a href="#" class="btn btn-primary btn-quote"><i class="fa-solid fa-quote-right me-1"></i> Inquire Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="productModal8" tabindex="-1" aria-labelledby="productModalLabel8" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header border-0">
-                <h5 class="modal-title text-gradient" id="productModalLabel8">Round Circle Cutting Machine</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row g-4">
-                    <div class="col-md-6">
-                        <img id="modalMainImg8" src="assets/images/Round circle cutting machine.png" class="img-fluid rounded" alt="Round Circle Cutting Machine">
-                        <div class="mt-3 d-flex gap-2 flex-wrap">
-                            <img src="assets/images/Round circle cutting machine.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg8', this)">
-                            <img src="assets/images/Round circle cutting machine.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg8', this)">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h6 class="text-primary fw-bold">Features:</h6>
-                        <ul>
-                            <li>Automated circular cutting</li>
-                            <li>High-precision templates</li>
-                            <li>Adjustable diameter settings</li>
-                            <li>Suitable for various sheet metals</li>
-                        </ul>
-                        <h6 class="text-primary fw-bold mt-3">Specifications:</h6>
-                        <table class="table table-bordered">
-                            <tr><td>Power</td><td>2 HP</td></tr>
-                            <tr><td>Cutting Type</td><td>Circular Cut</td></tr>
-                            <tr><td>Weight</td><td>250 Kg</td></tr>
-                            <tr><td>Dimension</td><td>1200x1000x1400 mm</td></tr>
-                        </table>
-                        <div class="mt-4">
-                            <a href="tel:+919876543210" class="btn btn-outline me-2"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
-                            <a href="#" class="btn btn-primary btn-quote"><i class="fa-solid fa-quote-right me-1"></i> Inquire Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="productModal9" tabindex="-1" aria-labelledby="productModalLabel9" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header border-0">
-                <h5 class="modal-title text-gradient" id="productModalLabel9">SS Coil De-Coiler</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row g-4">
-                    <div class="col-md-6">
-                        <img id="modalMainImg9" src="assets/images/Ss coil de coiler.png" class="img-fluid rounded" alt="SS Coil De-Coiler">
-                        <div class="mt-3 d-flex gap-2 flex-wrap">
-                            <img src="assets/images/Ss coil de coiler.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg9', this)">
-                            <img src="assets/images/Ss coil de coiler.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg9', this)">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h6 class="text-primary fw-bold">Features:</h6>
-                        <ul>
-                            <li>Heavy duty Stainless Steel construction</li>
-                            <li>Automatic coil feeding</li>
-                            <li>Variable speed control</li>
-                            <li>Ideal for large industrial coils</li>
-                        </ul>
-                        <h6 class="text-primary fw-bold mt-3">Specifications:</h6>
-                        <table class="table table-bordered">
-                            <tr><td>Power</td><td>Heavy Duty Motor</td></tr>
-                            <tr><td>Material</td><td>SS Coils</td></tr>
-                            <tr><td>Weight</td><td>600 Kg</td></tr>
-                            <tr><td>Dimension</td><td>1800x1200x1600 mm</td></tr>
-                        </table>
-                        <div class="mt-4">
-                            <a href="tel:+919876543210" class="btn btn-outline me-2"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
-                            <a href="#" class="btn btn-primary btn-quote"><i class="fa-solid fa-quote-right me-1"></i> Inquire Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="productModal10" tabindex="-1" aria-labelledby="productModalLabel10" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header border-0">
-                <h5 class="modal-title text-gradient" id="productModalLabel10">Vertical Beeding Machine</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row g-4">
-                    <div class="col-md-6">
-                        <img id="modalMainImg10" src="assets/images/Vertical beeding machine.png" class="img-fluid rounded" alt="Vertical Beeding Machine">
-                        <div class="mt-3 d-flex gap-2 flex-wrap">
-                            <img src="assets/images/Vertical beeding machine.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg10', this)">
-                            <img src="assets/images/Vertical beeding machine.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg10', this)">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h6 class="text-primary fw-bold">Features:</h6>
-                        <ul>
-                            <li>Vertical-orientation for minimal footprint</li>
-                            <li>Hydraulic pressing for consistent beeding</li>
-                            <li>User-friendly controls</li>
-                            <li>High output per hour</li>
-                        </ul>
-                        <h6 class="text-primary fw-bold mt-3">Specifications:</h6>
-                        <table class="table table-bordered">
-                            <tr><td>Power</td><td>1.5 HP</td></tr>
-                            <tr><td>Beeding Type</td><td>Vertical</td></tr>
-                            <tr><td>Weight</td><td>200 Kg</td></tr>
-                            <tr><td>Dimension</td><td>700x700x1600 mm</td></tr>
-                        </table>
-                        <div class="mt-4">
-                            <a href="tel:+919876543210" class="btn btn-outline me-2"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
-                            <a href="#" class="btn btn-primary btn-quote"><i class="fa-solid fa-quote-right me-1"></i> Inquire Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content rounded-4 shadow-lg">
-            <div class="modal-header border-0">
-                <h5 class="modal-title text-gradient" id="quoteModalLabel">Request a Quote</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body p-4">
-                <form id="quoteForm">
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">Name</label>
-                        <input type="text" class="form-control" placeholder="Your full name" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">Email</label>
-                        <input type="email" class="form-control" placeholder="you@example.com" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">Phone Number</label>
-                        <input type="tel" class="form-control" placeholder="+91 98765 43210" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">Product / Machinery</label>
-                        <input type="text" class="form-control" id="productSelect" readonly>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">Message</label>
-                        <textarea class="form-control" rows="3" placeholder="Additional requirements..."></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary btn-quote-submit">Submit Request</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<style>
-    .img-fluid {
-        width: 100%;
-        /* Adjusted height slightly for better image display in the modal */
-        max-height: 450px; 
-        object-fit: cover;
-    }
-    .small-img {
-        width: 100px; /* Set a fixed width for thumbnails */
-        height: 100px;
-        object-fit: cover;
-        cursor: pointer;
-        border: 2px solid transparent;
-        transition: border-color 0.2s;
-    }
-    .small-img:hover {
-        border-color: var(--bs-primary); /* Assuming a CSS variable for primary color */
-    }
-    /* Add basic styling for the filter buttons if not already in your CSS file */
-    .filter-btn {
-        background-color: #f8f9fa;
-        border: 1px solid #ccc;
-        padding: 8px 15px;
-        margin: 5px;
-        border-radius: 20px;
-        cursor: pointer;
-        transition: all 0.3s;
-    }
-    .filter-btn.active {
-        background-color: var(--bs-primary); /* Use your primary color */
-        color: white;
-        border-color: var(--bs-primary);
-    }
-</style>
-
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script>
-// Image switch in modal
-function changeMainImage(modalId, element){
-    document.getElementById(modalId).src = element.src;
-}
-
-// Open quote modal and prefill product
-document.querySelectorAll('.btn-quote').forEach(btn => {
-    btn.addEventListener('click', function(e){
-        e.preventDefault();
-        const card = btn.closest('.product-card');
-        const productName = card.querySelector('h5').innerText;
-        document.getElementById('productSelect').value = productName;
-        const quoteModalElement = document.getElementById('quoteModal');
-        const modal = new bootstrap.Modal(quoteModalElement);
-        modal.show();
-    });
-});
-
-// Form submission
-document.getElementById('quoteForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    alert('Thank you! Your quote request has been submitted.');
-    // Correct way to hide a Bootstrap modal
-    const quoteModalInstance = bootstrap.Modal.getInstance(document.getElementById('quoteModal'));
-    if (quoteModalInstance) {
-        quoteModalInstance.hide();
-    }
-    this.reset();
-});
-
-// Product Filtering Logic
-document.querySelectorAll('.filter-btn').forEach(button => {
-    button.addEventListener('click', function() {
-        // 1. Get the filter category
-        const filter = this.getAttribute('data-filter');
-        
-        // 2. Update active class on buttons
-        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-        this.classList.add('active');
-
-        // 3. Filter products
-        document.querySelectorAll('.product-item').forEach(item => {
-            const category = item.getAttribute('data-category');
-            
-            if (filter === 'all' || category === filter) {
-                // Show the item
-                item.style.display = 'block';
-            } else {
-                // Hide the item
-                item.style.display = 'none';
+$(document).ready(function(){
+    // === ENHANCED PRODUCT DATA (INCLUDING DETAILED DESCRIPTION) ===
+    const modalProducts = {
+        1: [
+          {name:"Hydraulic Drum Cutter",img:"assets/images/Hydraulic Barrel drum cutting machine manual.png",
+            thumbs:[
+              "assets/images/Hydraulic Barrel drum cutting machine manual.png",
+              "assets/images/Hydraulic Barrel drum cutting machine extra.png",
+              "assets/images/Drum cutting process view.png" 
+            ],
+            features:[
+              "**High-performance** hydraulic operation for consistent cuts",
+              "Emergency stop mechanism and guarded blade chamber for **enhanced safety**",
+              "Durable steel construction ensuring long operational life",
+              "Adjustable cutting depth for varying drum materials and thickness"
+            ],
+            specs:[
+              ["Power","2 HP (1.5 kW)"],
+              ["Cutting Capacity","200 L Standard Drum"],
+              ["Weight","350 Kg (Approx)"], 
+              ["Operation","Manual/Semi-Auto"], 
+              ["Cycle Time","< 30 seconds"] 
+            ],
+            details: {
+                description: "This **Hydraulic Barrel Drum Cutting Machine** is designed for maximum safety and efficiency in industrial recycling and decommissioning. The high-performance hydraulic system ensures a clean, smooth cut through thick steel drums, significantly reducing manual effort and processing time. Essential for preparing drums for disposal or reuse, ensuring compliance with environmental standards.",
+                applications: ["Chemical and Petrochemical Waste Management", "Industrial Recycling Facilities", "Drum Reconditioning Centers"]
             }
+          },
+          {name:"Drum Deheader Machine",img:"assets/images/Drum deheader machine.png",
+            thumbs:[
+              "assets/images/Drum deheader machine.png",
+              "assets/images/Drum deheader side view.png" 
+            ],
+            features:[
+              "Clean drum head removal without leaving sharp edges",
+              "Compact and portable design for shop flexibility",
+              "**Hydraulic cylinder** ensures consistent force and fast cycle time"
+            ],
+            specs:[
+              ["Power","1 HP"],
+              ["Capacity","210 L Standard"], 
+              ["Weight", "180 Kg"], 
+              ["Material","High-grade carbon steel"]
+            ],
+            details: {
+                description: "The **Drum Deheader Machine** is a crucial tool for safely and efficiently removing the tops of steel drums. It is designed to cut through the chime, leaving a **smooth, burr-free edge** to allow for safe handling and future use of the drums as storage or containers. Available in manual, electric, and air-powered versions to suit various industrial volumes.",
+                applications: ["Waste Management and Recycling", "Converting drums for storage", "Chemical and Oil industries for emptying drums"]
+            }
+          }
+        ],
+        2: [
+          {name:"Manual Bottle Threader",img:"assets/images/Hydraulic manual Bottle cap threading machine.png",
+            thumbs:[
+              "assets/images/Hydraulic manual Bottle cap threading machine.png",
+              "assets/images/Bottle threading detail.png", 
+              "assets/images/Bottle threader operation.png" 
+            ],
+            features:[
+              "**Precision threading control** for leak-proof seals",
+              "Durable mechanism for long life and low maintenance",
+              "Ergonomic handle and base plate for stable manual operation",
+              "Quick-change mandrel system for different cap sizes"
+            ],
+            specs:[
+              ["Power","1.5 HP"],
+              ["Cap Diameter","30mm - 110mm"],
+              ["Height Adjustment","Manual lock"], 
+              ["Accuracy","±0.1 mm"]
+            ],
+            details: {
+                description: "The **Manual Bottle Threader** is engineered for precision and consistency in capping small to medium batches. Its manual hydraulic system provides superior torque control compared to basic hand tools, ensuring a tight, reliable seal on various bottle types, perfect for pharmaceutical, cosmetic, and small-scale food production.",
+                applications: ["Pharmaceutical Bottling", "Small-Batch Beverage Production", "Cosmetic and Essential Oil Packaging"]
+            }
+          },
+          {name:"Bottle Capping Press",img:"assets/images/Hydraulic Bottle capping press machine.png",
+            thumbs:[
+              "assets/images/Hydraulic Bottle capping press machine.png",
+              "assets/images/Capping press close up.png" 
+            ],
+            features:[
+              "High-pressure hydraulic pressing for secure, non-slip capping",
+              "**Interchangeable press heads** for multiple cap styles (e.g., ROPP, lug)", 
+              "Consistent capping torque for uniform product quality"
+            ],
+            specs:[
+              ["Power","2 HP"],
+              ["Cap Range","28mm - 100mm"], 
+              ["Speed", "600 Pcs/Hr"], 
+              ["Control","Foot pedal activation"]
+            ],
+            details: {
+                description: "This **Hydraulic Capping Press** uses controlled, high-force hydraulic pressure to firmly and consistently secure caps onto bottles. It is ideal for industries requiring high volume and absolute consistency in sealing, offering flexibility with various cap types via interchangeable dies.",
+                applications: ["Large-scale Beverage Bottling", "Chemical/Industrial fluid packaging", "High-volume Food product sealing"]
+            }
+          }
+        ],
+        3: [
+          {name:"Edge Cutting Machine",img:"assets/images/Hydraulic semi auto edge cutting & tooling machine.png",
+            thumbs:[
+              "assets/images/Hydraulic semi auto edge cutting & tooling machine.png",
+              "assets/images/Edge cutting tooling head.png", 
+              "assets/images/Edge cutting finished product.png" 
+            ],
+            features:[
+              "**High precision** circular cutting and tooling for clean metal edges",
+              "Semi-automatic operation requiring minimal operator intervention",
+              "Heavy-duty frame for enhanced stability and **vibration reduction**",
+              "Integrated coolant system for prolonged tool life" 
+            ],
+            specs:[
+              ["Power","3 HP"],
+              ["Cutting Capacity","500 mm (Max Diameter)"],
+              ["Tolerance","±0.05 mm"],
+              ["Coolant Tank","5 L capacity"] 
+            ],
+            details: {
+                description: "The **Hydraulic Edge Cutting Machine** is designed for the high-tolerance finishing of industrial metal components. Utilizing a semi-automatic process, it delivers consistent, clean edge trimming and tooling, crucial for manufacturing parts where precision is paramount, such as in automotive or heavy machinery.",
+                applications: ["Automotive Component Manufacturing", "Metal Fabrication and Tooling", "Precision Machinery Finishing"]
+            }
+          },
+          {name:"Hydraulic Rolling Machine",img:"assets/images/Drum rolling machine.png",
+            thumbs:[
+              "assets/images/Drum rolling machine.png",
+              "assets/images/Drum rolling machine roller detail.png" 
+            ],
+            features:[
+              "High-torque rolling mechanism for uniform drum formation",
+              "Digital control panel for precise speed and tension adjustment",
+              "Ideal for creating strong, smooth drum bodies from flat sheets"
+            ],
+            specs:[
+              ["Power","5 HP"],
+              ["Rolling Speed","12 m/min"], 
+              ["Weight", "800 Kg"],
+              ["Max Sheet Thickness", "4 mm"]
+            ],
+            details: {
+                description: "A **Hydraulic Rolling Machine** uses rollers and powerful hydraulic pressure to bend and shape metal sheets into various geometries, such as cylindrical or conical profiles. It is essential for heavy-duty metal fabrication where high precision and consistent forming force are required across materials like carbon steel and stainless steel.",
+                applications: ["Pressure Vessel Production", "Pipeline and HVAC Construction", "Shipbuilding and Tank Fabrication"]
+            }
+          }
+        ]
+    };
+
+    // === FUNCTION: Dynamic Inquiry Link Update ===
+    function updateInquiryLink(modalId, productName) {
+        const encodedName = encodeURIComponent(`Inquiry about the product: ${productName}`);
+        const $inquireButton = $(`#productModal${modalId}`).find('.mt-4 a:last-child');
+        const whatsappURL = `https://wa.me/919876543210?text=${encodedName}`;
+        $inquireButton.attr('href', whatsappURL);
+    }
+    
+    // === NEW/UPDATED FUNCTION: Dynamic Description Content ===
+    function updateDetailedDescription(modalId, details) {
+        const applicationsHTML = details.applications.map(app => `<li>${app}</li>`).join('');
+        const contentHTML = `
+            <p class="text-muted">${details.description}</p>
+            <h6 class="text-primary fw-bold mt-3">Applications:</h6>
+            <ul class="text-muted list-unstyled">
+                ${applicationsHTML}
+            </ul>
+        `;
+        $(`#detailedContent${modalId}`).html(contentHTML);
+    }
+
+    // Function to change main image
+    window.changeMainImage = function(modalId, thumbElement){
+        const mainImgId = `modalMainImg${modalId}`;
+        document.getElementById(mainImgId).src = thumbElement.src;
+        $(`#productThumbnails${modalId} .small-img`).removeClass('active');
+        $(thumbElement).addClass('active');
+    }
+
+    // Build and show product details (Central function)
+    function showProduct(modalId, index){
+        const p = modalProducts[modalId][index];
+        
+        // 1. Reset Zoom & Scroll
+        $(`#productModal${modalId}`).find('.image-container').scrollLeft(0).scrollTop(0); 
+
+        // 2. Update Basic Content
+        $(`#productModalLabel${modalId}`).text(p.name);
+        $(`#modalMainImg${modalId}`).attr("src", p.img);
+        
+        // 3. Update Dynamic Content
+        updateInquiryLink(modalId, p.name);
+        updateDetailedDescription(modalId, p.details); // <--- DYNAMIC DESCRIPTION CALL
+
+        // 4. Thumbnails
+        const $thumbsContainer = $(`#productThumbnails${modalId}`);
+        $thumbsContainer.html(''); 
+        p.thumbs.forEach((src, i) => {
+            $('<img>')
+                .attr({
+                    'src': src,
+                    'class': `img-thumbnail small-img ${i === 0 ? 'active' : ''}`, 
+                    'alt': 'Product Thumbnail'
+                })
+                .on('click', function() {
+                    window.changeMainImage(modalId, this);
+                })
+                .appendTo($thumbsContainer);
         });
+        
+        // 5. Features
+        $(`#productFeatures${modalId}`).html(p.features.map(f=>`<li><i class="fa-solid fa-check text-success me-2"></i>${f}</li>`).join(''));
+        
+        // 6. Specs
+        const specsHTML = p.specs.map(s=>`<tr><td class="fw-bold">${s[0]}</td><td>${s[1]}</td></tr>`).join('');
+        $(`#productSpecs${modalId}`).html(specsHTML);
+    }
+
+    // Build related carousel 
+    function buildRelated(modalId){
+        const products = modalProducts[modalId];
+        const container = $(`#relatedProducts${modalId}`);
+        
+        if (container.hasClass('owl-loaded')) {
+            container.trigger('destroy.owl.carousel').removeClass('owl-loaded');
+        }
+
+        container.html(''); 
+        
+        products.forEach((p,i)=>{
+            container.append(`
+                <div class="item text-center" data-product-index="${i}" data-modal-id="${modalId}">
+                    <img src="${p.img}" class="rounded shadow-sm mb-2" alt="${p.name}">
+                    <h6 class="fw-bold text-dark">${p.name}</h6>
+                </div>
+            `);
+        });
+
+        container.owlCarousel({
+            loop:true, margin:20, nav:true, dots:false, autoplay:true, autoplayTimeout:4000, autoplayHoverPause:true,
+            responsive:{0:{items:1},576:{items:2},992:{items:3},1200:{items:4}}
+        });
+        
+        // Click listener on related product items
+        container.on('click', '.item', function() {
+            const index = $(this).data('product-index');
+            const mId = $(this).data('modal-id');
+            showProduct(mId, index); // Load new product content
+            $(`#productModal${mId}`).find('.modal-body').scrollTop(0); // Scroll to top
+            $(`#detailedDescription${mId}`).collapse('hide'); // Auto-close details
+        });
+    }
+
+    // === ENHANCEMENT: Collapse Toggle Icon Rotation ===
+    [1, 2, 3].forEach(id => {
+        const collapseElement = $(`#detailedDescription${id}`);
+        const iconElement = $(`.collapse-icon-${id}`);
+
+        // Rotate icon up when details are shown
+        collapseElement.on('shown.bs.collapse', function () {
+            iconElement.removeClass('fa-chevron-down').addClass('fa-chevron-up');
+        });
+
+        // Rotate icon down when details are hidden
+        collapseElement.on('hidden.bs.collapse', function () {
+            iconElement.removeClass('fa-chevron-up').addClass('fa-chevron-down');
+        });
+    });
+
+    // Reset modal on close
+    $('.modal').on('hidden.bs.modal', function(){
+        const id = $(this).attr('id').replace('productModal','');
+        showProduct(id, 0); 
+        $(`#detailedDescription${id}`).collapse('hide');
+        $(this).find('.modal-body').scrollTop(0);
+    });
+
+    // Initialize all modals on page load
+    [1,2,3].forEach(id=>{
+        buildRelated(id);
+        showProduct(id,0); 
     });
 });
 </script>
