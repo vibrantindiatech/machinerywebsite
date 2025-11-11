@@ -199,16 +199,21 @@
 
 <!-- ==== HERO SECTION ==== -->
 <header class="hero py-5" style="position: relative; background: url('assets/images/hero-bg.jpg') center/cover no-repeat;">
-  <!-- Overlay for better text visibility -->
+  <!-- Overlay -->
   <div class="hero-overlay" style="position:absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.45);"></div>
 
-  <div class="container text-center" data-animate style="position:relative; z-index:1;">
-    <h2 class="hero-title">Engineering Excellence in Hydraulic Machinery</h2>
-    <p class="hero-subtitle text-white mb-4">
+  <div class="container text-center" style="position:relative; z-index:1;">
+    <!-- Typing effect title -->
+    <h2 class="hero-title text-white"><span id="typed-text"></span><span id="cursor">|</span></h2>
+
+    <!-- Subtitle with fade-slide animation -->
+    <p class="hero-subtitle text-white mb-4 fade-slide delay-1">
       Manufacturing innovation and precision for modern industries.
     </p>
-    <a href="products.html" class="btn btn-light btn-lg me-2">Explore Machines</a>
-    <a href="contact.html" class="btn btn-outline-light btn-lg">Contact Us</a>
+
+    <!-- Buttons with fade-slide animation -->
+    <a href="products.html" class="btn btn-light btn-lg me-2 fade-slide delay-2">Explore Machines</a>
+    <a href="contact.html" class="btn btn-outline-light btn-lg fade-slide delay-3">Contact Us</a>
   </div>
 </header>
 
@@ -223,17 +228,44 @@
   position: relative;
 }
 
-/* Hero Titles */
+/* Hero title typing */
 .hero-title {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+  display: inline-block;
 }
-.hero-subtitle {
-  font-size: 1.3rem;
-  line-height: 1.6;
-  text-shadow: 1px 1px 8px rgba(0,0,0,0.5);
+
+#cursor {
+  display: inline-block;
+  background-color: #00ffcc;
+  width: 2px;
+  margin-left: 2px;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%,50%,100% { opacity: 1; }
+  25%,75% { opacity: 0; }
+}
+
+/* Subtitle and buttons basic animation */
+.fade-slide {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlide 1s forwards;
+}
+
+.fade-slide.delay-1 { animation-delay: 2s; } /* after typing starts */
+.fade-slide.delay-2 { animation-delay: 2.5s; }
+.fade-slide.delay-3 { animation-delay: 3s; }
+
+@keyframes fadeSlide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Buttons */
@@ -274,23 +306,41 @@
 }
 </style>
 
+<script>
+// Typing effect
+const text = "Engineering Excellence in Hydraulic Machinery";
+let index = 0;
+const speed = 70;
+
+function type() {
+  if(index < text.length){
+    document.getElementById("typed-text").innerHTML += text.charAt(index);
+    index++;
+    setTimeout(type, speed);
+  }
+}
+
+window.onload = type;
+</script>
+
+
 
 <!-- ==== COUNTER SECTION ==== -->
-<section class="container-fluid py-5 text-center" data-animate style="background-color: #ffffff;">
-  <div class="row g-4">
-    <div class="col-md-3">
+<section class="container-fluid py-5 text-center" style="background: #f8f9fa;">
+  <div class="row g-4 justify-content-center">
+    <div class="col-6 col-md-3">
       <h2 class="fw-bold counter" data-target="10">0</h2>
       <p>Years of Experience</p>
     </div>
-    <div class="col-md-3">
+    <div class="col-6 col-md-3">
       <h2 class="fw-bold counter" data-target="100">0</h2>
       <p>Machines Delivered</p>
     </div>
-    <div class="col-md-3">
+    <div class="col-6 col-md-3">
       <h2 class="fw-bold counter" data-target="50">0</h2>
       <p>Happy Clients</p>
     </div>
-    <div class="col-md-3">
+    <div class="col-6 col-md-3">
       <h2 class="fw-bold counter" data-target="20">0</h2>
       <p>Countries Served</p>
     </div>
@@ -298,438 +348,534 @@
 </section>
 
 <style>
-  .counter {
-    color: #ff6b6b; /* vibrant red */
-    font-size: 3rem;
-    font-weight: 700;
-    background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: transform 0.3s ease;
-  }
-  .counter:hover {
-    transform: scale(1.2);
-  }
-  .text-center p {
-    color: #333; /* dark text for readability */
-    font-size: 1.1rem;
-    margin-top: 0.5rem;
-    font-weight: 500;
-  }
-  section[data-animate] {
-    padding: 60px 0;
-  }
+/* Counter Text */
+.counter {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #1dd1a1);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 3s ease infinite;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+  cursor: default;
+}
+
+/* Gradient Animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.counter:hover {
+  transform: scale(1.3);
+  text-shadow: 0 0 15px rgba(255,255,255,0.7);
+}
+
+/* Paragraph Text */
+section p {
+  color: #333;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+/* Responsive Adjustments */
+@media(max-width:767px){
+  .counter { font-size: 2.5rem; margin-bottom: 0.3rem; }
+  section p { font-size: 1rem; }
+}
 </style>
 
+<script>
+// Counter Animation
 
-  <!-- ==== ABOUT SECTION ==== -->
- <section class="container-fluid py-5 text-center" data-animate style="background-color: #ffffff;">
-  <h2 class="fw-bold mb-4 gradient-text">About Shree Baneshwari Industries</h2>
-  <p class="lead mb-5 text-dark">
-    We specialize in manufacturing and supplying premium-grade hydraulic and fabrication machines across India and globally.
-    We blend innovation with industrial power to ensure reliability and efficiency in every product.
+counters.forEach(counter => {
+  const updateCount = () => {
+    const target = +counter.getAttribute('data-target');
+    const count = +counter.innerText;
+    const increment = target / 200; // speed
+    if(count < target){
+      counter.innerText = Math.ceil(count + increment);
+      setTimeout(updateCount, 10);
+    } else {
+      counter.innerText = target;
+    }
+  };
+  updateCount();
+});
+</script>
+
+
+
+<!-- ==== ABOUT SECTION ==== -->
+<section class="container-fluid py-5 text-center" style="background-color: #f9f9f9;">
+  <h2 class="fw-bold mb-4 gradient-text">About Baneshwari Industries</h2>
+  <p class="lead mb-5 text-dark mx-auto" style="max-width:800px;">
+    Shree Baneshwari Industries specializes in manufacturing and supplying premium-grade hydraulic and fabrication machines across India and globally.
+    We blend innovation with industrial power to ensure reliability, precision, and efficiency in every product we deliver.
   </p>
-  <div class="row text-center">
-    <div class="col-md-3 mb-4">
-      <i class="fa-solid fa-gears fa-3x custom-icon"></i>
-      <h5 class="mt-2 text-dark">Advanced Engineering</h5>
+
+  <div class="row justify-content-center g-4">
+    <!-- Feature Cards -->
+    <div class="col-6 col-md-3">
+      <div class="about-card p-4 shadow-sm h-100">
+        <i class="fa-solid fa-gears fa-3x custom-icon"></i>
+        <h5 class="mt-3 text-dark">Advanced Engineering</h5>
+        <p class="text-muted mt-2">Machines built with cutting-edge engineering principles.</p>
+      </div>
     </div>
-    <div class="col-md-3 mb-4">
-      <i class="fa-solid fa-screwdriver-wrench fa-3x custom-icon"></i>
-      <h5 class="mt-2 text-dark">Custom Solutions</h5>
+
+    <div class="col-6 col-md-3">
+      <div class="about-card p-4 shadow-sm h-100">
+        <i class="fa-solid fa-screwdriver-wrench fa-3x custom-icon"></i>
+        <h5 class="mt-3 text-dark">Custom Solutions</h5>
+        <p class="text-muted mt-2">Tailor-made machines for your specific needs.</p>
+      </div>
     </div>
-    <div class="col-md-3 mb-4">
-      <i class="fa-solid fa-globe fa-3x custom-icon"></i>
-      <h5 class="mt-2 text-dark">Global Reach</h5>
+
+    <div class="col-6 col-md-3">
+      <div class="about-card p-4 shadow-sm h-100">
+        <i class="fa-solid fa-globe fa-3x custom-icon"></i>
+        <h5 class="mt-3 text-dark">Global Reach</h5>
+        <p class="text-muted mt-2">Serving clients across India and worldwide.</p>
+      </div>
     </div>
-    <div class="col-md-3 mb-4">
-      <i class="fa-solid fa-bolt-lightning fa-3x custom-icon"></i>
-      <h5 class="mt-2 text-dark">High Efficiency</h5>
+
+    <div class="col-6 col-md-3">
+      <div class="about-card p-4 shadow-sm h-100">
+        <i class="fa-solid fa-bolt-lightning fa-3x custom-icon"></i>
+        <h5 class="mt-3 text-dark">High Efficiency</h5>
+        <p class="text-muted mt-2">Machines designed for maximum productivity and energy efficiency.</p>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="about-card p-4 shadow-sm h-100">
+        <i class="fa-solid fa-shield-check fa-3x custom-icon"></i>
+        <h5 class="mt-3 text-dark">Quality Assurance</h5>
+        <p class="text-muted mt-2">Every product undergoes strict quality testing.</p>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="about-card p-4 shadow-sm h-100">
+        <i class="fa-solid fa-headset fa-3x custom-icon"></i>
+        <h5 class="mt-3 text-dark">Customer Support</h5>
+        <p class="text-muted mt-2">Reliable support before, during, and after purchase.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-  .gradient-text {
-    background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+.gradient-text {
+  background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-  .custom-icon {
-    color: #ff6b6b; /* vibrant red/orange */
-    transition: transform 0.3s ease, color 0.3s ease;
-  }
-  .custom-icon:hover {
-    transform: scale(1.3);
-    color: #48dbfb; /* bright blue on hover */
-  }
+/* About Cards */
+.about-card {
+  background: #fff;
+  border-radius: 15px;
+  transition: all 0.4s ease;
+  cursor: default;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.about-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
 
-  h5 {
-    font-weight: 600;
-    margin-top: 0.75rem;
-  }
+/* Icons - more vibrant and visible */
+.custom-icon {
+  color: #ff6b6b; /* base color */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.custom-icon:hover {
+  transform: scale(1.4);
+  color: #00b4ff; /* bright blue hover for visibility */
+}
 
-  p.lead {
-    font-size: 1.1rem;
-    line-height: 1.7;
-  }
+/* Card Titles */
+h5 {
+  font-weight: 600;
+  margin-top: 0.75rem;
+  color: #222;
+}
+
+/* Paragraphs inside cards */
+.about-card p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+
+/* Lead paragraph */
+p.lead {
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+/* Responsive adjustments */
+@media(max-width:767px){
+  .about-card { margin-bottom: 20px; }
+  .hero-title, h2 { font-size: 2rem; }
+  .custom-icon { font-size: 2.5rem !important; } /* larger on small screens */
+}
 </style>
 
 
-  <!-- ==== PRODUCT SECTION ==== -->
+<!-- ==== PRODUCT SECTION ==== -->
 <section class="product-section py-5" id="core-machinery">
-    <div class="container text-center">
-      <h2 class="fw-bold mb-5 text-gradient">Our Core Machinery</h2>
-      <div class="row g-4" data-animate>
+  <div class="container text-center">
+    <h2 class="fw-bold mb-5 text-gradient">Our Core Machinery</h2>
+    <div class="row g-4">
 
-        <div class="col-md-4 col-sm-6">
-          <div class="product-card shadow-lg" data-bs-toggle="modal" data-bs-target="#productModal1">
-            <div class="product-image">
-              <img src="assets/images/Hydraulic Barrel drum cutting machine manual.png" alt="Drum Cutting Machine" class="main-img">
-              <div class="product-overlay">
-                <p>High-performance hydraulic drum cutting machine for safe and smooth operation.</p>
-              </div>
-            </div>
-            <div class="product-content">
-              <h5>Hydraulic Barrel Drum Cutting Machine</h5>
-              <div class="btn-group">
-                <a href="tel:+919876543210" class="btn btn-outline"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
-                <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-quote-right me-1"></i> Get Quote</a>
-              </div>
+      <!-- Product 1 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="product-card shadow-lg position-relative">
+
+          <span class="ribbon">Featured</span>
+
+          <div class="product-image" data-bs-toggle="modal" data-bs-target="#productModal1">
+            <img src="assets/images/Hydraulic Barrel drum cutting machine manual.png" alt="Drum Cutting Machine" class="main-img">
+            <div class="product-overlay">
+              <p>High-performance hydraulic drum cutting machine for safe and smooth operation.</p>
             </div>
           </div>
-        </div>
 
-        <div class="col-md-4 col-sm-6">
-          <div class="product-card shadow-lg" data-bs-toggle="modal" data-bs-target="#productModal2">
-            <div class="product-image">
-              <img src="assets/images/Hydraulic manual Bottle cap threading machine.png" alt="Bottle Cap Machine" class="main-img">
-              <div class="product-overlay">
-                <p>Precision threading machine with durable hydraulic mechanism for consistent output.</p>
-              </div>
+          <div class="product-content">
+            <h5>Hydraulic Barrel Drum Cutting Machine</h5>
+            <div class="features d-flex justify-content-center flex-wrap gap-2 mb-3">
+              <span class="feature-badge">2 HP</span>
+              <span class="feature-badge">200 L Drum</span>
+              <span class="feature-badge">350 Kg</span>
             </div>
-            <div class="product-content">
-              <h5>Hydraulic Bottle Cap Threading Machine</h5>
-              <div class="btn-group">
-                <a href="tel:+919876543210" class="btn btn-outline"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
-                <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-quote-right me-1"></i> Get Quote</a>
-              </div>
+            <div class="btn-group">
+              <a href="tel:+919876543210" class="btn btn-outline"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
+              <a href="#" class="btn btn-primary btn-quote"><i class="fa-solid fa-quote-right me-1"></i> Get Quote</a>
             </div>
           </div>
-        </div>
 
-        <div class="col-md-4 col-sm-6">
-          <div class="product-card shadow-lg" data-bs-toggle="modal" data-bs-target="#productModal3">
-            <div class="product-image">
-              <img src="assets/images/Hydraulic semi auto edge cutting & tooling machine.png" alt="Edge Cutting Machine" class="main-img">
-              <div class="product-overlay">
-                <p>Advanced semi-auto machine for high-precision edge cutting and tooling operations.</p>
-              </div>
-            </div>
-            <div class="product-content">
-              <h5>Hydraulic Semi Auto Edge Cutting Machine</h5>
-              <div class="btn-group">
-                <a href="tel:+919876543210" class="btn btn-outline"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
-                <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-quote-right me-1"></i> Get Quote</a>
-              </div>
-            </div>
-          </div>
         </div>
-
       </div>
 
-      <a href="products.html" class="btn btn-viewall mt-5"><i class="fa-solid fa-gears me-2"></i>View All Machines</a>
+      <!-- Product 2 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="product-card shadow-lg position-relative">
+
+          <span class="ribbon">New</span>
+
+          <div class="product-image" data-bs-toggle="modal" data-bs-target="#productModal2">
+            <img src="assets/images/Hydraulic manual Bottle cap threading machine.png" alt="Bottle Cap Machine" class="main-img">
+            <div class="product-overlay">
+              <p>Precision threading machine with durable hydraulic mechanism for consistent output.</p>
+            </div>
+          </div>
+
+          <div class="product-content">
+            <h5>Hydraulic Bottle Cap Threading Machine</h5>
+            <div class="features d-flex justify-content-center flex-wrap gap-2 mb-3">
+              <span class="feature-badge">1.5 HP</span>
+              <span class="feature-badge">Standard Bottles</span>
+              <span class="feature-badge">200 Kg</span>
+            </div>
+            <div class="btn-group">
+              <a href="tel:+919876543210" class="btn btn-outline"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
+              <a href="#" class="btn btn-primary btn-quote"><i class="fa-solid fa-quote-right me-1"></i> Get Quote</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="col-md-4 col-sm-6">
+        <div class="product-card shadow-lg position-relative">
+
+          <span class="ribbon">Best Seller</span>
+
+          <div class="product-image" data-bs-toggle="modal" data-bs-target="#productModal3">
+            <img src="assets/images/Hydraulic semi auto edge cutting & tooling machine.png" alt="Edge Cutting Machine" class="main-img">
+            <div class="product-overlay">
+              <p>Advanced semi-auto machine for high-precision edge cutting and tooling operations.</p>
+            </div>
+          </div>
+
+          <div class="product-content">
+            <h5>Hydraulic Semi Auto Edge Cutting Machine</h5>
+            <div class="features d-flex justify-content-center flex-wrap gap-2 mb-3">
+              <span class="feature-badge">3 HP</span>
+              <span class="feature-badge">Edge up to 500 mm</span>
+              <span class="feature-badge">400 Kg</span>
+            </div>
+            <div class="btn-group">
+              <a href="tel:+919876543210" class="btn btn-outline"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
+              <a href="#" class="btn btn-primary btn-quote"><i class="fa-solid fa-quote-right me-1"></i> Get Quote</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
+
+    <!-- View All Machines Button -->
+    <a href="products.html" class="btn btn-viewall mt-5"><i class="fa-solid fa-gears me-2"></i>View All Machines</a>
+  </div>
 </section>
 
+<!-- ===== PRODUCT MODALS ===== -->
+<!-- Modal 1 -->
 <div class="modal fade" id="productModal1" tabindex="-1" aria-labelledby="productModalLabel1" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header border-0">
-          <h5 class="modal-title text-gradient" id="productModalLabel1">Hydraulic Barrel Drum Cutting Machine</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="row g-4">
-            <div class="col-md-6">
-              <img id="modalMainImg1" src="assets/images/Hydraulic Barrel drum cutting machine manual.png" class="img-fluid rounded" alt="Drum Cutting Machine">
-              <div class="mt-3 d-flex gap-2 flex-wrap">
-                <img src="assets/images/Hydraulic Barrel drum cutting machine manual.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg1', this)">
-                <img src="assets/images/Hydraulic Barrel drum cutting machine extra.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg1', this)">
-                <img src="assets/images/Hydraulic Barrel drum cutting machine extra2.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg1', this)">
-              </div>
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title text-gradient" id="productModalLabel1">Hydraulic Barrel Drum Cutting Machine</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <img id="modalMainImg1" src="assets/images/Hydraulic Barrel drum cutting machine manual.png" class="img-fluid rounded" alt="Drum Cutting Machine">
+            <div class="mt-3 d-flex gap-2 flex-wrap">
+              <img src="assets/images/Hydraulic Barrel drum cutting machine manual.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg1', this)">
+              <img src="assets/images/Hydraulic Barrel drum cutting machine extra.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg1', this)">
+              <img src="assets/images/Hydraulic Barrel drum cutting machine extra2.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg1', this)">
             </div>
-            <div class="col-md-6">
-              <h6 class="text-primary fw-bold">Features:</h6>
-              <ul>
-                <li>High-performance **hydraulic operation**</li>
-                <li>Safe and smooth cutting mechanism</li>
-                <li>Durable construction for long-lasting use</li>
-                <li>Adjustable cutting speed and depth</li>
-                <li>Low maintenance & easy to operate</li>
-              </ul>
-              <h6 class="text-primary fw-bold mt-3">Specifications:</h6>
-              <table class="table table-bordered">
-                <tr><td>Power</td><td>2 HP</td></tr>
-                <tr><td>Cutting Capacity</td><td>200 L Drum</td></tr>
-                <tr><td>Weight</td><td>350 Kg</td></tr>
-                <tr><td>Dimension</td><td>1200x800x1300 mm</td></tr>
-              </table>
-              <div class="mt-4">
-                <a href="tel:+919876543210" class="btn btn-outline me-2"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
-                <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-quote-right me-1"></i> Inquire Now</a>
-              </div>
+          </div>
+          <div class="col-md-6">
+            <h6 class="text-primary fw-bold">Features:</h6>
+            <ul>
+              <li>High-performance hydraulic operation</li>
+              <li>Safe and smooth cutting mechanism</li>
+              <li>Durable construction for long-lasting use</li>
+              <li>Adjustable cutting speed and depth</li>
+              <li>Low maintenance & easy to operate</li>
+            </ul>
+            <h6 class="text-primary fw-bold mt-3">Specifications:</h6>
+            <table class="table table-bordered">
+              <tr><td>Power</td><td>2 HP</td></tr>
+              <tr><td>Cutting Capacity</td><td>200 L Drum</td></tr>
+              <tr><td>Weight</td><td>350 Kg</td></tr>
+              <tr><td>Dimension</td><td>1200x800x1300 mm</td></tr>
+            </table>
+            <div class="mt-4">
+              <a href="tel:+919876543210" class="btn btn-outline me-2"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
+              <a href="#" class="btn btn-primary btn-quote"><i class="fa-solid fa-quote-right me-1"></i> Inquire Now</a>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </div>
 
+<!-- Modal 2 -->
 <div class="modal fade" id="productModal2" tabindex="-1" aria-labelledby="productModalLabel2" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header border-0">
-          <h5 class="modal-title text-gradient" id="productModalLabel2">Hydraulic Bottle Cap Threading Machine</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="row g-4">
-            <div class="col-md-6">
-              <img id="modalMainImg2" src="assets/images/Hydraulic manual Bottle cap threading machine.png" class="img-fluid rounded" alt="Bottle Cap Machine">
-              <div class="mt-3 d-flex gap-2 flex-wrap">
-                <img src="assets/images/Hydraulic manual Bottle cap threading machine.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg2', this)">
-                <img src="assets/images/Hydraulic manual Bottle cap threading machine extra.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg2', this)">
-              </div>
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title text-gradient" id="productModalLabel2">Hydraulic Bottle Cap Threading Machine</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <img id="modalMainImg2" src="assets/images/Hydraulic manual Bottle cap threading machine.png" class="img-fluid rounded" alt="Bottle Cap Machine">
+            <div class="mt-3 d-flex gap-2 flex-wrap">
+              <img src="assets/images/Hydraulic manual Bottle cap threading machine.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg2', this)">
+              <img src="assets/images/Hydraulic manual Bottle cap threading machine extra.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg2', this)">
             </div>
-            <div class="col-md-6">
-              <h6 class="text-primary fw-bold">Features:</h6>
-              <ul>
-                <li>**Precision threading** operation</li>
-                <li>Durable hydraulic mechanism</li>
-                <li>Consistent output with minimal effort</li>
-                <li>Low maintenance</li>
-              </ul>
-              <h6 class="text-primary fw-bold mt-3">Specifications:</h6>
-              <table class="table table-bordered">
-                <tr><td>Power</td><td>1.5 HP</td></tr>
-                <tr><td>Threading Capacity</td><td>Standard Bottles</td></tr>
-                <tr><td>Weight</td><td>200 Kg</td></tr>
-                <tr><td>Dimension</td><td>1000x700x1200 mm</td></tr>
-              </table>
-              <div class="mt-4">
-                <a href="tel:+919876543210" class="btn btn-outline me-2"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
-                <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-quote-right me-1"></i> Inquire Now</a>
-              </div>
+          </div>
+          <div class="col-md-6">
+            <h6 class="text-primary fw-bold">Features:</h6>
+            <ul>
+              <li>Precision threading operation</li>
+              <li>Durable hydraulic mechanism</li>
+              <li>Consistent output with minimal effort</li>
+              <li>Low maintenance</li>
+            </ul>
+            <h6 class="text-primary fw-bold mt-3">Specifications:</h6>
+            <table class="table table-bordered">
+              <tr><td>Power</td><td>1.5 HP</td></tr>
+              <tr><td>Threading Capacity</td><td>Standard Bottles</td></tr>
+              <tr><td>Weight</td><td>200 Kg</td></tr>
+              <tr><td>Dimension</td><td>1000x700x1200 mm</td></tr>
+            </table>
+            <div class="mt-4">
+              <a href="tel:+919876543210" class="btn btn-outline me-2"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
+              <a href="#" class="btn btn-primary btn-quote"><i class="fa-solid fa-quote-right me-1"></i> Inquire Now</a>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </div>
 
+<!-- Modal 3 -->
 <div class="modal fade" id="productModal3" tabindex="-1" aria-labelledby="productModalLabel3" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header border-0">
-          <h5 class="modal-title text-gradient" id="productModalLabel3">Hydraulic Semi Auto Edge Cutting Machine</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="row g-4">
-            <div class="col-md-6">
-              <img id="modalMainImg3" src="assets/images/Hydraulic semi auto edge cutting & tooling machine.png" class="img-fluid rounded" alt="Edge Cutting Machine">
-              <div class="mt-3 d-flex gap-2 flex-wrap">
-                <img src="assets/images/Hydraulic semi auto edge cutting & tooling machine.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg3', this)">
-                <img src="assets/images/Hydraulic semi auto edge cutting & tooling machine extra.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg3', this)">
-              </div>
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title text-gradient" id="productModalLabel3">Hydraulic Semi Auto Edge Cutting Machine</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <img id="modalMainImg3" src="assets/images/Hydraulic semi auto edge cutting & tooling machine.png" class="img-fluid rounded" alt="Edge Cutting Machine">
+            <div class="mt-3 d-flex gap-2 flex-wrap">
+              <img src="assets/images/Hydraulic semi auto edge cutting & tooling machine.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg3', this)">
+              <img src="assets/images/Hydraulic semi auto edge cutting & tooling machine extra.png" class="img-thumbnail small-img" alt="Thumbnail" onclick="changeMainImage('modalMainImg3', this)">
             </div>
-            <div class="col-md-6">
-              <h6 class="text-primary fw-bold">Features:</h6>
-              <ul>
-                <li>High-precision **semi-auto edge cutting**</li>
-                <li>Durable tooling machine</li>
-                <li>Fast and consistent operation</li>
-                <li>Easy to maintain</li>
-              </ul>
-              <h6 class="text-primary fw-bold mt-3">Specifications:</h6>
-              <table class="table table-bordered">
-                <tr><td>Power</td><td>3 HP</td></tr>
-                <tr><td>Cutting Capacity</td><td>Edge up to 500 mm</td></tr>
-                <tr><td>Weight</td><td>400 Kg</td></tr>
-                <tr><td>Dimension</td><td>1400x900x1500 mm</td></tr>
-              </table>
-              <div class="mt-4">
-                <a href="tel:+919876543210" class="btn btn-outline me-2"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
-                <a href="contact.html" class="btn btn-primary"><i class="fa-solid fa-quote-right me-1"></i> Inquire Now</a>
-              </div>
+          </div>
+          <div class="col-md-6">
+            <h6 class="text-primary fw-bold">Features:</h6>
+            <ul>
+              <li>High-precision semi-auto edge cutting</li>
+              <li>Durable tooling machine</li>
+              <li>Fast and consistent operation</li>
+              <li>Easy to maintain</li>
+            </ul>
+            <h6 class="text-primary fw-bold mt-3">Specifications:</h6>
+            <table class="table table-bordered">
+              <tr><td>Power</td><td>3 HP</td></tr>
+              <tr><td>Cutting Capacity</td><td>Edge up to 500 mm</td></tr>
+              <tr><td>Weight</td><td>400 Kg</td></tr>
+              <tr><td>Dimension</td><td>1400x900x1500 mm</td></tr>
+            </table>
+            <div class="mt-4">
+              <a href="tel:+919876543210" class="btn btn-outline me-2"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
+              <a href="#" class="btn btn-primary btn-quote"><i class="fa-solid fa-quote-right me-1"></i> Inquire Now</a>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </div>
 
+<!-- ==== QUOTE MODAL ==== -->
+<div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4 shadow-lg">
+      <div class="modal-header border-0">
+        <h5 class="modal-title text-gradient" id="quoteModalLabel">Request a Quote</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body p-4">
+        <form id="quoteForm">
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Name</label>
+            <input type="text" class="form-control" placeholder="Your full name" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Email</label>
+            <input type="email" class="form-control" placeholder="you@example.com" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Phone Number</label>
+            <input type="tel" class="form-control" placeholder="+91 98765 43210" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Product / Machinery</label>
+            <input type="text" class="form-control" id="productSelect" readonly>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Message</label>
+            <textarea class="form-control" rows="3" placeholder="Additional requirements..."></textarea>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn-primary btn-quote-submit">Submit Request</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==== SCRIPTS ==== -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  /**
-   * Function to change the main image in the modal when a thumbnail is clicked.
-   * @param {string} modalId - The ID of the main image element (e.g., 'modalMainImg1').
-   * @param {HTMLElement} element - The clicked thumbnail element.
-   */
-  function changeMainImage(modalId, element){
-    document.getElementById(modalId).src = element.src;
-  }
+// Image switch in modal
+function changeMainImage(modalId, element){
+  document.getElementById(modalId).src = element.src;
+}
+
+// Open quote modal and prefill product
+document.querySelectorAll('.btn-quote').forEach(btn => {
+  btn.addEventListener('click', function(e){
+    e.preventDefault();
+    const card = btn.closest('.product-card');
+    const productName = card.querySelector('h5').innerText;
+    document.getElementById('productSelect').value = productName;
+    const modal = new bootstrap.Modal(document.getElementById('quoteModal'));
+    modal.show();
+  });
+});
+
+// Form submission
+document.getElementById('quoteForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  alert('Thank you! Your quote request has been submitted.');
+  bootstrap.Modal.getInstance(document.getElementById('quoteModal')).hide();
+  this.reset();
+});
 </script>
+
 <style>
 /* --- General Styles --- */
-.product-section {
-    background: #fdfdfd;
-    color: #333;
-    position: relative;
-    overflow: hidden;
-}
-.text-gradient {
-    background: linear-gradient(90deg, #00b4ff, #00ffcc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+.product-section { background: #fdfdfd; color: #333; position: relative; overflow: hidden; }
+.text-gradient { background: linear-gradient(90deg, #00b4ff, #00ffcc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-/* --- Product Card Styles --- */
-.product-card {
-    background: #ffffff;
-    border-radius: 20px;
-    overflow: hidden;
-    transition: 0.4s ease;
-    cursor: pointer;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-}
-.product-card:hover {
-    /* Enhanced professional hover effect */
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0, 180, 255, 0.2); 
-}
-.product-image {
-    position: relative;
-    height: 250px;
-    overflow: hidden;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-.product-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: 0.6s ease;
-}
-.product-card:hover .product-image img {
-    transform: scale(1.1);
-}
-.product-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    /* Subtle overlay background for text contrast */
-    background: rgba(0, 180, 255, 0.85); 
-    color: #fff; /* Changed text color to white for visibility */
-    display: flex;
-    align-items: center; /* Center the description vertically */
-    justify-content: center;
-    padding: 20px;
-    opacity: 0; /* Starts hidden */
-    transition: 0.5s;
-    text-align: center;
-}
-.product-overlay p {
-    font-weight: 500;
-}
+/* Product Cards */
+.product-card { background: #fff; border-radius: 20px; overflow: hidden; transition: transform 0.4s ease, box-shadow 0.4s ease; cursor: pointer; border: 1px solid rgba(0,0,0,0.08); }
+.product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,180,255,0.15); }
 
-.product-card:hover .product-overlay {
-    opacity: 1;
-    /* Optional: Keep the fadeUp animation */
-    animation: fadeUp 0.5s ease;
-}
-@keyframes fadeUp {
-    0% { transform: translateY(30px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
-}
-.product-content {
-    padding: 20px;
-    text-align: center;
-}
-.product-content h5 {
-    color: #00b4ff;
-    font-weight: 600;
-    font-size: 1.05rem;
-    margin-bottom: 1rem;
-}
-.btn-group {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-}
+/* Ribbon */
+.ribbon { position: absolute; top: 10px; left: -5px; background: #00b4ff; color: #fff; padding: 5px 15px; font-size: 0.8rem; font-weight: 600; border-radius: 0 5px 5px 0; z-index: 2; text-transform: uppercase; }
 
-/* --- Button Styles --- */
-.btn-outline {
-    border: 1px solid #00b4ff;
-    color: #00b4ff;
-    background: transparent;
-    border-radius: 50px;
-    padding: 8px 18px;
-    transition: all 0.3s;
-}
-.btn-outline:hover {
-    background: #00b4ff;
-    color: #fff;
-}
-.btn-primary {
-    background: linear-gradient(90deg, #00b4ff, #00ffcc);
-    border: none;
-    color: #fff;
-    border-radius: 50px;
-    padding: 8px 18px;
-    transition: all 0.3s ease;
-}
-.btn-primary:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(0, 180, 255, 0.4);
-}
-.btn-viewall {
-    background: linear-gradient(90deg, #00b4ff, #00ffcc);
-    color: #fff;
-    border-radius: 40px;
-    padding: 10px 30px;
-    font-weight: 600;
-    transition: 0.3s;
-    border: none;
-}
-.btn-viewall:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 20px rgba(0, 180, 255, 0.4);
-}
+/* Image & Overlay */
+.product-image { position: relative; height: 250px; overflow: hidden; border-bottom: 1px solid rgba(0,0,0,0.1); }
+.product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.product-card:hover .product-image img { transform: scale(1.1); }
+.product-overlay { position: absolute; bottom: 0; left: 0; right: 0; height: 100%; background: rgba(0,180,255,0.85); color: #fff; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; text-align: center; transition: opacity 0.5s ease; }
+.product-card:hover .product-overlay { opacity: 1; }
 
-/* --- Modal/Gallery Styles --- */
-.small-img {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 8px;
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: border-color 0.2s;
-}
-.small-img:hover {
-    border-color: #00b4ff;
-}
+/* Card Content */
+.product-content { padding: 20px; text-align: center; }
+.product-content h5 { color: #00b4ff; font-weight: 600; margin-bottom: 1rem; font-size: 1.1rem; }
 
-/* --- Responsive Adjustments --- */
+/* Feature Badges */
+.feature-badge { background: #e0f7fa; color: #00b4ff; font-size: 0.85rem; font-weight: 500; padding: 5px 10px; border-radius: 20px; }
+
+/* Buttons */
+.btn-outline { border: 1px solid #00b4ff; color: #00b4ff; background: transparent; border-radius: 50px; padding: 8px 18px; transition: all 0.3s; }
+.btn-outline:hover { background: #00b4ff; color: #fff; }
+.btn-primary { background: linear-gradient(90deg, #00b4ff, #00ffcc); border: none; color: #fff; border-radius: 50px; padding: 8px 18px; transition: all 0.3s ease; }
+.btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 15px rgba(0,180,255,0.4); }
+.btn-viewall { background: linear-gradient(90deg, #00b4ff, #00ffcc); color: #fff; border-radius: 40px; padding: 10px 30px; font-weight: 600; transition: 0.3s; border: none; }
+.btn-viewall:hover { transform: translateY(-4px); box-shadow: 0 0 20px rgba(0,180,255,0.4); }
+
+/* Modal Thumbnail */
+.small-img { width: 60px; height: 60px; object-fit: cover; border-radius: 8px; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; }
+.small-img:hover { border-color: #00b4ff; }
+
+/* Responsive */
 @media (max-width: 767px) {
-    .product-image { height: 220px; }
-    .btn-group { flex-direction: column; gap: 8px; }
+  .product-image { height: 220px; }
+  .btn-group { flex-direction: column; gap: 8px; }
+  .feature-badge { margin-bottom: 5px; }
 }
 </style>
+
+
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
