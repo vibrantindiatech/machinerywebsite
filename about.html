@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About Us | Shree Baneshwari Industries</title>
+<title>About Us | Baneshwari Industries</title>
 
 <!-- Bootstrap 5 -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -45,7 +45,7 @@ body {
 
 /* Hero Section */
 .hero {
-  background: url('https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  background: url('/assets/images/aboutbanner.png') center/cover no-repeat;
   min-height: 70vh;
   display: flex;
   align-items: center;
@@ -439,56 +439,135 @@ h2.section-title {
   </style>
 </head>
 
-  <!-- ✅ Navbar -->
-  <nav class="navbar navbar-expand-lg next-level-navbar fixed-top">
-    <div class="container-fluid px-3 py-1 px-md-4 px-lg-5">
 
-      <!-- Brand -->
-      <a class="navbar-brand fw-bold me-2" href="index.html">
-        <img src="assets/images/logoB.png" alt="" height="65px" class="me-2" />
-        <span class="brand-text">Baneshwari <span>Industries</span></span>
-      </a>
+<!-- ✅ Navbar -->
+<nav class="navbar navbar-expand-lg next-level-navbar fixed-top">
+  <div class="container-fluid px-3 py-1 px-md-4 px-lg-5">
 
-      <!-- Toggler -->
-      <button
-        class="navbar-toggler border-0 shadow-none"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#mainMenu"
-        aria-controls="mainMenu"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <i class="fa-solid fa-bars"></i>
-      </button>
+    <!-- Brand -->
+    <a class="navbar-brand fw-bold me-2" href="index.html">
+      <img src="assets/images/logoB.png" alt="" height="65px" class="me-2" />
+      <span class="brand-text">Baneshwari <span>Industries</span></span>
+    </a>
 
-      <!-- Nav Links -->
-      <div class="collapse navbar-collapse justify-content-lg-center mt-3 mt-lg-0" id="mainMenu">
-        <ul class="navbar-nav align-items-lg-center gap-2 gap-lg-4">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
-          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        </ul>
+    <!-- Toggler -->
+    <button
+      class="navbar-toggler border-0 shadow-none"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#mainMenu"
+      aria-controls="mainMenu"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fa-solid fa-bars"></i>
+    </button>
 
-        <!-- Mobile Quote Button -->
-        <div class="d-lg-none text-center mt-3">
-          <a href="quote.html" class="btn btn-glow py-2 fw-semibold rounded-pill">
-            Get Quote <i class="fa-solid fa-arrow-right ms-2"></i>
-          </a>
-        </div>
-      </div>
+    <!-- Nav Links -->
+    <div class="collapse navbar-collapse justify-content-lg-center mt-3 mt-lg-0" id="mainMenu">
+      <ul class="navbar-nav align-items-lg-center gap-2 gap-lg-4">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
 
-      <!-- Desktop Quote Button -->
-      <div class="d-none d-lg-block ms-auto">
-        <a href="quote.html" class="btn btn-glow px-4 py-2 fw-semibold rounded-pill">
+      <!-- ✅ Mobile Quote Button -->
+      <div class="d-lg-none text-center mt-3">
+        <button class="btn btn-glow py-2 fw-semibold rounded-pill" data-bs-toggle="modal" data-bs-target="#quoteModal">
           Get Quote <i class="fa-solid fa-arrow-right ms-2"></i>
-        </a>
+        </button>
       </div>
     </div>
-  </nav>
+
+    <!-- ✅ Desktop Quote Button -->
+    <div class="d-none d-lg-block ms-auto">
+      <button class="btn btn-glow px-4 py-2 fw-semibold rounded-pill" data-bs-toggle="modal" data-bs-target="#quoteModal">
+        Get Quote <i class="fa-solid fa-arrow-right ms-2"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ✅ Quote Form Modal -->
+<div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content border-0 shadow-lg rounded-4">
+      <div class="modal-header border-0 bg-primary text-white rounded-top-4">
+        <h5 class="modal-title fw-semibold" id="quoteModalLabel">
+          <i class="fa-solid fa-file-signature me-2"></i> Request a Quote
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body p-4">
+        <form>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Name</label>
+              <input type="text" class="form-control rounded-3" placeholder="Enter your name" required />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Email</label>
+              <input type="email" class="form-control rounded-3" placeholder="Enter your email" required />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Phone</label>
+              <input type="tel" class="form-control rounded-3" placeholder="Enter your phone number" required />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Service Interested In</label>
+              <select class="form-select rounded-3" required>
+                <option value="">Select service...</option>
+                <option>Hydraulic Equipment</option>
+                <option>Industrial Solutions</option>
+                <option>Custom Fabrication</option>
+                <option>Repair & Maintenance</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-label fw-semibold">Message</label>
+              <textarea class="form-control rounded-3" rows="3" placeholder="Write your requirements..."></textarea>
+            </div>
+          </div>
+          <div class="text-center mt-4">
+            <button type="submit" class="btn btn-glow px-4 py-2 fw-semibold rounded-pill">
+              Submit Request <i class="fa-solid fa-paper-plane ms-2"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ✅ Required Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<style> 
+/* ✅ Softer & clearer modal background */
+.modal-backdrop.show {
+  background-color: rgba(0, 0, 0, 0.25); /* lower opacity for clearer background */
+  backdrop-filter: blur(8px); /* gentle blur */
+}
+
+/* Smooth modal animation */
+.modal-content {
+  animation: scaleIn 0.3s ease;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+</style>
 
   <!-- ✅ Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -524,15 +603,15 @@ h2.section-title {
 <!-- Hero -->
 <section class="hero">
   <div class="container">
-    <h1>About Shree Baneshwari Industries</h1>
+    <h1>About Baneshwari Industries</h1>
     <p>Innovation, Precision & Excellence in Industrial Machinery</p>
   </div>
 </section>
 <style>
   /* Hero */
 .hero {
-  background: url('https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-  min-height: 40vh;
+  background: url('/assets/images/aboutbanner.png') center/cover no-repeat;
+  min-height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -543,7 +622,7 @@ h2.section-title {
   content:'';
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,0.6);
+  background:rgba(0, 0, 0, 0.37);
 }
 .hero .container { position: relative; z-index:2; }
 .hero h1 {
