@@ -22,7 +22,22 @@
       margin: 0;
       overflow-x: hidden;
     }
+/* === Fix for all Font Awesome icons === */
+.fa,
+.fas,
+.far,
+.fab,
+.fa-solid,
+.fa-brands {
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
+}
 
+/* === Add this line specifically for brands === */
+.fa-brands {
+  font-family: "Font Awesome 6 Brands" !important;
+  font-weight: 400 !important;
+}
     h1, h3, h5 {
       color: #111;
       word-break: keep-all;
@@ -197,22 +212,28 @@
 </head>
 <body>
 
-  <style>
-    /* === Navbar Base (Light Theme) === */
+<style>
+    /* === Global Font === */
+    * {
+      font-family: "Poppins", sans-serif !important;
+      box-sizing: border-box;
+    }
+
+    /* === Navbar Base === */
     .next-level-navbar {
-      background: #ffffff; /* White background */
+      background: #fff;
       border-bottom: 1px solid rgba(0,0,0,0.1);
-      backdrop-filter: blur(15px);
       box-shadow: 0 4px 25px rgba(0,0,0,0.05);
+      backdrop-filter: blur(10px);
+      padding: 0.8rem 0;
       transition: all 0.4s ease;
-      padding: 0.7rem 0;
       z-index: 1000;
     }
 
-    /* === On Scroll Effect === */
+    /* === Scroll Effect === */
     .next-level-navbar.scrolled {
       background: rgba(255,255,255,0.95);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 6px 30px rgba(0,0,0,0.1);
       padding: 0.5rem 0;
     }
 
@@ -221,21 +242,21 @@
       background: linear-gradient(90deg, #007bff, #00ccff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-transform: uppercase;
       font-weight: 700;
-      font-size: clamp(1.1rem, 3vw, 1.6rem);
-      letter-spacing: 1px;
-      transition: all 0.3s ease;
+      
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      white-space: nowrap;
-     
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: 0.3s ease;
     }
+
     .navbar-brand:hover {
       text-shadow: 0 0 10px rgba(0, 204, 255, 0.4);
       transform: scale(1.03);
     }
+
     .brand-text span {
       color: #333;
       font-weight: 400;
@@ -243,38 +264,39 @@
 
     /* === Nav Links === */
     .nav-link {
-      color: #111 !important; /* Dark text */
-      font-size: 1.05rem;
+      color: #111 !important;
       font-weight: 500;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
       position: relative;
-      text-transform: capitalize;
-      padding: 6px 12px;
-      transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease;
+          font-size: var
+var(--bs-nav-link-font-size)
+(--bs-nav-link-font-size);
     }
+
     .nav-link:hover {
-      color: #007bff !important; /* Accent blue on hover */
+      color: #007bff !important;
     }
-    .nav-link::after {
+  .nav-link::after {
       content: "";
       position: absolute;
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 0%;
+      width: 0;
       height: 2px;
       background: linear-gradient(90deg, #007bff, #00ccff);
       transition: width 0.35s ease;
     }
+
     .nav-link:hover::after,
     .nav-link.active::after {
       width: 60%;
     }
 
-    /* === Active Link === */
     .nav-link.active {
       color: #007bff !important;
-      text-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
+      text-shadow: 0 0 6px rgba(0,123,255,0.4);
     }
 
     /* === Quote Button === */
@@ -282,19 +304,19 @@
       background: linear-gradient(90deg, #00ccff, #007bff);
       color: #fff;
       font-weight: 600;
-      font-size: 1rem;
       border: none;
-      box-shadow: 0 0 15px rgba(0,123,255,0.3);
-      transition: all 0.4s ease;
-      text-transform: uppercase;
+      font-size: 1rem;
       letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(0,123,255,0.3);
     }
+
     .btn-glow:hover {
       transform: translateY(-3px) scale(1.05);
       box-shadow: 0 0 25px rgba(0,123,255,0.5);
     }
 
-    /* === Responsive Styles === */
+    /* === Responsive === */
     @media (max-width: 991px) {
       .navbar-collapse {
         background: #f9f9f9;
@@ -325,7 +347,6 @@
         font-size: 1rem;
         flex-direction: column;
         align-items: flex-start;
-        gap: 0;
         line-height: 1.3;
       }
       .navbar-toggler i {
@@ -336,22 +357,21 @@
       }
     }
   </style>
-
-
+</head>
 
   <!-- ✅ Navbar -->
   <nav class="navbar navbar-expand-lg next-level-navbar fixed-top">
-    <div class="container-fluid px-3 px-md-4 px-lg-5">
+    <div class="container-fluid px-3 py-1 px-md-4 px-lg-5">
 
       <!-- Brand -->
       <a class="navbar-brand fw-bold me-2" href="index.html">
-        <img src="assets/logo.png" alt="" height="36" class="me-2">
+        <img src="assets/images/logoB.png" alt="" height="65px" class="me-2" />
         <span class="brand-text">Baneshwari <span>Industries</span></span>
       </a>
 
       <!-- Toggler -->
       <button
-        class="navbar-toggler border-0 shadow-none"
+        class="navbar-toggler border-0 shadow-none me-4"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#mainMenu"
@@ -359,7 +379,7 @@
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <i class="fa-solid fa-bars me-4"></i>
+        <i class="fa-solid fa-bars"></i>
       </button>
 
       <!-- Nav Links -->
@@ -373,7 +393,7 @@
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
 
-        <!-- Mobile Button -->
+        <!-- Mobile Quote Button -->
         <div class="d-lg-none text-center mt-3">
           <a href="quote.html" class="btn btn-glow py-2 fw-semibold rounded-pill">
             Get Quote <i class="fa-solid fa-arrow-right ms-2"></i>
@@ -381,7 +401,7 @@
         </div>
       </div>
 
-      <!-- Desktop Button -->
+      <!-- Desktop Quote Button -->
       <div class="d-none d-lg-block ms-auto">
         <a href="quote.html" class="btn btn-glow px-4 py-2 fw-semibold rounded-pill">
           Get Quote <i class="fa-solid fa-arrow-right ms-2"></i>
@@ -390,11 +410,11 @@
     </div>
   </nav>
 
-  <!-- === Script === -->
-
+  <!-- ✅ Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     // Navbar scroll effect
-    window.addEventListener("scroll", function () {
+    window.addEventListener("scroll", () => {
       const nav = document.querySelector(".next-level-navbar");
       nav.classList.toggle("scrolled", window.scrollY > 40);
     });
@@ -404,10 +424,19 @@
       const current = window.location.pathname.split("/").pop();
       document.querySelectorAll(".nav-link").forEach((link) => {
         const href = link.getAttribute("href");
-        if (href.includes(current) && current !== "")
-          link.classList.add("active");
-        else if (current === "" && href.includes("index.html"))
-          link.classList.add("active");
+        if (href.includes(current) && current !== "") link.classList.add("active");
+        else if (current === "" && href.includes("index.html")) link.classList.add("active");
+      });
+    });
+
+    // Fix toggler open/close for mobile
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggler = document.querySelector(".navbar-toggler");
+      const menu = document.querySelector("#mainMenu");
+      toggler.addEventListener("click", () => {
+        const isShown = menu.classList.contains("show");
+        toggler.querySelector("i").classList.toggle("fa-bars", isShown);
+        toggler.querySelector("i").classList.toggle("fa-xmark", !isShown);
       });
     });
   </script>
