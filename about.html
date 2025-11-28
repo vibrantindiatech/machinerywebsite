@@ -564,8 +564,6 @@ h2.section-title {
   </div>
 </div>
 
-<!-- ✅ Required Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <style> 
 /* ✅ Softer & clearer modal background */
 .modal-backdrop.show {
@@ -589,292 +587,6 @@ h2.section-title {
   }
 }
 </style>
-
-  <!-- ✅ Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  // Navbar scroll effect
-  window.addEventListener("scroll", () => {
-    const nav = document.querySelector(".next-level-navbar");
-    if (nav) nav.classList.toggle("scrolled", window.scrollY > 40);
-  });
-
-  // Active link highlight
-  document.addEventListener("DOMContentLoaded", () => {
-    const current = window.location.pathname.split("/").pop();
-    document.querySelectorAll(".nav-link").forEach((link) => {
-      const href = link.getAttribute("href");
-      if (href && href.includes(current) && current !== "") {
-        link.classList.add("active");
-      } else if (current === "" && href && href.includes("index.html")) {
-        link.classList.add("active");
-      }
-    });
-  });
-
-  // ✅ PERFECT TOGGLE FUNCTIONALITY - ENHANCED
-  document.addEventListener("DOMContentLoaded", function() {
-    const navbarToggler = document.getElementById("navbarToggler");
-    const togglerIcon = document.getElementById("togglerIcon");
-    const mainMenu = document.getElementById("mainMenu");
-    
-    if (navbarToggler && togglerIcon && mainMenu) {
-      let isMenuOpen = false;
-
-      // Initialize Bootstrap collapse
-      const bsCollapse = new bootstrap.Collapse(mainMenu, {
-        toggle: false
-      });
-
-      // Main toggle click handler
-      navbarToggler.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        if (!isMenuOpen) {
-          // Open the menu
-          bsCollapse.show();
-          togglerIcon.classList.remove('fa-bars');
-          togglerIcon.classList.add('fa-xmark');
-          isMenuOpen = true;
-          navbarToggler.setAttribute('aria-expanded', 'true');
-        } else {
-          // Close the menu
-          bsCollapse.hide();
-          togglerIcon.classList.remove('fa-xmark');
-          togglerIcon.classList.add('fa-bars');
-          isMenuOpen = false;
-          navbarToggler.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      // Bootstrap event listeners for state sync
-      mainMenu.addEventListener('show.bs.collapse', function () {
-        togglerIcon.classList.remove('fa-bars');
-        togglerIcon.classList.add('fa-xmark');
-        isMenuOpen = true;
-        navbarToggler.setAttribute('aria-expanded', 'true');
-      });
-      
-      mainMenu.addEventListener('hide.bs.collapse', function () {
-        togglerIcon.classList.remove('fa-xmark');
-        togglerIcon.classList.add('fa-bars');
-        isMenuOpen = false;
-        navbarToggler.setAttribute('aria-expanded', 'false');
-      });
-
-      // Close menu when clicking on nav links (mobile)
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-          if (window.innerWidth < 992 && isMenuOpen) {
-            bsCollapse.hide();
-            togglerIcon.classList.remove('fa-xmark');
-            togglerIcon.classList.add('fa-bars');
-            isMenuOpen = false;
-            navbarToggler.setAttribute('aria-expanded', 'false');
-          }
-        });
-      });
-
-      // Close menu when clicking outside (optional enhancement)
-      document.addEventListener('click', function(event) {
-        const isClickInside = navbarToggler.contains(event.target) || 
-                             mainMenu.contains(event.target);
-        
-        if (!isClickInside && isMenuOpen && window.innerWidth < 992) {
-          bsCollapse.hide();
-          togglerIcon.classList.remove('fa-xmark');
-          togglerIcon.classList.add('fa-bars');
-          isMenuOpen = false;
-          navbarToggler.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      // Reset menu state on window resize
-      window.addEventListener('resize', function() {
-        if (window.innerWidth >= 992 && isMenuOpen) {
-          bsCollapse.hide();
-          togglerIcon.classList.remove('fa-xmark');
-          togglerIcon.classList.add('fa-bars');
-          isMenuOpen = false;
-          navbarToggler.setAttribute('aria-expanded', 'false');
-        }
-      });
-    }
-  });
-
-  // GSAP Animations
-  if (typeof gsap !== 'undefined') {
-    // Animate elements with data-animate attribute
-    gsap.utils.toArray('[data-animate]').forEach((el, i) => {
-      gsap.from(el, {
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        delay: i * 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: el,
-          start: "top 85%",
-          toggleActions: "play none none reverse"
-        }
-      });
-    });
-
-    // Timeline animations
-    gsap.utils.toArray(".timeline-item").forEach((item) => {
-      const isLeft = item.classList.contains("left");
-      gsap.fromTo(item, {
-        x: isLeft ? -100 : 100,
-        opacity: 0
-      }, {
-        x: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: item,
-          start: "top 85%",
-          toggleActions: "play none none reverse"
-        }
-      });
-    });
-
-    // Animate timeline content boxes
-    const timelineContents = document.querySelectorAll('.timeline-content');
-    if (timelineContents.length > 0) {
-      timelineContents.forEach(content => {
-        gsap.fromTo(content, {
-          opacity: 0,
-          y: 30
-        }, {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "back.out(1.7)",
-          scrollTrigger: {
-            trigger: content,
-            start: "top 80%",
-            toggleActions: "play none none reverse"
-          }
-        });
-      });
-    }
-  }
-
-  // Additional animation for cards on hover
-  document.addEventListener('DOMContentLoaded', function() {
-    const cards = document.querySelectorAll('.values-card, .mv-card, .leadership-card');
-    
-    cards.forEach(card => {
-      card.addEventListener('mouseenter', function() {
-        gsap.to(this, {
-          y: -8,
-          scale: 1.02,
-          duration: 0.3,
-          ease: "power2.out"
-        });
-      });
-      
-      card.addEventListener('mouseleave', function() {
-        gsap.to(this, {
-          y: 0,
-          scale: 1,
-          duration: 0.3,
-          ease: "power2.out"
-        });
-      });
-    });
-  });
-
-  // Hero section animation
-  if (typeof gsap !== 'undefined') {
-    const hero = document.querySelector('.hero');
-    if (hero) {
-      gsap.from('.hero h1', {
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        delay: 0.2,
-        ease: "power3.out"
-      });
-      
-      gsap.from('.hero p', {
-        y: 30,
-        opacity: 0,
-        duration: 1,
-        delay: 0.5,
-        ease: "power3.out"
-      });
-    }
-  }
-
-  // Smooth scrolling for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    });
-  });
-
-  // Form submission handling (for quote modal)
-  const quoteForm = document.querySelector('#quoteModal form');
-  if (quoteForm) {
-    quoteForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      // Add your form submission logic here
-      const submitBtn = this.querySelector('button[type="submit"]');
-      const originalText = submitBtn.innerHTML;
-      
-      // Simulate form submission
-      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-      submitBtn.disabled = true;
-      
-      setTimeout(() => {
-        submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Sent Successfully!';
-        setTimeout(() => {
-          submitBtn.innerHTML = originalText;
-          submitBtn.disabled = false;
-          bootstrap.Modal.getInstance(document.getElementById('quoteModal')).hide();
-          quoteForm.reset();
-        }, 2000);
-      }, 1500);
-    });
-  }
-
-  // Intersection Observer for timeline animation
-  const timelineObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-      }
-    });
-  }, { threshold: 0.2 });
-
-  // Observe all timeline content elements
-  document.querySelectorAll('.timeline-content').forEach(content => {
-    timelineObserver.observe(content);
-  });
-
-  // Page load animations
-  window.addEventListener('load', function() {
-    if (typeof gsap !== 'undefined') {
-      gsap.to('body', {
-        opacity: 1,
-        duration: 0.5,
-        ease: "power2.out"
-      });
-    }
-  });
-
-  // Initialize page opacity
-  document.body.style.opacity = '0';
-</script>
 
 <!-- Hero -->
 <section class="hero">
@@ -1033,7 +745,7 @@ h2.section-title {
       <div class="timeline-item left">
         <div class="timeline-content">
           <h4>2010 – Foundation Year</h4>
-          <p>Baneshwari Industriesbegan with a mission to bring efficient and innovative hydraulic solutions to Indian industries.</p>
+          <p>Baneshwari Industries began with a mission to bring efficient and innovative hydraulic solutions to Indian industries.</p>
         </div>
       </div>
 
@@ -1229,49 +941,189 @@ h2.section-title {
 }
 </style>
 
-
-<!-- ===== Animation JS ===== -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const items = document.querySelectorAll(".timeline-content");
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add("active");
-    });
-  }, { threshold: 0.2 });
-  items.forEach(i => observer.observe(i));
-});
-</script>
-
   <!-- ==== FOOTER ==== -->
   <div id="footer"></div>
-
-
 
 <!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+  // Fetch footer
   fetch("/components/footer.html")
     .then(res => res.text())
     .then(data => {
       document.getElementById("footer").innerHTML = data;
-    });
+    })
+    .catch(err => console.log("Footer not found:", err));
 </script>
 
+<!-- ✅ FIXED TOGGLE SCRIPT -->
 <script>
-gsap.utils.toArray('[data-animate]').forEach((el,i)=>{
-  gsap.from(el,{ y:50, opacity:0, duration:1, delay:i*0.2, ease:"power3.out",
-    scrollTrigger:{ trigger:el, start:"top 85%" }
+document.addEventListener("DOMContentLoaded", function() {
+  // Navbar scroll effect
+  window.addEventListener("scroll", () => {
+    const nav = document.querySelector(".next-level-navbar");
+    if (nav) nav.classList.toggle("scrolled", window.scrollY > 40);
   });
-});
-const scrollBtn=document.getElementById("scrollTopBtn");
-window.addEventListener("scroll",()=>{scrollBtn.style.display=window.scrollY>300?"flex":"none";});
-scrollBtn.addEventListener("click",()=>{window.scrollTo({top:0,behavior:'smooth'});});
-gsap.utils.toArray(".timeline-item").forEach((item)=>{
-  const isLeft=item.classList.contains("left");
-  gsap.fromTo(item,{x:isLeft?-100:100,opacity:0},{x:0,opacity:1,duration:1,ease:"power3.out",
-    scrollTrigger:{trigger:item,start:"top 85%"}
+
+  // Active link highlight
+  const current = window.location.pathname.split("/").pop();
+  document.querySelectorAll(".nav-link").forEach((link) => {
+    const href = link.getAttribute("href");
+    if (href && href.includes(current) && current !== "") {
+      link.classList.add("active");
+    } else if (current === "" && href && href.includes("index.html")) {
+      link.classList.add("active");
+    }
   });
+
+  // ✅ PERFECT TOGGLE FUNCTIONALITY - SIMPLIFIED AND FIXED
+  const navbarToggler = document.getElementById("navbarToggler");
+  const togglerIcon = document.getElementById("togglerIcon");
+  const mainMenu = document.getElementById("mainMenu");
+  
+  if (navbarToggler && togglerIcon && mainMenu) {
+    // Listen for Bootstrap collapse events to update icon
+    mainMenu.addEventListener('show.bs.collapse', function () {
+      togglerIcon.classList.remove('fa-bars');
+      togglerIcon.classList.add('fa-bars');
+    });
+    
+    mainMenu.addEventListener('hide.bs.collapse', function () {
+      togglerIcon.classList.remove('fa-bars');
+      togglerIcon.classList.add('fa-bars');
+    });
+
+    // Close menu when clicking on nav links (mobile)
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 992) {
+          const bsCollapse = bootstrap.Collapse.getInstance(mainMenu);
+          if (bsCollapse) {
+            bsCollapse.hide();
+          }
+        }
+      });
+    });
+  }
+
+  // Scroll to top functionality
+  const scrollBtn = document.getElementById("scrollTopBtn");
+  if (scrollBtn) {
+    window.addEventListener("scroll", () => {
+      scrollBtn.style.display = window.scrollY > 300 ? "flex" : "none";
+    });
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // GSAP Animations
+  if (typeof gsap !== 'undefined') {
+    // Animate elements with data-animate attribute
+    gsap.utils.toArray('[data-animate]').forEach((el, i) => {
+      gsap.from(el, {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        delay: i * 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%"
+        }
+      });
+    });
+
+    // Timeline animations
+    gsap.utils.toArray(".timeline-item").forEach((item) => {
+      const isLeft = item.classList.contains("left");
+      gsap.fromTo(item, {
+        x: isLeft ? -100 : 100,
+        opacity: 0
+      }, {
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: item,
+          start: "top 85%"
+        }
+      });
+    });
+
+    // Hero section animation
+    const hero = document.querySelector('.hero');
+    if (hero) {
+      gsap.from('.hero h1', {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        delay: 0.2,
+        ease: "power3.out"
+      });
+      
+      gsap.from('.hero p', {
+        y: 30,
+        opacity: 0,
+        duration: 1,
+        delay: 0.5,
+        ease: "power3.out"
+      });
+    }
+  }
+
+  // Form submission handling (for quote modal)
+  const quoteForm = document.querySelector('#quoteModal form');
+  if (quoteForm) {
+    quoteForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      
+      // Simulate form submission
+      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+      submitBtn.disabled = true;
+      
+      setTimeout(() => {
+        submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Sent Successfully!';
+        setTimeout(() => {
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+          bootstrap.Modal.getInstance(document.getElementById('quoteModal')).hide();
+          quoteForm.reset();
+        }, 2000);
+      }, 1500);
+    });
+  }
+
+  // Intersection Observer for timeline animation
+  const timelineObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  // Observe all timeline content elements
+  document.querySelectorAll('.timeline-content').forEach(content => {
+    timelineObserver.observe(content);
+  });
+
+  // Page load animation
+  window.addEventListener('load', function() {
+    if (typeof gsap !== 'undefined') {
+      gsap.to('body', {
+        opacity: 1,
+        duration: 0.5,
+        ease: "power2.out"
+      });
+    }
+  });
+
+  // Initialize page opacity
+  document.body.style.opacity = '0';
 });
 </script>
 </body>
