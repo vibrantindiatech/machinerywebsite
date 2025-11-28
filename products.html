@@ -13,16 +13,19 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/style.css"/>
 <!-- Owl Carousel -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
-<!-- GSAP -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
 <style>
 /* ---------- Global Styles ---------- */
+:root {
+  --primary-color: #00b4ff;
+  --secondary-color: #00ffcc;
+  --dark-color: #0a0f1f;
+  --light-color: #f8f9fa;
+}
+
 body {
   background: #ffffff;
   color: #0a0f1f;
@@ -31,27 +34,18 @@ body {
 }
 
 /* === Fix for all Font Awesome icons === */
-.fa,
-.fas,
-.far,
-.fab,
-.fa-solid,
-.fa-brands {
+.fa, .fas, .far, .fab, .fa-solid, .fa-brands {
   font-family: "Font Awesome 6 Free" !important;
   font-weight: 900 !important;
 }
-
-.fa-brands {
-  font-family: "Font Awesome 6 Brands" !important;
-  font-weight: 400 !important;
-}
+.fa-brands { font-family: "Font Awesome 6 Brands" !important; font-weight: 400 !important; }
 
 h1, h2, h3, h5 { font-weight: 700; }
 
 .text-gradient {
-  background: linear-gradient(90deg, #000000, #000000);
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
   -webkit-background-clip: text;
-  -webkit-text-fill-color: #000000;
+  -webkit-text-fill-color: transparent;
 }
 
 /* ---------- Hero Section ---------- */
@@ -74,7 +68,7 @@ h1, h2, h3, h5 { font-weight: 700; }
 .hero .container { position: relative; z-index: 2; }
 .hero h1 {
   font-size: 2.8rem;
-  background: linear-gradient(90deg,#00ffcc,#00b4ff);
+  background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -110,7 +104,7 @@ h1, h2, h3, h5 { font-weight: 700; }
 }
 .filter-btns button.active,
 .filter-btns button:hover {
-  background: linear-gradient(90deg, #00ffcc, #00b4ff);
+  background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
   color: #fff;
   box-shadow: 0 0 10px rgba(0,255,204,0.4);
 }
@@ -135,7 +129,7 @@ h1, h2, h3, h5 { font-weight: 700; }
   position: absolute; 
   top: 10px; 
   left: -5px; 
-  background: #00b4ff; 
+  background: var(--primary-color); 
   color: #fff; 
   padding: 5px 15px; 
   font-size: 0.8rem; 
@@ -145,7 +139,7 @@ h1, h2, h3, h5 { font-weight: 700; }
   text-transform: uppercase; 
 }
 
-/* Image & Overlay */
+/* Image */
 .product-image { 
   position: relative; 
   height: 250px; 
@@ -161,27 +155,6 @@ h1, h2, h3, h5 { font-weight: 700; }
 }
 .product-card:hover .product-image img { 
   transform: scale(1.1); 
-}
-
-.product-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 180, 255, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  padding: 20px;
-  text-align: center;
-  color: white;
-}
-
-.product-card:hover .product-overlay { 
-  opacity: 1; 
 }
 
 /* Card Content */
@@ -203,7 +176,7 @@ h1, h2, h3, h5 { font-weight: 700; }
 /* Feature Badges */
 .feature-badge { 
   background: #e0f7fa; 
-  color: #00b4ff; 
+  color: var(--primary-color); 
   font-size: 0.85rem; 
   font-weight: 500; 
   padding: 5px 10px; 
@@ -213,8 +186,8 @@ h1, h2, h3, h5 { font-weight: 700; }
 
 /* Buttons */
 .btn-outline { 
-  border: 1px solid #00b4ff; 
-  color: #00b4ff; 
+  border: 1px solid var(--primary-color); 
+  color: var(--primary-color); 
   background: transparent; 
   border-radius: 50px; 
   padding: 8px 18px; 
@@ -223,11 +196,11 @@ h1, h2, h3, h5 { font-weight: 700; }
   display: inline-block;
 }
 .btn-outline:hover { 
-  background: #00b4ff; 
+  background: var(--primary-color); 
   color: #fff; 
 }
 .btn-primary { 
-  background: linear-gradient(90deg, #00b4ff, #00ffcc); 
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color)); 
   border: none; 
   color: #fff; 
   border-radius: 50px; 
@@ -244,6 +217,27 @@ h1, h2, h3, h5 { font-weight: 700; }
   gap: 10px;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+/* Pagination */
+.pagination {
+  justify-content: center;
+  margin-top: 40px;
+}
+.page-link {
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  margin: 0 5px;
+  border-radius: 50px;
+  padding: 8px 16px;
+}
+.page-link:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+.page-item.active .page-link {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
 }
 
 /* ---------- Floating Buttons ---------- */
@@ -316,7 +310,7 @@ h1, h2, h3, h5 { font-weight: 700; }
 
 /* === Brand === */
 .navbar-brand {
-  background: linear-gradient(90deg, #007bff, #00ccff);
+  background: linear-gradient(90deg, #007bff, var(--primary-color));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 700;
@@ -359,7 +353,7 @@ h1, h2, h3, h5 { font-weight: 700; }
   transform: translateX(-50%);
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #007bff, #00ccff);
+  background: linear-gradient(90deg, #007bff, var(--primary-color));
   transition: width 0.35s ease;
 }
 
@@ -375,7 +369,7 @@ h1, h2, h3, h5 { font-weight: 700; }
 
 /* === Quote Button === */
 .btn-glow {
-  background: linear-gradient(90deg, #00ccff, #007bff);
+  background: linear-gradient(90deg, var(--primary-color), #007bff);
   color: #fff!important;
   font-weight: 600;
   border: none;
@@ -465,7 +459,7 @@ h1, h2, h3, h5 { font-weight: 700; }
 }
 
 .product-quote-modal .modal-header {
-  background: linear-gradient(90deg, #00b4ff, #00ffcc);
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
   color: white;
   border-bottom: none;
   padding: 1.5rem;
@@ -491,12 +485,12 @@ h1, h2, h3, h5 { font-weight: 700; }
 
 .product-quote-modal .form-control:focus,
 .product-quote-modal .form-select:focus {
-  border-color: #00b4ff;
+  border-color: var(--primary-color);
   box-shadow: 0 0 0 0.2rem rgba(0, 180, 255, 0.25);
 }
 
 .btn-quote-submit {
-  background: linear-gradient(90deg, #00b4ff, #00ffcc);
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
   border: none;
   color: white;
   font-weight: 600;
@@ -514,7 +508,7 @@ h1, h2, h3, h5 { font-weight: 700; }
 
 .product-info-badge {
   background: #e9f7fe;
-  color: #00b4ff;
+  color: var(--primary-color);
   padding: 0.5rem 1rem;
   border-radius: 50px;
   font-weight: 500;
@@ -530,9 +524,9 @@ h1, h2, h3, h5 { font-weight: 700; }
 
 .inquiry-option-btn {
   flex: 1;
-  border: 2px solid #00b4ff;
+  border: 2px solid var(--primary-color);
   background: white;
-  color: #00b4ff;
+  color: var(--primary-color);
   border-radius: 8px;
   padding: 0.75rem;
   font-weight: 600;
@@ -542,7 +536,7 @@ h1, h2, h3, h5 { font-weight: 700; }
 }
 
 .inquiry-option-btn.active {
-  background: #00b4ff;
+  background: var(--primary-color);
   color: white;
 }
 
@@ -620,7 +614,7 @@ h1, h2, h3, h5 { font-weight: 700; }
 }
 .small-img:hover, .small-img.active { 
   transform: scale(1.05);
-  border-color: #00b4ff; 
+  border-color: var(--primary-color); 
 }
 
 /* You May Also Like Section */
@@ -669,7 +663,7 @@ h1, h2, h3, h5 { font-weight: 700; }
   color: #333;
 }
 .text-gradient { 
-  background: linear-gradient(90deg, #00b4ff, #00ffcc); 
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color)); 
   -webkit-background-clip: text; 
   -webkit-text-fill-color: transparent; 
 }
@@ -825,305 +819,15 @@ h1, h2, h3, h5 { font-weight: 700; }
         </div>
 
         <div class="row g-4 product-grid">
-
-            <!-- Product 1 -->
-            <div class="col-md-4 col-sm-6 product-item" data-category="drum">
-                <div class="product-card shadow-lg position-relative">
-                    <span class="ribbon">Featured</span>
-                    <div class="product-image" data-bs-toggle="modal" data-bs-target="#productModal1">
-                        <img src="assets/images/Hydraulic Barrel drum cutting machine manual.png" alt="Drum Cutting Machine" class="main-img">
-                        <div class="product-overlay">
-                            <p>High-performance hydraulic drum cutting machine for safe and smooth operation.</p>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h5>Hydraulic Barrel Drum Cutting Machine</h5>
-                        <div class="features d-flex justify-content-center flex-wrap gap-2 mb-3">
-                            <span class="feature-badge">2 HP</span>
-                            <span class="feature-badge">200 L Drum</span>
-                            <span class="feature-badge">350 Kg</span>
-                        </div>
-                        <div class="btn-group">
-                            <a href="tel:+917014405301" class="btn btn-outline"><i class="fa-solid fa-phone me-1"></i>Call Now</a>
-                            <button class="btn btn-primary btn-quote" data-product="Hydraulic Barrel Drum Cutting Machine" data-bs-toggle="modal" data-bs-target="#productQuoteModal">
-                                <i class="fa-solid fa-quote-right me-1"></i>Get Quote
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 2 -->
-            <div class="col-md-4 col-sm-6 product-item" data-category="bottle">
-                <div class="product-card shadow-lg position-relative">
-                    <span class="ribbon">New</span>
-                    <div class="product-image" data-bs-toggle="modal" data-bs-target="#productModal2">
-                        <img src="assets/images/Hydraulic manual Bottle cap threading machine.png" alt="Bottle Cap Machine" class="main-img">
-                        <div class="product-overlay">
-                            <p>Precision threading machine with durable hydraulic mechanism for consistent output.</p>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h5>Hydraulic Bottle Cap Threading Machine</h5>
-                        <div class="features d-flex justify-content-center flex-wrap gap-2 mb-3">
-                            <span class="feature-badge">1.5 HP</span>
-                            <span class="feature-badge">Standard Bottles</span>
-                            <span class="feature-badge">200 Kg</span>
-                        </div>
-                        <div class="btn-group">
-                            <a href="tel:+917014405301" class="btn btn-outline"><i class="fa-solid fa-phone me-1"></i>Call Now</a>
-                            <button class="btn btn-primary btn-quote" data-product="Hydraulic Bottle Cap Threading Machine" data-bs-toggle="modal" data-bs-target="#productQuoteModal">
-                                <i class="fa-solid fa-quote-right me-1"></i>Get Quote
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="col-md-4 col-sm-6 product-item" data-category="edge">
-                <div class="product-card shadow-lg position-relative">
-                    <span class="ribbon">Best Seller</span>
-                    <div class="product-image" data-bs-toggle="modal" data-bs-target="#productModal3">
-                        <img src="assets/images/Hydraulic semi auto edge cutting & tooling machine.png" alt="Edge Cutting Machine" class="main-img">
-                        <div class="product-overlay">
-                            <p>Advanced semi-auto machine for high-precision edge cutting and tooling operations.</p>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h5>Hydraulic Semi Auto Edge Cutting Machine 1</h5>
-                        <div class="features d-flex justify-content-center flex-wrap gap-2 mb-3">
-                            <span class="feature-badge">3 HP</span>
-                            <span class="feature-badge">Edge up to 500 mm</span>
-                            <span class="feature-badge">400 Kg</span>
-                        </div>
-                        <div class="btn-group">
-                            <a href="tel:+917014405301" class="btn btn-outline"><i class="fa-solid fa-phone me-1"></i>Call Now</a>
-                            <button class="btn btn-primary btn-quote" data-product="Hydraulic Semi Auto Edge Cutting Machine 1" data-bs-toggle="modal" data-bs-target="#productQuoteModal">
-                                <i class="fa-solid fa-quote-right me-1"></i>Get Quote
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Product 4 -->
-            <div class="col-md-4 col-sm-6 product-item" data-category="edge">
-                <div class="product-card shadow-lg position-relative">
-                    <span class="ribbon">Best Seller</span>
-                    <div class="product-image" data-bs-toggle="modal" data-bs-target="#productModal3">
-                        <img src="assets/images/Hydraulic semi auto edge cutting & tooling machine.png" alt="Edge Cutting Machine" class="main-img">
-                        <div class="product-overlay">
-                            <p>Advanced semi-auto machine for high-precision edge cutting and tooling operations.</p>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h5>Hydraulic Semi Auto Edge Cutting Machine 2</h5>
-                        <div class="features d-flex justify-content-center flex-wrap gap-2 mb-3">
-                            <span class="feature-badge">3 HP</span>
-                            <span class="feature-badge">Edge up to 500 mm</span>
-                            <span class="feature-badge">400 Kg</span>
-                        </div>
-                        <div class="btn-group">
-                            <a href="tel:+917014405301" class="btn btn-outline"><i class="fa-solid fa-phone me-1"></i>Call Now</a>
-                            <button class="btn btn-primary btn-quote" data-product="Hydraulic Semi Auto Edge Cutting Machine 2" data-bs-toggle="modal" data-bs-target="#productQuoteModal">
-                                <i class="fa-solid fa-quote-right me-1"></i>Get Quote
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Product 5 -->
-            <div class="col-md-4 col-sm-6 product-item" data-category="normal">
-                <div class="product-card shadow-lg position-relative">
-                    <span class="ribbon">New</span>
-                    <div class="product-image" data-bs-toggle="modal" data-bs-target="#productModal4">
-                        <img src="assets/images/Hydraulic Round beeding machine semi auto.png" alt="Round Beeding Machine" class="main-img">
-                        <div class="product-overlay">
-                            <p>Semi-auto hydraulic round beeding machine for consistent and smooth beeding.</p>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h5>Hydraulic Round Beeding Machine</h5>
-                        <div class="features d-flex justify-content-center flex-wrap gap-2 mb-3">
-                            <span class="feature-badge">2.5 HP</span>
-                            <span class="feature-badge">Round Edges</span>
-                            <span class="feature-badge">300 Kg</span>
-                        </div>
-                        <div class="btn-group">
-                            <a href="tel:+917014405301" class="btn btn-outline"><i class="fa-solid fa-phone me-1"></i>Call Now</a>
-                            <button class="btn btn-primary btn-quote" data-product="Hydraulic Round Beeding Machine" data-bs-toggle="modal" data-bs-target="#productQuoteModal">
-                                <i class="fa-solid fa-quote-right me-1"></i>Get Quote
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Product 6 -->
-            <div class="col-md-4 col-sm-6 product-item" data-category="normal">
-                <div class="product-card shadow-lg position-relative">
-                    <span class="ribbon">Best Seller</span>
-                    <div class="product-image" data-bs-toggle="modal" data-bs-target="#productModal5">
-                        <img src="assets/images/Manual square beeding machine 01.png" alt="Manual Square Beeding Machine" class="main-img">
-                        <div class="product-overlay">
-                            <p>Manual machine for square beeding, reliable and easy to operate.</p>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h5>Manual Square Beeding Machine</h5>
-                        <div class="features d-flex justify-content-center flex-wrap gap-2 mb-3">
-                            <span class="feature-badge">Manual</span>
-                            <span class="feature-badge">Square Edges</span>
-                            <span class="feature-badge">150 Kg</span>
-                        </div>
-                        <div class="btn-group">
-                            <a href="tel:+917014405301" class="btn btn-outline"><i class="fa-solid fa-phone me-1"></i>Call Now</a>
-                            <button class="btn btn-primary btn-quote" data-product="Manual Square Beeding Machine" data-bs-toggle="modal" data-bs-target="#productQuoteModal">
-                                <i class="fa-solid fa-quote-right me-1"></i>Get Quote
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Product 7 -->
-            <div class="col-md-4 col-sm-6 product-item" data-category="normal">
-                <div class="product-card shadow-lg position-relative">
-                    <span class="ribbon">New</span>
-                    <div class="product-image" data-bs-toggle="modal" data-bs-target="#productModal6">
-                        <img src="assets/images/Manual square beeding machine.png" alt="Manual Square Beeding Machine 2" class="main-img">
-                        <div class="product-overlay">
-                            <p>High efficiency manual square beeding machine.</p>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h5>Manual Square Beeding Machine 2</h5>
-                        <div class="features d-flex justify-content-center flex-wrap gap-2 mb-3">
-                            <span class="feature-badge">Manual</span>
-                            <span class="feature-badge">Square Edges</span>
-                            <span class="feature-badge">180 Kg</span>
-                        </div>
-                        <div class="btn-group">
-                            <a href="tel:+917014405301" class="btn btn-outline"><i class="fa-solid fa-phone me-1"></i>Call Now</a>
-                            <button class="btn btn-primary btn-quote" data-product="Manual Square Beeding Machine 2" data-bs-toggle="modal" data-bs-target="#productQuoteModal">
-                                <i class="fa-solid fa-quote-right me-1"></i>Get Quote
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Product 8 -->
-            <div class="col-md-4 col-sm-6 product-item" data-category="normal">
-                <div class="product-card shadow-lg position-relative">
-                    <span class="ribbon">Featured</span>
-                    <div class="product-image" data-bs-toggle="modal" data-bs-target="#productModal7">
-                        <img src="assets/images/Out cutter machine.png" alt="Out Cutter Machine" class="main-img">
-                        <div class="product-overlay">
-                            <p>Efficient Out Cutter Machine for precision external cuts.</p>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h5>Out Cutter Machine</h5>
-                        <div class="features d-flex justify-content-center flex-wrap gap-2 mb-3">
-                            <span class="feature-badge">1 HP</span>
-                            <span class="feature-badge">External Cut</span>
-                            <span class="feature-badge">120 Kg</span>
-                        </div>
-                        <div class="btn-group">
-                            <a href="tel:+917014405301" class="btn btn-outline"><i class="fa-solid fa-phone me-1"></i>Call Now</a>
-                            <button class="btn btn-primary btn-quote" data-product="Out Cutter Machine" data-bs-toggle="modal" data-bs-target="#productQuoteModal">
-                                <i class="fa-solid fa-quote-right me-1"></i>Get Quote
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Product 9 -->
-            <div class="col-md-4 col-sm-6 product-item" data-category="normal">
-                <div class="product-card shadow-lg position-relative">
-                    <span class="ribbon">Best Seller</span>
-                    <div class="product-image" data-bs-toggle="modal" data-bs-target="#productModal8">
-                        <img src="assets/images/Round circle cutting machine.png" alt="Round Circle Cutting Machine" class="main-img">
-                        <div class="product-overlay">
-                            <p>High-speed round circle cutting machine.</p>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h5>Round Circle Cutting Machine</h5>
-                        <div class="features d-flex justify-content-center flex-wrap gap-2 mb-3">
-                            <span class="feature-badge">2 HP</span>
-                            <span class="feature-badge">Circular Cut</span>
-                            <span class="feature-badge">250 Kg</span>
-                        </div>
-                        <div class="btn-group">
-                            <a href="tel:+917014405301" class="btn btn-outline"><i class="fa-solid fa-phone me-1"></i>Call Now</a>
-                            <button class="btn btn-primary btn-quote" data-product="Round Circle Cutting Machine" data-bs-toggle="modal" data-bs-target="#productQuoteModal">
-                                <i class="fa-solid fa-quote-right me-1"></i>Get Quote
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Product 10 -->
-            <div class="col-md-4 col-sm-6 product-item" data-category="normal">
-                <div class="product-card shadow-lg position-relative">
-                    <span class="ribbon">New</span>
-                    <div class="product-image" data-bs-toggle="modal" data-bs-target="#productModal9">
-                        <img src="assets/images/Ss coil de coiler.png" alt="SS Coil De-Coiler" class="main-img">
-                        <div class="product-overlay">
-                            <p>Robust Stainless Steel Coil De-Coiler for industrial use.</p>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h5>SS Coil De-Coiler</h5>
-                        <div class="features d-flex justify-content-center flex-wrap gap-2 mb-3">
-                            <span class="feature-badge">Heavy Duty</span>
-                            <span class="feature-badge">SS Coils</span>
-                            <span class="feature-badge">600 Kg</span>
-                        </div>
-                        <div class="btn-group">
-                            <a href="tel:+917014405301" class="btn btn-outline"><i class="fa-solid fa-phone me-1"></i>Call Now</a>
-                            <button class="btn btn-primary btn-quote" data-product="SS Coil De-Coiler" data-bs-toggle="modal" data-bs-target="#productQuoteModal">
-                                <i class="fa-solid fa-quote-right me-1"></i>Get Quote
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Product 11 -->
-            <div class="col-md-4 col-sm-6 product-item" data-category="normal">
-                <div class="product-card shadow-lg position-relative">
-                    <span class="ribbon">Featured</span>
-                    <div class="product-image" data-bs-toggle="modal" data-bs-target="#productModal10">
-                        <img src="assets/images/Vertical beeding machine.png" alt="Vertical Beeding Machine" class="main-img">
-                        <div class="product-overlay">
-                            <p>Space-saving vertical beeding machine for precise beed formation.</p>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h5>Vertical Beeding Machine</h5>
-                        <div class="features d-flex justify-content-center flex-wrap gap-2 mb-3">
-                            <span class="feature-badge">1.5 HP</span>
-                            <span class="feature-badge">Vertical</span>
-                            <span class="feature-badge">200 Kg</span>
-                        </div>
-                        <div class="btn-group">
-                            <a href="tel:+917014405301" class="btn btn-outline"><i class="fa-solid fa-phone me-1"></i>Call Now</a>
-                            <button class="btn btn-primary btn-quote" data-product="Vertical Beeding Machine" data-bs-toggle="modal" data-bs-target="#productQuoteModal">
-                                <i class="fa-solid fa-quote-right me-1"></i>Get Quote
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
+            <!-- Products will be dynamically loaded here -->
         </div>
+
+        <!-- Pagination -->
+        <nav aria-label="Product pagination">
+            <ul class="pagination" id="pagination">
+                <!-- Pagination will be dynamically generated -->
+            </ul>
+        </nav>
     </div>
 </section>
 
@@ -1215,12 +919,12 @@ h1, h2, h3, h5 { font-weight: 700; }
   </div>
 </div>
 
-<!-- Product Modals -->
-<div class="modal fade" id="productModal1" tabindex="-1" aria-labelledby="productModalLabel1" aria-hidden="true">
+<!-- Product Modal -->
+<div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header border-0 pb-0">
-                <h3 class="modal-title text-gradient fw-bold" id="productModalLabel1">Hydraulic Drum Cutter</h3>
+                <h3 class="modal-title text-gradient fw-bold" id="productModalLabel">Product Name</h3>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body pt-0">
@@ -1228,25 +932,25 @@ h1, h2, h3, h5 { font-weight: 700; }
                 <div class="row g-4">
                     <div class="col-lg-6 col-12">
                         <div class="image-container shadow-lg">
-                            <img id="modalMainImg1" src="assets/images/Hydraulic Barrel drum cutting machine manual.png" class="img-fluid rounded" alt="Product Main Image">
+                            <img id="modalMainImg" src="" class="img-fluid rounded" alt="Product Main Image">
                         </div>
-                        <div id="productThumbnails1" class="mt-3 d-flex gap-2 flex-wrap justify-content-center"></div>
+                        <div id="productThumbnails" class="mt-3 d-flex gap-2 flex-wrap justify-content-center"></div>
                     </div>
                     
                     <div class="col-lg-6 col-12">
                         <div class="card shadow-sm h-100">
                             <div class="card-body">
                                 <h5 class="text-primary fw-bold mb-3">Key Features:</h5>
-                                <ul id="productFeatures1" class="list-unstyled product-feature-list"></ul>
+                                <ul id="productFeatures" class="list-unstyled product-feature-list"></ul>
                                 
                                 <h5 class="text-primary fw-bold mt-4 mb-3">Technical Specifications:</h5>
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-bordered" id="productSpecs1"></table>
+                                    <table class="table table-striped table-bordered" id="productSpecs"></table>
                                 </div>
                                 
                                 <div class="mt-4 pt-3 border-top text-center">
                                     <a href="tel:+917014405301" class="btn btn-outline-primary me-2 w-40"><i class="fa-solid fa-phone me-1"></i> Call Now</a>
-                                    <button class="btn btn-primary w-40 btn-quote" data-product="Hydraulic Drum Cutter" data-bs-toggle="modal" data-bs-target="#productQuoteModal">
+                                    <button class="btn btn-primary w-40 btn-quote" data-product="" data-bs-toggle="modal" data-bs-target="#productQuoteModal">
                                         <i class="fa-solid fa-quote-right me-1"></i> Inquire Now
                                     </button>
                                 </div>
@@ -1258,24 +962,22 @@ h1, h2, h3, h5 { font-weight: 700; }
                 <hr class="mt-5">
                 
                 <p class="text-center">
-                    <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#detailedDescription1" aria-expanded="false" aria-controls="detailedDescription1">
-                        View Detailed Description & Applications <i class="fa-solid fa-chevron-down ms-1 collapse-icon-1"></i>
+                    <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#detailedDescription" aria-expanded="false" aria-controls="detailedDescription">
+                        View Detailed Description & Applications <i class="fa-solid fa-chevron-down ms-1 collapse-icon"></i>
                     </button>
                 </p>
-                <div class="collapse" id="detailedDescription1">
-                    <div class="card card-body bg-light" id="detailedContent1"></div>
+                <div class="collapse" id="detailedDescription">
+                    <div class="card card-body bg-light" id="detailedContent"></div>
                 </div>
                 
                 <div class="related-products mt-5">
                     <h4 class="text-center text-gradient mb-4">You May Also Like</h4>
-                    <div class="owl-carousel owl-theme" id="relatedProducts1"></div>
+                    <div class="owl-carousel owl-theme" id="relatedProducts"></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<!-- Additional Product Modals (2-10) would follow the same pattern -->
 
 <!-- Floating WhatsApp -->
 <div class="floating-buttons">
@@ -1297,6 +999,376 @@ h1, h2, h3, h5 { font-weight: 700; }
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
 <script>
+  // Product data
+  const products = [
+    {
+      id: 1,
+      name: "Hydraulic Barrel Drum Cutting Machine",
+      category: "drum",
+      image: "assets/images/Hydraulic Barrel drum cutting machine manual.png",
+      features: ["2 HP", "200 L Drum", "350 Kg"],
+      description: "High-performance hydraulic drum cutting machine for safe and smooth operation."
+    },
+    {
+      id: 2,
+      name: "Hydraulic Bottle Cap Threading Machine",
+      category: "bottle",
+      image: "assets/images/Hydraulic manual Bottle cap threading machine.png",
+      features: ["1.5 HP", "Standard Bottles", "200 Kg"],
+      description: "Precision threading machine with durable hydraulic mechanism for consistent output."
+    },
+    {
+      id: 3,
+      name: "Hydraulic Semi Auto Edge Cutting Machine 1",
+      category: "edge",
+      image: "assets/images/Hydraulic semi auto edge cutting & tooling machine.png",
+      features: ["3 HP", "Edge up to 500 mm", "400 Kg"],
+      description: "Advanced semi-auto machine for high-precision edge cutting and tooling operations."
+    },
+    {
+      id: 4,
+      name: "Hydraulic Semi Auto Edge Cutting Machine 2",
+      category: "edge",
+      image: "assets/images/Hydraulic semi auto edge cutting & tooling machine.png",
+      features: ["3 HP", "Edge up to 500 mm", "400 Kg"],
+      description: "Advanced semi-auto machine for high-precision edge cutting and tooling operations."
+    },
+    {
+      id: 5,
+      name: "Hydraulic Round Beeding Machine",
+      category: "normal",
+      image: "assets/images/Hydraulic Round beeding machine semi auto.png",
+      features: ["2.5 HP", "Round Edges", "300 Kg"],
+      description: "Semi-auto hydraulic round beeding machine for consistent and smooth beeding."
+    },
+    {
+      id: 6,
+      name: "Manual Square Beeding Machine",
+      category: "normal",
+      image: "assets/images/Manual square beeding machine 01.png",
+      features: ["Manual", "Square Edges", "150 Kg"],
+      description: "Manual machine for square beeding, reliable and easy to operate."
+    },
+    {
+      id: 7,
+      name: "Manual Square Beeding Machine 2",
+      category: "normal",
+      image: "assets/images/Manual square beeding machine.png",
+      features: ["Manual", "Square Edges", "180 Kg"],
+      description: "High efficiency manual square beeding machine."
+    },
+    {
+      id: 8,
+      name: "Out Cutter Machine",
+      category: "normal",
+      image: "assets/images/Out cutter machine.png",
+      features: ["1 HP", "External Cut", "120 Kg"],
+      description: "Efficient Out Cutter Machine for precision external cuts."
+    },
+    {
+      id: 9,
+      name: "Round Circle Cutting Machine",
+      category: "normal",
+      image: "assets/images/Round circle cutting machine.png",
+      features: ["2 HP", "Circular Cut", "250 Kg"],
+      description: "High-speed round circle cutting machine."
+    },
+    {
+      id: 10,
+      name: "SS Coil De-Coiler",
+      category: "normal",
+      image: "assets/images/Ss coil de coiler.png",
+      features: ["Heavy Duty", "SS Coils", "600 Kg"],
+      description: "Robust Stainless Steel Coil De-Coiler for industrial use."
+    },
+    {
+      id: 11,
+      name: "Vertical Beeding Machine",
+      category: "normal",
+      image: "assets/images/Vertical beeding machine.png",
+      features: ["1.5 HP", "Vertical", "200 Kg"],
+      description: "Space-saving vertical beeding machine for precise beed formation."
+    }
+  ];
+
+  // Detailed product data for modals
+  const modalProducts = {
+    1: {
+      name: "Hydraulic Barrel Drum Cutting Machine",
+      img: "assets/images/Hydraulic Barrel drum cutting machine manual.png",
+      thumbs: [
+        "assets/images/Hydraulic Barrel drum cutting machine manual.png",
+        "assets/images/Hydraulic Barrel drum cutting machine extra.png",
+        "assets/images/Drum cutting process view.png" 
+      ],
+      features: [
+        "**High-performance** hydraulic operation for consistent cuts",
+        "Emergency stop mechanism and guarded blade chamber for **enhanced safety**",
+        "Durable steel construction ensuring long operational life",
+        "Adjustable cutting depth for varying drum materials and thickness"
+      ],
+      specs: [
+        ["Power","2 HP (1.5 kW)"],
+        ["Cutting Capacity","200 L Standard Drum"],
+        ["Weight","350 Kg (Approx)"], 
+        ["Operation","Manual/Semi-Auto"], 
+        ["Cycle Time","< 30 seconds"] 
+      ],
+      details: {
+        description: "This **Hydraulic Barrel Drum Cutting Machine** is designed for maximum safety and efficiency in industrial recycling and decommissioning. The high-performance hydraulic system ensures a clean, smooth cut through thick steel drums, significantly reducing manual effort and processing time. Essential for preparing drums for disposal or reuse, ensuring compliance with environmental standards.",
+        applications: ["Chemical and Petrochemical Waste Management", "Industrial Recycling Facilities", "Drum Reconditioning Centers"]
+      }
+    },
+    2: {
+      name: "Hydraulic Bottle Cap Threading Machine",
+      img: "assets/images/Hydraulic manual Bottle cap threading machine.png",
+      thumbs: [
+        "assets/images/Hydraulic manual Bottle cap threading machine.png",
+        "assets/images/Bottle threading detail.png", 
+        "assets/images/Bottle threader operation.png" 
+      ],
+      features: [
+        "**Precision threading control** for leak-proof seals",
+        "Durable mechanism for long life and low maintenance",
+        "Ergonomic handle and base plate for stable manual operation",
+        "Quick-change mandrel system for different cap sizes"
+      ],
+      specs: [
+        ["Power","1.5 HP"],
+        ["Cap Diameter","30mm - 110mm"],
+        ["Height Adjustment","Manual lock"], 
+        ["Accuracy","±0.1 mm"]
+      ],
+      details: {
+        description: "The **Hydraulic Bottle Cap Threading Machine** is engineered for precision and consistency in capping small to medium batches. Its manual hydraulic system provides superior torque control compared to basic hand tools, ensuring a tight, reliable seal on various bottle types, perfect for pharmaceutical, cosmetic, and small-scale food production.",
+        applications: ["Pharmaceutical Bottling", "Small-Batch Beverage Production", "Cosmetic and Essential Oil Packaging"]
+      }
+    },
+    3: {
+      name: "Hydraulic Semi Auto Edge Cutting Machine 1",
+      img: "assets/images/Hydraulic semi auto edge cutting & tooling machine.png",
+      thumbs: [
+        "assets/images/Hydraulic semi auto edge cutting & tooling machine.png",
+        "assets/images/Edge cutting tooling head.png", 
+        "assets/images/Edge cutting finished product.png" 
+      ],
+      features: [
+        "**High precision** circular cutting and tooling for clean metal edges",
+        "Semi-automatic operation requiring minimal operator intervention",
+        "Heavy-duty frame for enhanced stability and **vibration reduction**",
+        "Integrated coolant system for prolonged tool life" 
+      ],
+      specs: [
+        ["Power","3 HP"],
+        ["Cutting Capacity","500 mm (Max Diameter)"],
+        ["Tolerance","±0.05 mm"],
+        ["Coolant Tank","5 L capacity"] 
+      ],
+      details: {
+        description: "The **Hydraulic Semi Auto Edge Cutting Machine** is designed for the high-tolerance finishing of industrial metal components. Utilizing a semi-automatic process, it delivers consistent, clean edge trimming and tooling, crucial for manufacturing parts where precision is paramount, such as in automotive or heavy machinery.",
+        applications: ["Automotive Component Manufacturing", "Metal Fabrication and Tooling", "Precision Machinery Finishing"]
+      }
+    },
+    4: {
+      name: "Hydraulic Semi Auto Edge Cutting Machine 2",
+      img: "assets/images/Hydraulic semi auto edge cutting & tooling machine.png",
+      thumbs: [
+        "assets/images/Hydraulic semi auto edge cutting & tooling machine.png",
+        "assets/images/Edge cutting tooling head.png", 
+        "assets/images/Edge cutting finished product.png" 
+      ],
+      features: [
+        "**High precision** circular cutting and tooling for clean metal edges",
+        "Semi-automatic operation requiring minimal operator intervention",
+        "Heavy-duty frame for enhanced stability and **vibration reduction**",
+        "Integrated coolant system for prolonged tool life" 
+      ],
+      specs: [
+        ["Power","3 HP"],
+        ["Cutting Capacity","500 mm (Max Diameter)"],
+        ["Tolerance","±0.05 mm"],
+        ["Coolant Tank","5 L capacity"] 
+      ],
+      details: {
+        description: "The **Hydraulic Semi Auto Edge Cutting Machine** is designed for the high-tolerance finishing of industrial metal components. Utilizing a semi-automatic process, it delivers consistent, clean edge trimming and tooling, crucial for manufacturing parts where precision is paramount, such as in automotive or heavy machinery.",
+        applications: ["Automotive Component Manufacturing", "Metal Fabrication and Tooling", "Precision Machinery Finishing"]
+      }
+    },
+    5: {
+      name: "Hydraulic Round Beeding Machine",
+      img: "assets/images/Hydraulic Round beeding machine semi auto.png",
+      thumbs: [
+        "assets/images/Hydraulic Round beeding machine semi auto.png",
+        "assets/images/Round beeding detail.png"
+      ],
+      features: [
+        "**Smooth round beeding** for consistent edge formation",
+        "Semi-automatic operation for enhanced productivity",
+        "Durable construction for long-term reliability",
+        "Easy adjustment for different material thicknesses"
+      ],
+      specs: [
+        ["Power","2.5 HP"],
+        ["Beeding Capacity","Various diameters"],
+        ["Weight","300 Kg"],
+        ["Operation","Semi-Auto"]
+      ],
+      details: {
+        description: "The **Hydraulic Round Beeding Machine** provides precise and consistent round beeding operations for various industrial applications. Its semi-automatic functionality ensures high productivity while maintaining quality standards across different material types and thicknesses.",
+        applications: ["Metal Fabrication", "Automotive Components", "Industrial Equipment Manufacturing"]
+      }
+    },
+    6: {
+      name: "Manual Square Beeding Machine",
+      img: "assets/images/Manual square beeding machine 01.png",
+      thumbs: [
+        "assets/images/Manual square beeding machine 01.png",
+        "assets/images/Square beeding operation.png"
+      ],
+      features: [
+        "**Manual operation** for precise control",
+        "Square edge formation for various applications",
+        "Compact design for space efficiency",
+        "Easy to operate and maintain"
+      ],
+      specs: [
+        ["Power","Manual"],
+        ["Beeding Type","Square Edges"],
+        ["Weight","150 Kg"],
+        ["Operation","Manual"]
+      ],
+      details: {
+        description: "The **Manual Square Beeding Machine** offers reliable square edge formation with manual control for precision work. Its compact design makes it ideal for workshops with limited space while providing consistent results for various industrial applications.",
+        applications: ["Small Workshops", "Custom Fabrication", "Prototype Development"]
+      }
+    },
+    7: {
+      name: "Manual Square Beeding Machine 2",
+      img: "assets/images/Manual square beeding machine.png",
+      thumbs: [
+        "assets/images/Manual square beeding machine.png",
+        "assets/images/Square beeding operation.png"
+      ],
+      features: [
+        "**Enhanced manual control** for precision work",
+        "Improved square edge formation",
+        "Robust construction for durability",
+        "User-friendly operation"
+      ],
+      specs: [
+        ["Power","Manual"],
+        ["Beeding Type","Square Edges"],
+        ["Weight","180 Kg"],
+        ["Operation","Manual"]
+      ],
+      details: {
+        description: "The **Manual Square Beeding Machine 2** builds upon our original design with enhanced features for improved precision and durability. Perfect for workshops requiring reliable square edge formation with manual control.",
+        applications: ["Metal Workshops", "Fabrication Units", "Maintenance Shops"]
+      }
+    },
+    8: {
+      name: "Out Cutter Machine",
+      img: "assets/images/Out cutter machine.png",
+      thumbs: [
+        "assets/images/Out cutter machine.png",
+        "assets/images/Out cutter operation.png"
+      ],
+      features: [
+        "**Precision external cutting** capabilities",
+        "Compact and efficient design",
+        "Easy blade replacement system",
+        "Consistent cutting performance"
+      ],
+      specs: [
+        ["Power","1 HP"],
+        ["Cutting Type","External Cut"],
+        ["Weight","120 Kg"],
+        ["Operation","Manual"]
+      ],
+      details: {
+        description: "The **Out Cutter Machine** specializes in precise external cutting operations for various materials. Its compact design and efficient performance make it ideal for workshops requiring reliable cutting solutions.",
+        applications: ["Pipe Cutting", "Rod Cutting", "Material Trimming"]
+      }
+    },
+    9: {
+      name: "Round Circle Cutting Machine",
+      img: "assets/images/Round circle cutting machine.png",
+      thumbs: [
+        "assets/images/Round circle cutting machine.png",
+        "assets/images/Circle cutting operation.png"
+      ],
+      features: [
+        "**High-speed circular cutting**",
+        "Precision cutting for perfect circles",
+        "Adjustable cutting diameter",
+        "Durable construction for heavy use"
+      ],
+      specs: [
+        ["Power","2 HP"],
+        ["Cutting Type","Circular Cut"],
+        ["Weight","250 Kg"],
+        ["Max Diameter","Various sizes"]
+      ],
+      details: {
+        description: "The **Round Circle Cutting Machine** delivers high-speed precision cutting for perfect circular shapes. With adjustable diameter settings and durable construction, it's perfect for industrial applications requiring consistent circle cutting.",
+        applications: ["Disc Manufacturing", "Gasket Production", "Metal Component Fabrication"]
+      }
+    },
+    10: {
+      name: "SS Coil De-Coiler",
+      img: "assets/images/Ss coil de coiler.png",
+      thumbs: [
+        "assets/images/Ss coil de coiler.png",
+        "assets/images/Coil de-coiling operation.png"
+      ],
+      features: [
+        "**Heavy-duty construction** for stainless steel coils",
+        "Smooth de-coiling operation",
+        "Adjustable tension control",
+        "Robust frame for stability"
+      ],
+      specs: [
+        ["Power","Heavy Duty"],
+        ["Material","SS Coils"],
+        ["Weight","600 Kg"],
+        ["Operation","Manual/Semi-Auto"]
+      ],
+      details: {
+        description: "The **SS Coil De-Coiler** is specially designed for handling stainless steel coils with precision and efficiency. Its heavy-duty construction ensures reliable performance in demanding industrial environments.",
+        applications: ["Stainless Steel Processing", "Coil Feeding Systems", "Metal Forming Lines"]
+      }
+    },
+    11: {
+      name: "Vertical Beeding Machine",
+      img: "assets/images/Vertical beeding machine.png",
+      thumbs: [
+        "assets/images/Vertical beeding machine.png",
+        "assets/images/Vertical beeding operation.png"
+      ],
+      features: [
+        "**Space-saving vertical design**",
+        "Precise vertical beeding operation",
+        "Easy material handling",
+        "Compact footprint"
+      ],
+      specs: [
+        ["Power","1.5 HP"],
+        ["Orientation","Vertical"],
+        ["Weight","200 Kg"],
+        ["Operation","Manual"]
+      ],
+      details: {
+        description: "The **Vertical Beeding Machine** offers space-efficient vertical beeding operations with precise control. Its compact design makes it ideal for workshops with limited floor space while maintaining high performance standards.",
+        applications: ["Space-Constrained Workshops", "Vertical Beeding Applications", "Compact Fabrication Units"]
+      }
+    }
+  };
+
+  // Pagination variables
+  let currentPage = 1;
+  const productsPerPage = 6;
+  let filteredProducts = [...products];
+
   // Initialize EmailJS with your public key
   (function() {
     // Replace with your actual EmailJS public key
@@ -1307,25 +1379,6 @@ h1, h2, h3, h5 { font-weight: 700; }
   window.addEventListener("scroll", () => {
     const nav = document.querySelector(".next-level-navbar");
     nav.classList.toggle("scrolled", window.scrollY > 40);
-  });
-
-  // Fix toggler open/close for mobile
-  document.addEventListener("DOMContentLoaded", () => {
-    const toggler = document.querySelector(".navbar-toggler");
-    const menu = document.querySelector("#mainMenu");
-    
-    toggler.addEventListener("click", () => {
-      const isShown = menu.classList.contains("show");
-      const icon = toggler.querySelector("i");
-      
-      if (isShown) {
-        icon.classList.remove("fa-bars");
-        icon.classList.add("fa-bars");
-      } else {
-        icon.classList.remove("fa-bars");
-        icon.classList.add("fa-bars");
-      }
-    });
   });
 
   // Scroll To Top
@@ -1339,47 +1392,257 @@ h1, h2, h3, h5 { font-weight: 700; }
 
   // Product Filter
   const filterBtns = document.querySelectorAll('.filter-btn');
-  const products = document.querySelectorAll('.product-item');
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const filter = btn.dataset.filter;
-      products.forEach(product => {
-        if (filter === 'all' || product.dataset.category === filter) {
-          product.style.display = 'block';
-          gsap.fromTo(product, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6 });
-        } else {
-          product.style.display = 'none';
-        }
-      });
+      
+      if (filter === 'all') {
+        filteredProducts = [...products];
+      } else {
+        filteredProducts = products.filter(product => product.category === filter);
+      }
+      
+      currentPage = 1;
+      renderProducts();
+      renderPagination();
     });
   });
+
+  // Render products for current page
+  function renderProducts() {
+    const productGrid = document.querySelector('.product-grid');
+    productGrid.innerHTML = '';
+    
+    const startIndex = (currentPage - 1) * productsPerPage;
+    const endIndex = startIndex + productsPerPage;
+    const productsToShow = filteredProducts.slice(startIndex, endIndex);
+    
+    productsToShow.forEach(product => {
+      const productCard = document.createElement('div');
+      productCard.className = 'col-md-4 col-sm-6 product-item';
+      productCard.setAttribute('data-category', product.category);
+      
+      // Determine ribbon text based on product ID
+      let ribbonText = '';
+      if (product.id === 1 || product.id === 8 || product.id === 10) {
+        ribbonText = 'Featured';
+      } else if (product.id === 2 || product.id === 5 || product.id === 7) {
+        ribbonText = 'New';
+      } else if (product.id === 3 || product.id === 4 || product.id === 6 || product.id === 9 || product.id === 11) {
+        ribbonText = 'Best Seller';
+      }
+      
+      productCard.innerHTML = `
+        <div class="product-card shadow-lg position-relative">
+          ${ribbonText ? `<span class="ribbon">${ribbonText}</span>` : ''}
+          <div class="product-image" onclick="openProductModal(${product.id})">
+            <img src="${product.image}" alt="${product.name}" class="main-img">
+          </div>
+          <div class="product-content">
+            <h5>${product.name}</h5>
+            <div class="features d-flex justify-content-center flex-wrap gap-2 mb-3">
+              ${product.features.map(feature => `<span class="feature-badge">${feature}</span>`).join('')}
+            </div>
+            <div class="btn-group">
+              <a href="tel:+917014405301" class="btn btn-outline"><i class="fa-solid fa-phone me-1"></i>Call Now</a>
+              <button class="btn btn-primary btn-quote" data-product="${product.name}" data-bs-toggle="modal" data-bs-target="#productQuoteModal">
+                <i class="fa-solid fa-quote-right me-1"></i>Get Quote
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      
+      productGrid.appendChild(productCard);
+    });
+    
+    // Add event listeners to quote buttons
+    document.querySelectorAll('.btn-quote').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const productName = this.getAttribute('data-product');
+        document.getElementById('selectedProductName').textContent = productName;
+        document.getElementById('quoteProduct').value = productName;
+        updateWhatsAppLink(productName);
+      });
+    });
+  }
+
+  // Render pagination
+  function renderPagination() {
+    const pagination = document.getElementById('pagination');
+    pagination.innerHTML = '';
+    
+    const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+    
+    if (totalPages <= 1) return;
+    
+    // Previous button
+    const prevLi = document.createElement('li');
+    prevLi.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
+    prevLi.innerHTML = `<a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>`;
+    prevLi.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (currentPage > 1) {
+        currentPage--;
+        renderProducts();
+        renderPagination();
+      }
+    });
+    pagination.appendChild(prevLi);
+    
+    // Page numbers
+    for (let i = 1; i <= totalPages; i++) {
+      const pageLi = document.createElement('li');
+      pageLi.className = `page-item ${i === currentPage ? 'active' : ''}`;
+      pageLi.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+      pageLi.addEventListener('click', (e) => {
+        e.preventDefault();
+        currentPage = i;
+        renderProducts();
+        renderPagination();
+      });
+      pagination.appendChild(pageLi);
+    }
+    
+    // Next button
+    const nextLi = document.createElement('li');
+    nextLi.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
+    nextLi.innerHTML = `<a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>`;
+    nextLi.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (currentPage < totalPages) {
+        currentPage++;
+        renderProducts();
+        renderPagination();
+      }
+    });
+    pagination.appendChild(nextLi);
+  }
+
+  // Function to open product modal
+  function openProductModal(productId) {
+    const product = modalProducts[productId];
+    if (!product) return;
+    
+    // Update modal content
+    document.getElementById('productModalLabel').textContent = product.name;
+    document.getElementById('modalMainImg').src = product.img;
+    
+    // Update thumbnails
+    const thumbsContainer = document.getElementById('productThumbnails');
+    thumbsContainer.innerHTML = '';
+    product.thumbs.forEach((src, i) => {
+      const thumb = document.createElement('img');
+      thumb.src = src;
+      thumb.className = `img-thumbnail small-img ${i === 0 ? 'active' : ''}`;
+      thumb.alt = 'Product Thumbnail';
+      thumb.addEventListener('click', function() {
+        document.getElementById('modalMainImg').src = src;
+        thumbsContainer.querySelectorAll('.small-img').forEach(img => img.classList.remove('active'));
+        this.classList.add('active');
+      });
+      thumbsContainer.appendChild(thumb);
+    });
+    
+    // Update features
+    const featuresContainer = document.getElementById('productFeatures');
+    featuresContainer.innerHTML = product.features.map(f => `<li><i class="fa-solid fa-check text-success me-2"></i>${f}</li>`).join('');
+    
+    // Update specs
+    const specsContainer = document.getElementById('productSpecs');
+    specsContainer.innerHTML = product.specs.map(s => `<tr><td class="fw-bold">${s[0]}</td><td>${s[1]}</td></tr>`).join('');
+    
+    // Update detailed description
+    const detailedContent = document.getElementById('detailedContent');
+    const applicationsHTML = product.details.applications.map(app => `<li>${app}</li>`).join('');
+    detailedContent.innerHTML = `
+      <p class="text-muted">${product.details.description}</p>
+      <h6 class="text-primary fw-bold mt-3">Applications:</h6>
+      <ul class="text-muted list-unstyled">
+        ${applicationsHTML}
+      </ul>
+    `;
+    
+    // Update quote button
+    document.querySelector('#productModal .btn-quote').setAttribute('data-product', product.name);
+    
+    // Initialize related products
+    buildRelatedProducts(productId);
+    
+    // Show modal
+    const modal = new bootstrap.Modal(document.getElementById('productModal'));
+    modal.show();
+  }
+
+  // Build related products carousel
+  function buildRelatedProducts(currentProductId) {
+    const container = document.getElementById('relatedProducts');
+    container.innerHTML = '';
+    
+    // Get other products (excluding current one)
+    const relatedProducts = Object.keys(modalProducts)
+      .filter(id => id != currentProductId)
+      .slice(0, 4) // Show max 4 related products
+      .map(id => {
+        return {
+          id: id,
+          ...modalProducts[id]
+        };
+      });
+    
+    relatedProducts.forEach(product => {
+      const item = document.createElement('div');
+      item.className = 'item';
+      item.innerHTML = `
+        <div class="related-product-card" onclick="openProductModal(${product.id})">
+          <img src="${product.img}" class="rounded mb-3" alt="${product.name}">
+          <h6>${product.name}</h6>
+          <div class="features d-flex justify-content-center flex-wrap gap-1 mb-3">
+            ${product.specs.slice(0, 2).map(spec => `<span class="feature-badge">${spec[1]}</span>`).join('')}
+          </div>
+          <p class="small text-muted">${product.details.description.substring(0, 80)}...</p>
+          <button class="btn btn-outline-primary btn-sm mt-2">
+            View Details
+          </button>
+        </div>
+      `;
+      container.appendChild(item);
+    });
+    
+    // Initialize Owl Carousel
+    if ($('#relatedProducts').hasClass('owl-loaded')) {
+      $('#relatedProducts').trigger('destroy.owl.carousel').removeClass('owl-loaded');
+    }
+    
+    $('#relatedProducts').owlCarousel({
+      loop: true,
+      margin: 20,
+      nav: true,
+      dots: false,
+      autoplay: true,
+      autoplayTimeout: 4000,
+      autoplayHoverPause: true,
+      responsive: {
+        0: { items: 1 },
+        576: { items: 2 },
+        992: { items: 3 },
+        1200: { items: 3 }
+      }
+    });
+  }
 
   // Product Quote Modal Functionality
   document.addEventListener('DOMContentLoaded', function() {
     const productQuoteModal = document.getElementById('productQuoteModal');
     const productQuoteForm = document.getElementById('productQuoteForm');
-    const selectedProductName = document.getElementById('selectedProductName');
-    const quoteProduct = document.getElementById('quoteProduct');
     const inquiryOptionBtns = document.querySelectorAll('.inquiry-option-btn');
     const inquiryType = document.getElementById('inquiryType');
     const emailInquirySection = document.getElementById('emailInquirySection');
     const whatsappInquirySection = document.getElementById('whatsappInquirySection');
     const whatsappInquiryLink = document.getElementById('whatsappInquiryLink');
-    
-    // Set product when quote button is clicked
-    document.querySelectorAll('.btn-quote').forEach(btn => {
-      btn.addEventListener('click', function() {
-        const productName = this.getAttribute('data-product');
-        selectedProductName.textContent = productName;
-        quoteProduct.value = productName;
-        
-        // Update WhatsApp link with product info
-        updateWhatsAppLink(productName);
-      });
-    });
     
     // Inquiry type selection
     inquiryOptionBtns.forEach(btn => {
@@ -1419,8 +1682,6 @@ h1, h2, h3, h5 { font-weight: 700; }
         submitEmailInquiry(formData);
       } else {
         // For WhatsApp, we've already set up the link
-        // The form doesn't actually submit, user clicks the WhatsApp link
-        // So we just close the modal
         const modal = bootstrap.Modal.getInstance(productQuoteModal);
         modal.hide();
       }
@@ -1428,7 +1689,7 @@ h1, h2, h3, h5 { font-weight: 700; }
     
     // Function to update WhatsApp link with form data
     function updateWhatsAppLink(productName) {
-      const phoneNumber = "917014405301"; // Your WhatsApp number
+      const phoneNumber = "917014405301";
       let message = `Hello, I'm interested in the following product:\n\n`;
       message += `*Product:* ${productName}\n\n`;
       message += `Please provide me with more details and pricing information.`;
@@ -1441,10 +1702,9 @@ h1, h2, h3, h5 { font-weight: 700; }
     
     // Function to submit email inquiry
     function submitEmailInquiry(formData) {
-      // Using EmailJS (you need to set up an account and replace with your details)
       if (typeof emailjs !== 'undefined') {
         emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
-          to_email: 'your-email@example.com', // Your company email
+          to_email: 'your-email@example.com',
           from_name: formData.name,
           from_email: formData.email,
           phone: formData.phone,
@@ -1464,7 +1724,6 @@ h1, h2, h3, h5 { font-weight: 700; }
           alert('Sorry, there was an error submitting your request. Please try again or contact us directly.');
         });
       } else {
-        // Fallback - just show success message
         alert('Thank you! Your quote request has been submitted. We will contact you within 24 hours.');
         const modal = bootstrap.Modal.getInstance(productQuoteModal);
         modal.hide();
@@ -1507,386 +1766,16 @@ h1, h2, h3, h5 { font-weight: 700; }
   // General Quote Form Submission
   document.getElementById('quoteForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    
-    // You can add EmailJS integration for the general quote form too
     alert('Thank you! Your quote request has been submitted.');
     const modal = bootstrap.Modal.getInstance(document.getElementById('quoteModal'));
     modal.hide();
     this.reset();
   });
 
-  // === ENHANCED PRODUCT DATA (INCLUDING DETAILED DESCRIPTION) ===
-  const modalProducts = {
-    1: [
-      {name:"Hydraulic Drum Cutter",img:"assets/images/Hydraulic Barrel drum cutting machine manual.png",
-        thumbs:[
-          "assets/images/Hydraulic Barrel drum cutting machine manual.png",
-          "assets/images/Hydraulic Barrel drum cutting machine extra.png",
-          "assets/images/Drum cutting process view.png" 
-        ],
-        features:[
-          "**High-performance** hydraulic operation for consistent cuts",
-          "Emergency stop mechanism and guarded blade chamber for **enhanced safety**",
-          "Durable steel construction ensuring long operational life",
-          "Adjustable cutting depth for varying drum materials and thickness"
-        ],
-        specs:[
-          ["Power","2 HP (1.5 kW)"],
-          ["Cutting Capacity","200 L Standard Drum"],
-          ["Weight","350 Kg (Approx)"], 
-          ["Operation","Manual/Semi-Auto"], 
-          ["Cycle Time","< 30 seconds"] 
-        ],
-        details: {
-            description: "This **Hydraulic Barrel Drum Cutting Machine** is designed for maximum safety and efficiency in industrial recycling and decommissioning. The high-performance hydraulic system ensures a clean, smooth cut through thick steel drums, significantly reducing manual effort and processing time. Essential for preparing drums for disposal or reuse, ensuring compliance with environmental standards.",
-            applications: ["Chemical and Petrochemical Waste Management", "Industrial Recycling Facilities", "Drum Reconditioning Centers"]
-        }
-      },
-      {name:"Drum Deheader Machine",img:"assets/images/Drum deheader machine.png",
-        thumbs:[
-          "assets/images/Drum deheader machine.png",
-          "assets/images/Drum deheader side view.png" 
-        ],
-        features:[
-          "Clean drum head removal without leaving sharp edges",
-          "Compact and portable design for shop flexibility",
-          "**Hydraulic cylinder** ensures consistent force and fast cycle time"
-        ],
-        specs:[
-          ["Power","1 HP"],
-          ["Capacity","210 L Standard"], 
-          ["Weight", "180 Kg"], 
-          ["Material","High-grade carbon steel"]
-        ],
-        details: {
-            description: "The **Drum Deheader Machine** is a crucial tool for safely and efficiently removing the tops of steel drums. It is designed to cut through the chime, leaving a **smooth, burr-free edge** to allow for safe handling and future use of the drums as storage or containers. Available in manual, electric, and air-powered versions to suit various industrial volumes.",
-            applications: ["Waste Management and Recycling", "Converting drums for storage", "Chemical and Oil industries for emptying drums"]
-        }
-      },
-      {name:"Hydraulic Bottle Cap Threading Machine",img:"assets/images/Hydraulic manual Bottle cap threading machine.png",
-        thumbs:[
-          "assets/images/Hydraulic manual Bottle cap threading machine.png",
-          "assets/images/Bottle threading detail.png", 
-          "assets/images/Bottle threader operation.png" 
-        ],
-        features:[
-          "**Precision threading control** for leak-proof seals",
-          "Durable mechanism for long life and low maintenance",
-          "Ergonomic handle and base plate for stable manual operation",
-          "Quick-change mandrel system for different cap sizes"
-        ],
-        specs:[
-          ["Power","1.5 HP"],
-          ["Cap Diameter","30mm - 110mm"],
-          ["Height Adjustment","Manual lock"], 
-          ["Accuracy","±0.1 mm"]
-        ],
-        details: {
-            description: "The **Manual Bottle Threader** is engineered for precision and consistency in capping small to medium batches. Its manual hydraulic system provides superior torque control compared to basic hand tools, ensuring a tight, reliable seal on various bottle types, perfect for pharmaceutical, cosmetic, and small-scale food production.",
-            applications: ["Pharmaceutical Bottling", "Small-Batch Beverage Production", "Cosmetic and Essential Oil Packaging"]
-        }
-      }
-    ],
-    2: [
-      {name:"Manual Bottle Threader",img:"assets/images/Hydraulic manual Bottle cap threading machine.png",
-        thumbs:[
-          "assets/images/Hydraulic manual Bottle cap threading machine.png",
-          "assets/images/Bottle threading detail.png", 
-          "assets/images/Bottle threader operation.png" 
-        ],
-        features:[
-          "**Precision threading control** for leak-proof seals",
-          "Durable mechanism for long life and low maintenance",
-          "Ergonomic handle and base plate for stable manual operation",
-          "Quick-change mandrel system for different cap sizes"
-        ],
-        specs:[
-          ["Power","1.5 HP"],
-          ["Cap Diameter","30mm - 110mm"],
-          ["Height Adjustment","Manual lock"], 
-          ["Accuracy","±0.1 mm"]
-        ],
-        details: {
-            description: "The **Manual Bottle Threader** is engineered for precision and consistency in capping small to medium batches. Its manual hydraulic system provides superior torque control compared to basic hand tools, ensuring a tight, reliable seal on various bottle types, perfect for pharmaceutical, cosmetic, and small-scale food production.",
-            applications: ["Pharmaceutical Bottling", "Small-Batch Beverage Production", "Cosmetic and Essential Oil Packaging"]
-        }
-      },
-      {name:"Bottle Capping Press",img:"assets/images/Hydraulic Bottle capping press machine.png",
-        thumbs:[
-          "assets/images/Hydraulic Bottle capping press machine.png",
-          "assets/images/Capping press close up.png" 
-        ],
-        features:[
-          "High-pressure hydraulic pressing for secure, non-slip capping",
-          "**Interchangeable press heads** for multiple cap styles (e.g., ROPP, lug)", 
-          "Consistent capping torque for uniform product quality"
-        ],
-        specs:[
-          ["Power","2 HP"],
-          ["Cap Range","28mm - 100mm"], 
-          ["Speed", "600 Pcs/Hr"], 
-          ["Control","Foot pedal activation"]
-        ],
-        details: {
-            description: "This **Hydraulic Capping Press** uses controlled, high-force hydraulic pressure to firmly and consistently secure caps onto bottles. It is ideal for industries requiring high volume and absolute consistency in sealing, offering flexibility with various cap types via interchangeable dies.",
-            applications: ["Large-scale Beverage Bottling", "Chemical/Industrial fluid packaging", "High-volume Food product sealing"]
-        }
-      },
-      {name:"Hydraulic Drum Cutter",img:"assets/images/Hydraulic Barrel drum cutting machine manual.png",
-        thumbs:[
-          "assets/images/Hydraulic Barrel drum cutting machine manual.png",
-          "assets/images/Hydraulic Barrel drum cutting machine extra.png",
-          "assets/images/Drum cutting process view.png" 
-        ],
-        features:[
-          "**High-performance** hydraulic operation for consistent cuts",
-          "Emergency stop mechanism and guarded blade chamber for **enhanced safety**",
-          "Durable steel construction ensuring long operational life",
-          "Adjustable cutting depth for varying drum materials and thickness"
-        ],
-        specs:[
-          ["Power","2 HP (1.5 kW)"],
-          ["Cutting Capacity","200 L Standard Drum"],
-          ["Weight","350 Kg (Approx)"], 
-          ["Operation","Manual/Semi-Auto"], 
-          ["Cycle Time","< 30 seconds"] 
-        ],
-        details: {
-            description: "This **Hydraulic Barrel Drum Cutting Machine** is designed for maximum safety and efficiency in industrial recycling and decommissioning. The high-performance hydraulic system ensures a clean, smooth cut through thick steel drums, significantly reducing manual effort and processing time. Essential for preparing drums for disposal or reuse, ensuring compliance with environmental standards.",
-            applications: ["Chemical and Petrochemical Waste Management", "Industrial Recycling Facilities", "Drum Reconditioning Centers"]
-        }
-      }
-    ],
-    3: [
-      {name:"Edge Cutting Machine",img:"assets/images/Hydraulic semi auto edge cutting & tooling machine.png",
-        thumbs:[
-          "assets/images/Hydraulic semi auto edge cutting & tooling machine.png",
-          "assets/images/Edge cutting tooling head.png", 
-          "assets/images/Edge cutting finished product.png" 
-        ],
-        features:[
-          "**High precision** circular cutting and tooling for clean metal edges",
-          "Semi-automatic operation requiring minimal operator intervention",
-          "Heavy-duty frame for enhanced stability and **vibration reduction**",
-          "Integrated coolant system for prolonged tool life" 
-        ],
-        specs:[
-          ["Power","3 HP"],
-          ["Cutting Capacity","500 mm (Max Diameter)"],
-          ["Tolerance","±0.05 mm"],
-          ["Coolant Tank","5 L capacity"] 
-        ],
-        details: {
-            description: "The **Hydraulic Edge Cutting Machine** is designed for the high-tolerance finishing of industrial metal components. Utilizing a semi-automatic process, it delivers consistent, clean edge trimming and tooling, crucial for manufacturing parts where precision is paramount, such as in automotive or heavy machinery.",
-            applications: ["Automotive Component Manufacturing", "Metal Fabrication and Tooling", "Precision Machinery Finishing"]
-        }
-      },
-      {name:"Hydraulic Rolling Machine",img:"assets/images/Drum rolling machine.png",
-        thumbs:[
-          "assets/images/Drum rolling machine.png",
-          "assets/images/Drum rolling machine roller detail.png" 
-        ],
-        features:[
-          "High-torque rolling mechanism for uniform drum formation",
-          "Digital control panel for precise speed and tension adjustment",
-          "Ideal for creating strong, smooth drum bodies from flat sheets"
-        ],
-        specs:[
-          ["Power","5 HP"],
-          ["Rolling Speed","12 m/min"], 
-          ["Weight", "800 Kg"],
-          ["Max Sheet Thickness", "4 mm"]
-        ],
-        details: {
-            description: "A **Hydraulic Rolling Machine** uses rollers and powerful hydraulic pressure to bend and shape metal sheets into various geometries, such as cylindrical or conical profiles. It is essential for heavy-duty metal fabrication where high precision and consistent forming force are required across materials like carbon steel and stainless steel.",
-            applications: ["Pressure Vessel Production", "Pipeline and HVAC Construction", "Shipbuilding and Tank Fabrication"]
-        }
-      },
-      {name:"Hydraulic Bottle Cap Threading Machine",img:"assets/images/Hydraulic manual Bottle cap threading machine.png",
-        thumbs:[
-          "assets/images/Hydraulic manual Bottle cap threading machine.png",
-          "assets/images/Bottle threading detail.png", 
-          "assets/images/Bottle threader operation.png" 
-        ],
-        features:[
-          "**Precision threading control** for leak-proof seals",
-          "Durable mechanism for long life and low maintenance",
-          "Ergonomic handle and base plate for stable manual operation",
-          "Quick-change mandrel system for different cap sizes"
-        ],
-        specs:[
-          ["Power","1.5 HP"],
-          ["Cap Diameter","30mm - 110mm"],
-          ["Height Adjustment","Manual lock"], 
-          ["Accuracy","±0.1 mm"]
-        ],
-        details: {
-            description: "The **Hydraulic Bottle Cap Threading Machine** is engineered for precision and consistency in capping small to medium batches. Its manual hydraulic system provides superior torque control compared to basic hand tools, ensuring a tight, reliable seal on various bottle types, perfect for pharmaceutical, cosmetic, and small-scale food production.",
-            applications: ["Pharmaceutical Bottling", "Small-Batch Beverage Production", "Cosmetic and Essential Oil Packaging"]
-        }
-      }
-    ]
-  };
-
-  // === FUNCTION: Dynamic Inquiry Link Update ===
-  function updateInquiryLink(modalId, productName) {
-    const $inquireButton = $(`#productModal${modalId}`).find('.mt-4 .btn-quote');
-    $inquireButton.attr('data-product', productName);
-  }
-  
-  // === NEW/UPDATED FUNCTION: Dynamic Description Content ===
-  function updateDetailedDescription(modalId, details) {
-    const applicationsHTML = details.applications.map(app => `<li>${app}</li>`).join('');
-    const contentHTML = `
-        <p class="text-muted">${details.description}</p>
-        <h6 class="text-primary fw-bold mt-3">Applications:</h6>
-        <ul class="text-muted list-unstyled">
-            ${applicationsHTML}
-        </ul>
-    `;
-    $(`#detailedContent${modalId}`).html(contentHTML);
-  }
-
-  // Function to change main image
-  window.changeMainImage = function(modalId, thumbElement){
-    const mainImgId = `modalMainImg${modalId}`;
-    document.getElementById(mainImgId).src = thumbElement.src;
-    $(`#productThumbnails${modalId} .small-img`).removeClass('active');
-    $(thumbElement).addClass('active');
-  }
-
-  // Build and show product details (Central function)
-  function showProduct(modalId, index){
-    const p = modalProducts[modalId][index];
-    
-    // 1. Reset Zoom & Scroll
-    $(`#productModal${modalId}`).find('.image-container').scrollLeft(0).scrollTop(0); 
-
-    // 2. Update Basic Content
-    $(`#productModalLabel${modalId}`).text(p.name);
-    $(`#modalMainImg${modalId}`).attr("src", p.img);
-    
-    // 3. Update Dynamic Content
-    updateInquiryLink(modalId, p.name);
-    updateDetailedDescription(modalId, p.details); // <--- DYNAMIC DESCRIPTION CALL
-
-    // 4. Thumbnails
-    const $thumbsContainer = $(`#productThumbnails${modalId}`);
-    $thumbsContainer.html(''); 
-    p.thumbs.forEach((src, i) => {
-        $('<img>')
-            .attr({
-                'src': src,
-                'class': `img-thumbnail small-img ${i === 0 ? 'active' : ''}`, 
-                'alt': 'Product Thumbnail'
-            })
-            .on('click', function() {
-                window.changeMainImage(modalId, this);
-            })
-            .appendTo($thumbsContainer);
-    });
-    
-    // 5. Features
-    $(`#productFeatures${modalId}`).html(p.features.map(f=>`<li><i class="fa-solid fa-check text-success me-2"></i>${f}</li>`).join(''));
-    
-    // 6. Specs
-    const specsHTML = p.specs.map(s=>`<tr><td class="fw-bold">${s[0]}</td><td>${s[1]}</td></tr>`).join('');
-    $(`#productSpecs${modalId}`).html(specsHTML);
-  }
-
-  // Build "You May Also Like" carousel 
-  function buildRelated(modalId){
-    const products = modalProducts[modalId];
-    const container = $(`#relatedProducts${modalId}`);
-    
-    if (container.hasClass('owl-loaded')) {
-        container.trigger('destroy.owl.carousel').removeClass('owl-loaded');
-    }
-
-    container.html(''); 
-    
-    products.forEach((p,i)=>{
-        // Skip the first product (current product) to show only related products
-        if (i === 0) return;
-        
-        // Create feature badges HTML (show first 2 specs)
-        const featureBadges = p.specs.slice(0, 2).map(spec => 
-          `<span class="feature-badge">${spec[1]}</span>`
-        ).join('');
-        
-        container.append(`
-            <div class="item" data-product-index="${i}" data-modal-id="${modalId}">
-                <div class="related-product-card">
-                    <img src="${p.img}" class="rounded mb-3" alt="${p.name}">
-                    <h6>${p.name}</h6>
-                    <div class="features d-flex justify-content-center flex-wrap gap-1 mb-3">
-                        ${featureBadges}
-                    </div>
-                    <p class="small text-muted">${p.details.description.substring(0, 80)}...</p>
-                    <button class="btn btn-outline-primary btn-sm mt-2 view-product-btn" data-product-index="${i}" data-modal-id="${modalId}">
-                        View Details
-                    </button>
-                </div>
-            </div>
-        `);
-    });
-
-    container.owlCarousel({
-        loop: true,
-        margin: 20,
-        nav: true,
-        dots: false,
-        autoplay: true,
-        autoplayTimeout: 4000,
-        autoplayHoverPause: true,
-        responsive: {
-            0: { items: 1 },
-            576: { items: 2 },
-            992: { items: 3 },
-            1200: { items: 3 }
-        }
-    });
-    
-    // Click listener on "View Details" buttons
-    container.on('click', '.view-product-btn', function() {
-        const index = $(this).data('product-index');
-        const mId = $(this).data('modal-id');
-        showProduct(mId, index); // Load new product content
-        $(`#productModal${mId}`).find('.modal-body').scrollTop(0); // Scroll to top
-        $(`#detailedDescription${mId}`).collapse('hide'); // Auto-close details
-    });
-  }
-
-  // === ENHANCEMENT: Collapse Toggle Icon Rotation ===
-  [1, 2, 3].forEach(id => {
-    const collapseElement = $(`#detailedDescription${id}`);
-    const iconElement = $(`.collapse-icon-${id}`);
-
-    // Rotate icon up when details are shown
-    collapseElement.on('shown.bs.collapse', function () {
-        iconElement.removeClass('fa-chevron-down').addClass('fa-chevron-up');
-    });
-
-    // Rotate icon down when details are hidden
-    collapseElement.on('hidden.bs.collapse', function () {
-        iconElement.removeClass('fa-chevron-up').addClass('fa-chevron-down');
-    });
-  });
-
-  // Reset modal on close
-  $('.modal').on('hidden.bs.modal', function(){
-    const id = $(this).attr('id').replace('productModal','');
-    if (id) {
-      showProduct(id, 0); 
-      $(`#detailedDescription${id}`).collapse('hide');
-      $(this).find('.modal-body').scrollTop(0);
-    }
-  });
-
-  // Initialize all modals on page load
-  [1,2,3].forEach(id=>{
-    buildRelated(id);
-    showProduct(id,0); 
+  // Initialize the page
+  document.addEventListener('DOMContentLoaded', function() {
+    renderProducts();
+    renderPagination();
   });
 
   // Fetch footer
