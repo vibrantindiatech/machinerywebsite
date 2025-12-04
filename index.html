@@ -1,0 +1,3267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Baneshwari Industries | Hydraulic & Industrial Solutions</title>
+    <meta
+      name="description"
+      content="Baneshwari Industries - Leading Manufacturer and Supplier of Hydraulic Machines and Industrial Solutions in India and Worldwide."
+    />
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="/css/style.css" /> -->
+
+    <!-- Owl Carousel CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+      :root {
+        --primary-color: #00b4ff;
+        --secondary-color: #00ffcc;
+        --dark-color: #0a0f1f;
+        --light-color: #f8f9fa;
+      }
+
+      body {
+        background: white;
+        overflow-x: hidden;
+        font-family: "Poppins", sans-serif !important;
+      }
+
+      /* === Fix for all Font Awesome icons === */
+      .fa,
+      .fas,
+      .far,
+      .fab,
+      .fa-solid,
+      .fa-brands {
+        font-family: "Font Awesome 6 Free" !important;
+        font-weight: 900 !important;
+      }
+
+      /* === Add this line specifically for brands === */
+      .fa-brands {
+        font-family: "Font Awesome 6 Brands" !important;
+        font-weight: 400 !important;
+      }
+
+      /* === FIX: Modal backdrop fixes === */
+      .modal-backdrop {
+        opacity: 1 !important;
+        background-color: rgba(0, 0, 0, 0.5) !important;
+        transition: opacity 0.15s linear !important;
+      }
+
+      .modal-backdrop.fade.show {
+        opacity: 0.5 !important;
+      }
+
+      .modal-backdrop ~ .modal-backdrop {
+        display: none !important;
+      }
+
+      body.modal-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        padding-right: 0 !important;
+      }
+
+      .modal-open .navbar-fixed-top,
+      .modal-open .navbar-fixed-bottom {
+        margin-right: 0 !important;
+      }
+
+      /* Fix Bootstrap modal accessibility warnings */
+      .modal.fade[aria-hidden="true"] {
+        pointer-events: none;
+      }
+
+      /* ==== HERO SECTION ==== */
+
+      /* ----------- HERO SECTION ----------- */
+
+      /* ===========================
+        HERO SECTION
+   =========================== */
+
+      :root {
+        --primary-color: #00ffc3;
+        --secondary-color: #00b4ff;
+        --dark-color: #0a0a0a;
+      }
+
+      .hero {
+        top: 20px;
+        position: relative;
+        width: 100%;
+        background: url("assets/images/img3.jpg") center/cover no-repeat;
+        padding: 100px 20px;
+        min-height: 60vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center; /* IMPORTANT */
+        overflow: hidden;
+      }
+
+      /* Dark Overlay */
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 0;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+      }
+
+      .hero .container {
+        padding: 1rem;
+      }
+
+      /* Title */
+      .hero-title {
+        font-size: clamp(1.8rem, 5vw, 3rem);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background: linear-gradient(
+          90deg,
+          var(--secondary-color),
+          var(--primary-color)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: glow 4s ease-in-out infinite alternate;
+        margin-bottom: 1rem;
+      }
+
+      /* Subtitle */
+      .hero-subtitle {
+        color: #e0e0e0;
+        font-size: clamp(1rem, 2.5vw, 1.2rem);
+        max-width: 700px;
+        margin: 0 auto 1.5rem;
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+      }
+
+      .hero a.btn {
+        font-weight: 600;
+        border-radius: 40px;
+        transition: 0.3s ease;
+        padding: 0.8rem 1.8rem;
+        font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+      }
+      /* Simple hover effect for Explore Machines */
+
+      .hero a.btn-light {
+        background: #ffffff; /* Default white */
+        color: var(--dark-color);
+        font-weight: 600;
+        border-radius: 40px;
+        transition: background 0.3s ease, transform 0.3s ease;
+      }
+
+      .hero a.btn-light:hover {
+        background: #08ffe6; /* Slightly darker white */
+        transform: translateY(-2px); /* Small lift */
+      }
+
+      /* Primary Button */
+      .hero a.btn-primary {
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        border: none;
+        color: var(--dark-color);
+        transition: all 0.3s ease;
+      }
+
+      .hero a.btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 20px rgba(0, 255, 204, 0.5),
+          0 0 40px rgba(0, 180, 255, 0.3), 0 0 60px rgba(0, 255, 204, 0.1);
+        filter: brightness(1.1);
+      }
+
+      /* Outline Button */
+      .hero a.btn-outline-light {
+        border: 2px solid #fff;
+        transition: all 0.3s ease;
+      }
+
+      .hero a.btn-outline-light:hover {
+        background: var(--secondary-color);
+        border-color: var(--secondary-color);
+        color: var(--dark-color);
+        transform: translateY(-3px);
+        box-shadow: 0 0 15px rgba(0, 255, 204, 0.4),
+          0 0 30px rgba(0, 180, 255, 0.2);
+      }
+
+      /* Glow Animation */
+      @keyframes glow {
+        0% {
+          text-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+        }
+        100% {
+          text-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+        }
+      }
+
+      /* ===========================
+      RESPONSIVE BREAKPOINTS
+   =========================== */
+
+      /* Standard mobile behavior (≤576px) */
+      @media (max-width: 576px) {
+        .hero {
+          padding: 80px 18px;
+          min-height: 55vh;
+        }
+
+        .hero .d-flex {
+          flex-direction: column !important;
+          gap: 12px;
+        }
+
+        .hero-title {
+          font-size: clamp(1.7rem, 6vw, 2.4rem);
+        }
+
+        .hero-subtitle {
+          font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+        }
+      }
+
+      /* Specialized optimization for 425px */
+      /* 🚀 Fix Hero Buttons for 425px and smaller screens */
+      /* FINAL FIX — Perfect Center Buttons on 425px */
+      @media (max-width: 425px) {
+        /* Force vertical layout */
+        .hero .d-flex {
+          flex-direction: column !important;
+          align-items: center !important;
+          justify-content: center !important;
+          width: 100%;
+          text-align: center;
+          gap: 16px;
+        }
+
+        /* Force same width for both buttons */
+        .hero .btn,
+        .hero .btn-lg {
+          display: flex !important;
+          justify-content: center;
+          align-items: center;
+          width: 85% !important;
+          max-width: 350px;
+          margin: 0 auto !important;
+          padding: 1rem 0;
+          border-radius: 50px !important;
+          /* margin-left: 500px; */
+        }
+
+        /* Fix outline button mess */
+        .hero .btn-outline-light {
+          border-width: 2px !important;
+          box-sizing: border-box;
+        }
+
+        /* Small title scaling */
+        .hero-title {
+          font-size: 1.9rem;
+        }
+      }
+
+      /* ==== CARDS ==== */
+      .card {
+        border: none;
+        border-radius: 15px;
+        transition: all 0.4s ease;
+        overflow: hidden;
+      }
+      .card img {
+        height: 240px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      .card:hover img {
+        transform: scale(1.1);
+      }
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      /* === Navbar Base === */
+      .next-level-navbar {
+        background: #fff;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+        backdrop-filter: blur(10px);
+        padding: 0.8rem 0;
+        transition: all 0.4s ease;
+        z-index: 1000;
+      }
+
+      /* === Scroll Effect === */
+      .next-level-navbar.scrolled {
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+        padding: 0.5rem 0;
+      }
+
+      /* === Brand === */
+      .navbar-brand {
+        background: linear-gradient(90deg, #007bff, var(--primary-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 700;
+
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: 0.3s ease;
+      }
+
+      .navbar-brand:hover {
+        text-shadow: 0 0 10px rgba(0, 204, 255, 0.4);
+        transform: scale(1.03);
+      }
+
+      .brand-text span {
+        color: #333;
+        font-weight: 400;
+      }
+
+      /* === Nav Links === */
+      .nav-link {
+        color: #111 !important;
+        font-weight: 500;
+        letter-spacing: 0.4px;
+        position: relative;
+        padding: 6px 12px;
+        transition: all 0.3s ease;
+        font-size: var(--bs-nav-link-font-size);
+      }
+
+      .nav-link:hover {
+        color: #007bff !important;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #007bff, var(--primary-color));
+        transition: width 0.35s ease;
+      }
+
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 60%;
+      }
+
+      .nav-link.active {
+        color: #007bff !important;
+        text-shadow: 0 0 6px rgba(0, 123, 255, 0.4);
+      }
+
+      /* === Quote Button === */
+      .btn-glow {
+        background: linear-gradient(90deg, var(--primary-color), #007bff);
+        color: #fff !important;
+        font-weight: 600;
+        border: none;
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
+      }
+
+      .btn-glow:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 0 25px rgba(0, 123, 255, 0.5);
+      }
+
+      /* === Responsive === */
+      /* === Responsive === */
+      @media (max-width: 991px) {
+        .navbar-collapse {
+          background: #f9f9f9;
+          border-radius: 12px;
+          padding: 20px 10px;
+          margin-top: 10px;
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+        }
+        .nav-link {
+          text-align: center;
+          font-size: 1.05rem;
+          padding: 10px 0;
+        }
+        .navbar-toggler {
+          color: #007bff !important;
+        }
+        .navbar-toggler i {
+          font-size: 1.8rem;
+        }
+        .btn-glow {
+          width: 100%;
+          margin-top: 10px;
+        }
+      }
+
+      @media (max-width: 575px) {
+        .navbar-brand {
+          font-size: 0.9rem;
+          flex-direction: row;
+          align-items: center;
+          line-height: 1.3;
+        }
+        .navbar-toggler i {
+          font-size: 1.5rem;
+        }
+        .nav-link {
+          font-size: 0.95rem;
+        }
+      }
+
+      /* Hide brand text on mobile */
+      @media (max-width: 425px) {
+        .navbar-brand .brand-text {
+          display: none !important;
+        }
+
+        .navbar-brand img {
+          margin-right: 0;
+        }
+
+        .navbar-brand {
+          padding: 5px 0;
+        }
+      }
+
+      /* ==== HERO SECTION STYLES ==== */
+      /* ==== HERO SECTION ==== */
+      .hero {
+        position: relative;
+        width: 100%;
+        background: url("assets/images/img3.jpg") center/cover no-repeat;
+        padding: 100px 20px;
+        min-height: 60vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      /* Dark Overlay */
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 0;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+      }
+
+      .hero .container {
+        padding: 1rem;
+      }
+
+      /* Title */
+      .hero-title {
+        font-size: clamp(1.8rem, 5vw, 3rem);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background: linear-gradient(
+          90deg,
+          var(--secondary-color),
+          var(--primary-color)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: glow 4s ease-in-out infinite alternate;
+        margin-bottom: 1rem;
+      }
+
+      /* Subtitle */
+      .hero-subtitle {
+        color: #e0e0e0;
+        font-size: clamp(1rem, 2.5vw, 1.2rem);
+        max-width: 700px;
+        margin: 0 auto 1.5rem;
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+      }
+
+      /* Buttons Container */
+      .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        width: 100%;
+      }
+
+      /* Buttons */
+      .hero a.btn {
+        font-weight: 600;
+        border-radius: 40px;
+        transition: all 0.3s ease;
+        padding: 0.75rem 1.5rem;
+        min-width: 200px;
+      }
+
+      .hero a.btn-primary {
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        border: none;
+        color: var(--dark-color);
+      }
+
+      .hero a.btn-primary:hover {
+        box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
+        transform: translateY(-3px);
+      }
+
+      .hero a.btn-outline-light:hover {
+        background: var(--secondary-color);
+        color: var(--dark-color);
+        border-color: var(--secondary-color);
+      }
+
+      /* Glow Animation */
+      @keyframes glow {
+        0% {
+          text-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+        }
+        100% {
+          text-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+        }
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        .hero {
+          padding: 80px 15px;
+          min-height: 50vh;
+        }
+
+        .hero-title {
+          font-size: clamp(1.5rem, 6vw, 2rem);
+          line-height: 1.3;
+        }
+
+        .hero-subtitle {
+          font-size: clamp(0.9rem, 3vw, 1rem);
+          margin: 0 auto 1rem;
+          line-height: 1.5;
+        }
+
+        .hero-buttons {
+          gap: 0.75rem;
+        }
+
+        .hero a.btn {
+          padding: 0.7rem 1.5rem;
+          font-size: 0.95rem;
+          width: 100%;
+          max-width: 280px;
+        }
+      }
+
+      /* Extra Small Screens */
+      @media (max-width: 425px) {
+        .hero {
+          padding: 70px 12px;
+          min-height: 45vh;
+        }
+
+        .hero-title {
+          font-size: 1.6rem;
+          margin-bottom: 0.75rem;
+        }
+
+        .hero-subtitle {
+          font-size: 0.9rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .hero-buttons {
+          gap: 0.5rem;
+        }
+
+        .hero a.btn {
+          padding: 0.65rem 1.2rem;
+          font-size: 0.9rem;
+          max-width: 250px;
+        }
+      }
+      /* ==== COUNTER SECTION ==== */
+      /* Counter Text */
+      .counter {
+        font-size: clamp(2rem, 6vw, 3rem);
+        font-weight: 700;
+        background: linear-gradient(45deg, #0a8f99, #0a8f99);
+        background-size: 300% 300%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradientMove 3s ease infinite;
+        transition: transform 0.3s ease, text-shadow 0.3s ease;
+        cursor: default;
+      }
+
+      /* Gradient Animation */
+      @keyframes gradientMove {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .counter:hover {
+        transform: scale(1.3);
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+      }
+
+      /* Paragraph Text */
+      section p {
+        color: #333;
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
+        margin-top: 0.5rem;
+        font-weight: 500;
+      }
+
+      /* ==== ABOUT SECTION ==== */
+      .gradient-text {
+        background: linear-gradient(90deg, #000000, #000000, #000000);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* About Cards */
+      .about-card {
+        background: #fff;
+        border-radius: 15px;
+        transition: all 0.4s ease;
+        cursor: default;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
+      .about-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Icons - more vibrant and visible */
+      .custom-icon {
+        color: #ff6b6b; /* base color */
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+      .custom-icon:hover {
+        transform: scale(1.4);
+        color: var(--primary-color); /* bright blue hover for visibility */
+      }
+
+      /* Card Titles */
+      h5 {
+        font-weight: 600;
+        margin-top: 0.75rem;
+        color: #222;
+      }
+
+      /* Paragraphs inside cards */
+      .about-card p {
+        font-size: 0.95rem;
+        color: #555;
+        margin-top: 0.5rem;
+        line-height: 1.5;
+      }
+
+      /* Lead paragraph */
+      p.lead {
+        font-size: clamp(1rem, 2.5vw, 1.15rem);
+        line-height: 1.7;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 767px) {
+        .about-card {
+          margin-bottom: 20px;
+        }
+        .hero-title,
+        h2 {
+          font-size: 2rem;
+        }
+        .custom-icon {
+          font-size: 2.5rem !important;
+        } /* larger on small screens */
+      }
+
+      /* ==== FLOATING BUTTONS ==== */
+      .floating-buttons a {
+        position: fixed;
+        right: 22px;
+        bottom: 80px;
+        z-index: 1100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #25d366, #128c7e);
+        color: #fff;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        font-size: 28px;
+        transition: all 0.35s ease;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+        text-decoration: none;
+      }
+      .floating-buttons a:hover {
+        transform: scale(1.15) rotate(5deg);
+        box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
+      }
+
+      /* ==== SCROLL TOP BUTTON ==== */
+      .scroll-top-btn {
+        position: fixed;
+        bottom: 160px;
+        right: 22px;
+        background: linear-gradient(135deg, #007bff, #00b4d8);
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1100;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        transition: all 0.35s ease;
+      }
+      .scroll-top-btn:hover {
+        transform: scale(1.1);
+        background: linear-gradient(135deg, #0d6efd, #23a6d5);
+      }
+
+      /* ==== RESPONSIVE ==== */
+      @media (max-width: 992px) {
+        .hero {
+          min-height: 60vh;
+        }
+        .hero-title {
+          font-size: 2.2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          min-height: 55vh;
+        }
+        .hero-title {
+          font-size: 1.8rem;
+          margin-top: 50px;
+        }
+        .hero-subtitle {
+          font-size: 1rem;
+        }
+        .floating-buttons a,
+        .scroll-top-btn {
+          width: 50px;
+          height: 50px;
+          font-size: 22px;
+          right: 16px;
+        }
+        .scroll-top-btn {
+          bottom: 140px;
+        }
+        .floating-buttons a {
+          bottom: 70px;
+        }
+      }
+
+      /* ==== PRODUCT SECTION ==== */
+      /* --- General Styles --- */
+      .product-section {
+        background: #fdfdfd;
+        color: #333;
+        position: relative;
+        overflow: hidden;
+      }
+      .text-gradient {
+        background: linear-gradient(90deg, #46daee, #4feaf0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* Product Cards */
+      .product-card {
+        background: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        cursor: pointer;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+      }
+      .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 180, 255, 0.15);
+      }
+
+      /* Ribbon */
+      .ribbon {
+        position: absolute;
+        top: 10px;
+        left: -5px;
+        background: var(--primary-color);
+        color: #fff;
+        padding: 5px 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        border-radius: 0 5px 5px 0;
+        z-index: 2;
+        text-transform: uppercase;
+      }
+
+      /* Image & Overlay */
+      .product-image {
+        position: relative;
+        height: 250px;
+        overflow: hidden;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+      .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: transform 0.6s ease;
+      }
+      .product-card:hover .product-image img {
+        transform: scale(1.1);
+      }
+      .product-card:hover .product-overlay {
+        opacity: 1;
+      }
+
+      /* Card Content */
+      .product-content {
+        padding: 20px;
+        text-align: center;
+      }
+      .product-content h5 {
+        color: #000000;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+
+      /* Feature Badges */
+      .feature-badge {
+        background: #e0f7fa;
+        color: var(--primary-color);
+        font-size: 0.85rem;
+        font-weight: 500;
+        padding: 5px 10px;
+        border-radius: 20px;
+      }
+
+      /* Buttons */
+      .btn-outline {
+        border: 1px solid var(--primary-color);
+        color: var(--primary-color);
+        background: transparent;
+        border-radius: 50px;
+        padding: 8px 18px;
+        transition: all 0.3s;
+      }
+      .btn-outline:hover {
+        background: var(--primary-color);
+        color: #fff;
+      }
+      .btn-primary {
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        border: none;
+        color: #fff;
+        border-radius: 50px;
+        padding: 8px 18px;
+        transition: all 0.3s ease;
+      }
+      .btn-primary:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(0, 180, 255, 0.4);
+      }
+      .btn-viewall {
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: #fff;
+        border-radius: 40px;
+        padding: 10px 30px;
+        font-weight: 600;
+        transition: 0.3s;
+        border: none;
+      }
+      .btn-viewall:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 0 20px rgba(0, 180, 255, 0.4);
+      }
+
+      /* Modal Thumbnail */
+      .small-img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 8px;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: border-color 0.2s;
+      }
+      .small-img:hover {
+        border-color: var(--primary-color);
+      }
+
+      /* Responsive */
+      @media (max-width: 767px) {
+        .product-image {
+          height: 220px;
+        }
+        .btn-group {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+        .btn-group .btn {
+          width: 100%;
+        }
+        .feature-badge {
+          margin-bottom: 5px;
+        }
+      }
+
+      /* ==== PRODUCT QUOTE MODAL STYLES ==== */
+      .product-quote-modal .modal-content {
+        border-radius: 15px;
+        overflow: hidden;
+      }
+
+      .product-quote-modal .modal-header {
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: white;
+        border-bottom: none;
+        padding: 1.5rem;
+      }
+
+      .product-quote-modal .modal-body {
+        padding: 2rem;
+      }
+
+      .product-quote-modal .form-label {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 0.5rem;
+      }
+
+      .product-quote-modal .form-control,
+      .product-quote-modal .form-select {
+        border-radius: 8px;
+        padding: 0.75rem 1rem;
+        border: 1px solid #ddd;
+        transition: all 0.3s ease;
+      }
+
+      .product-quote-modal .form-control:focus,
+      .product-quote-modal .form-select:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 0.2rem rgba(0, 180, 255, 0.25);
+      }
+
+      .btn-quote-submit {
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        border: none;
+        color: white;
+        font-weight: 600;
+        padding: 0.75rem 2rem;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        width: 100%;
+        margin-top: 1rem;
+      }
+
+      .btn-quote-submit:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 180, 255, 0.3);
+      }
+
+      .product-info-badge {
+        background: #e9f7fe;
+        color: var(--primary-color);
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-weight: 500;
+        margin-bottom: 1rem;
+        display: inline-block;
+      }
+
+      .inquiry-options {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .inquiry-option-btn {
+        flex: 1;
+        border: 2px solid var(--primary-color);
+        background: white;
+        color: var(--primary-color);
+        border-radius: 8px;
+        padding: 0.75rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .inquiry-option-btn.active {
+        background: var(--primary-color);
+        color: white;
+      }
+
+      .inquiry-option-btn:hover:not(.active) {
+        background: #f0f9ff;
+      }
+
+      .whatsapp-inquiry {
+        background: #25d366;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 0.75rem 1.5rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        width: 100%;
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .whatsapp-inquiry:hover {
+        background: #128c7e;
+        transform: translateY(-2px);
+      }
+
+      .form-note {
+        font-size: 0.85rem;
+        color: #666;
+        margin-top: 1rem;
+        text-align: center;
+      }
+
+      /* ==== PRODUCT MODALS ==== */
+      /* Modal Look & Feel */
+      .modal-content {
+        border-radius: 15px;
+      }
+
+      /* FIX & FEATURE: Image Container for Zoom */
+      .image-container {
+        overflow: hidden;
+        border-radius: 10px;
+        height: 450px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f8f9fa;
+      }
+      .img-fluid {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 10px;
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        cursor: zoom-in;
+      }
+      .image-container:hover .img-fluid {
+        transform: scale(1.2);
+        cursor: grab;
+      }
+
+      /* Thumbnails */
+      .small-img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        cursor: pointer;
+        border-radius: 8px;
+        border: 2px solid transparent;
+        transition: all 0.2s ease;
+      }
+      .small-img:hover,
+      .small-img.active {
+        transform: scale(1.05);
+        border-color: var(--primary-color);
+      }
+
+      /* Related Products Carousel */
+      .related-products .item {
+        height: 100% !important;
+        min-height: 380px !important;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+      .related-products .item .card {
+        height: 420px !important; /* Fixed height for all cards */
+      }
+
+      .related-products .item:hover {
+        transform: translateY(-5px);
+      }
+      .related-products .item img {
+        width: 100%;
+        height: 150px;
+        object-fit: contain;
+        border-radius: 10px;
+        background-color: #f1f1f1;
+      }
+
+      /* Text Styling */
+      .product-feature-list li {
+        margin-bottom: 8px;
+        color: #333;
+      }
+      .text-gradient {
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .w-40 {
+        width: 45%;
+      }
+
+      /* ==== REVIEWS ==== */
+      .review-section {
+        background: #fdfdfd; /* Light/white background */
+        color: #333;
+        position: relative;
+      }
+
+      /* Gradient heading */
+      .text-gradient {
+        background: linear-gradient(90deg, #000000, #000000);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* Review Cards */
+      .review-card {
+        background: #ffffff;
+        border-radius: 20px;
+        border-color: #000000 !important;
+        padding: 30px 20px;
+        min-height: 220px;
+        transition: transform 0.4s ease;
+      }
+      .review-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+      .quote-icon {
+        color: var(--primary-color); /* Primary vibrant color */
+        font-size: 30px;
+        margin-bottom: 15px;
+        display: block;
+      }
+
+      /* Text styling */
+      .review-card p {
+        color: #555;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 15px;
+      }
+      .review-card h5 {
+        color: var(--primary-color);
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      /* Owl Carousel Dots */
+      .owl-dots .owl-dot span {
+        background: var(--primary-color) !important;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 767px) {
+        .review-card {
+          padding: 25px 15px;
+        }
+        .inquiry-options {
+          flex-direction: column;
+        }
+        .w-40 {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+      }
+
+      /* Mobile-specific improvements */
+      @media (max-width: 576px) {
+        .hero-title {
+          font-size: 1.5rem;
+        }
+        .counter {
+          font-size: 1.8rem;
+        }
+        .modal-xl {
+          margin: 10px;
+        }
+        .image-container {
+          height: 300px;
+        }
+        .small-img {
+          width: 60px;
+          height: 60px;
+        }
+      }
+
+      /* ==== RELATED PRODUCTS CAROUSEL FOR HOMEPAGE ==== */
+      .related-products-carousel .owl-stage {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .related-products-carousel .owl-item {
+        display: flex;
+        height: 100%;
+      }
+
+      .related-products-carousel .item {
+        height: 100%;
+      }
+
+      .related-products-carousel .product-card {
+        height: 100%;
+        min-height: 280px !important;
+        display: flex;
+        flex-direction: column;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        background: #fff;
+      }
+
+      .related-products-carousel .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 180, 255, 0.15);
+      }
+
+      .related-products-carousel .product-image {
+        height: 150px !important;
+        min-height: 150px;
+        flex-shrink: 0;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f8f9fa;
+        padding: 10px;
+      }
+
+      .related-products-carousel .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: transform 0.4s ease;
+      }
+      /* .card-body{
+        height:500px;
+      }  */
+      .related-products-carousel .product-card:hover .product-image img {
+        transform: scale(1.05);
+      }
+
+      .related-products-carousel .product-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        min-height: 130px;
+      }
+
+      .related-products-carousel .product-content h6 {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #000;
+        margin-bottom: 8px;
+        line-height: 1.3;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+
+      .related-products-carousel .features {
+        flex: 1;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 4px;
+        margin-bottom: 10px;
+        min-height: 40px;
+      }
+
+      .related-products-carousel .feature-badge {
+        background: #e0f7fa;
+        color: var(--primary-color);
+        font-size: 0.7rem;
+        font-weight: 500;
+        padding: 3px 8px;
+        border-radius: 12px;
+        white-space: nowrap;
+      }
+
+      .related-products-carousel .btn-view {
+        flex-shrink: 0;
+        padding: 6px 12px;
+        font-size: 0.8rem;
+        margin-top: auto;
+      }
+
+      .related-products-carousel .owl-nav {
+        text-align: center;
+        margin-top: 15px;
+      }
+
+      .related-products-carousel .owl-nav button {
+        width: 40px;
+        height: 40px;
+        background: var(--primary-color) !important;
+        color: white !important;
+        border-radius: 50%;
+        margin: 0 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+
+      .related-products-carousel .owl-nav button:hover {
+        background: var(--secondary-color) !important;
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ✅ Navbar -->
+    <nav class="navbar navbar-expand-lg next-level-navbar fixed-top">
+      <div class="container-fluid px-3 py-1 px-md-4 px-lg-5">
+        <!-- Brand -->
+        <a class="navbar-brand fw-bold me-2" href="index.html">
+          <img
+            src="assets/images/logoB.png"
+            alt=""
+            height="65px"
+            class="me-2"
+          />
+          <span class="brand-text">Baneshwari <span>Industries</span></span>
+        </a>
+
+        <!-- Toggler -->
+        <button
+          class="navbar-toggler border-0 shadow-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainMenu"
+          aria-controls="mainMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <!-- Nav Links -->
+        <div
+          class="collapse navbar-collapse justify-content-lg-center mt-3 mt-lg-0"
+          id="mainMenu"
+        >
+          <ul class="navbar-nav align-items-lg-center gap-2 gap-lg-4">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products.html">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gallery.html">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <!-- ✅ Mobile Quote Button -->
+          <div class="d-lg-none text-center mt-3">
+            <button
+              class="btn btn-glow py-2 fw-semibold rounded-pill"
+              data-bs-toggle="modal"
+              data-bs-target="#quoteModal"
+            >
+              Get Quote <i class="fa-solid fa-arrow-right ms-2"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- ✅ Desktop Quote Button -->
+        <div class="d-none d-lg-block ms-auto">
+          <button
+            class="btn btn-glow px-4 py-2 fw-semibold rounded-pill"
+            data-bs-toggle="modal"
+            data-bs-target="#quoteModal"
+          >
+            Get Quote <i class="fa-solid fa-arrow-right ms-2"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ✅ Quote Form Modal -->
+    <div class="modal fade" id="quoteModal">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content border-0 shadow-lg rounded-4">
+          <div class="modal-header bg-primary text-white rounded-top-4">
+            <h5><i class="fa-solid fa-file-signature"></i> Request a Quote</h5>
+            <button
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body p-4">
+            <form id="quoteForm">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="from_name"
+                    required
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="from_email"
+                    required
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Phone</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    name="phone"
+                    required
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold">Service</label>
+                  <select class="form-select" name="service" required>
+                    <option value="">Select...</option>
+                    <option>Hydraulic Equipment</option>
+                    <option>Industrial Solutions</option>
+                    <option>Custom Fabrication</option>
+                    <option>Repair & Maintenance</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label fw-semibold">Message</label>
+                  <textarea
+                    class="form-control"
+                    name="message"
+                    rows="3"
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="text-center mt-4">
+                <button type="submit" class="btn btn-glow px-4 rounded-pill">
+                  Submit Request <i class="fa-solid fa-paper-plane ms-2"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ HEADER END -->
+
+    <!-- ==== HERO SECTION ==== -->
+    <!-- ==== HERO SECTION ==== -->
+    <header class="hero">
+      <div class="hero-overlay"></div>
+
+      <div class="container text-center hero-content">
+        <h2 class="hero-title text-white">
+          <span id="typed-text"></span><span id="cursor">|</span>
+        </h2>
+
+        <p class="hero-subtitle text-white mb-4">
+          Manufacturing innovation and precision for modern industries.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="products.html" class="btn btn-light btn-lg"
+            >Explore Machines</a
+          >
+          <a href="contact.html" class="btn btn-outline-light btn-lg"
+            >Contact Us</a
+          >
+        </div>
+      </div>
+    </header>
+    <!-- ==== COUNTER SECTION ==== -->
+    <section
+      class="container-fluid py-5 text-center"
+      style="background: #f8f9fa"
+    >
+      <div class="row g-4 justify-content-center">
+        <div class="col-6 col-md-3">
+          <h2 class="fw-bold counter" data-target="10">0</h2>
+          <p>Years of Experience</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <h2 class="fw-bold counter" data-target="100">0</h2>
+          <p>Machines Delivered</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <h2 class="fw-bold counter" data-target="50">0</h2>
+          <p>Happy Clients</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <h2 class="fw-bold counter" data-target="20">0</h2>
+          <p>Countries Served</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==== ABOUT SECTION ==== -->
+    <section class="container-fluid py-5 text-center bg-light">
+      <h2 class="fw-bold mb-4 gradient-text">About Baneshwari Industries</h2>
+
+      <p class="lead mb-5 text-dark mx-auto" style="max-width: 800px">
+        Baneshwari Industries specializes in manufacturing and supplying
+        premium-grade hydraulic and fabrication machines across India and
+        globally. We blend innovation with industrial power to ensure
+        reliability, precision, and efficiency in every product we deliver.
+      </p>
+
+      <div class="row justify-content-center g-4">
+        <!-- Item -->
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="about-card p-4 shadow-sm h-100">
+            <i class="fa-solid fa-gears fa-3x custom-icon"></i>
+            <h5 class="mt-3 text-dark">Advanced Engineering</h5>
+            <p class="text-muted mt-2">
+              Machines built with cutting-edge engineering principles.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item -->
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="about-card p-4 shadow-sm h-100">
+            <i class="fa-solid fa-screwdriver-wrench fa-3x custom-icon"></i>
+            <h5 class="mt-3 text-dark">Custom Solutions</h5>
+            <p class="text-muted mt-2">
+              Tailor-made machines for your specific needs.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item -->
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="about-card p-4 shadow-sm h-100">
+            <i class="fa-solid fa-globe fa-3x custom-icon"></i>
+            <h5 class="mt-3 text-dark">Global Reach</h5>
+            <p class="text-muted mt-2">
+              Serving clients across India and worldwide.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item -->
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="about-card p-4 shadow-sm h-100">
+            <i class="fa-solid fa-bolt-lightning fa-3x custom-icon"></i>
+            <h5 class="mt-3 text-dark">High Efficiency</h5>
+            <p class="text-muted mt-2">
+              Machines designed for maximum productivity and energy efficiency.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item -->
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="about-card p-4 shadow-sm h-100">
+            <i class="fa-solid fa-ranking-star fa-3x custom-icon"></i>
+            <h5 class="mt-3 text-dark">Quality Assurance</h5>
+            <p class="text-muted mt-2">
+              Every product undergoes strict quality testing.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item -->
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="about-card p-4 shadow-sm h-100">
+            <i class="fa-solid fa-headset fa-3x custom-icon"></i>
+            <h5 class="mt-3 text-dark">Customer Support</h5>
+            <p class="text-muted mt-2">
+              Reliable support before, during, and after purchase.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top-btn" id="scrollTopBtn">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+      <a href="https://wa.me/917014405301" target="_blank"
+        ><i class="fa-brands fa-whatsapp"></i
+      ></a>
+    </div>
+
+    <!-- ==== PRODUCT SECTION ==== -->
+    <section class="product-section py-5" id="core-machinery">
+      <div class="container text-center">
+        <h2 class="fw-bold mb-5 text-gradient">Our Core Machinery</h2>
+        <div class="row g-4" id="productCardsContainer">
+          <!-- Product cards will be dynamically generated for first 3 products -->
+        </div>
+
+        <section class="container py-5">
+          <div class="text-center mb-5">
+            <h2 class="fw-bold text-gradient">Explore More Machines</h2>
+            <p class="text-muted">
+              Browse our full range of industrial machinery
+            </p>
+          </div>
+
+          <div
+            class="owl-carousel owl-theme related-products-carousel"
+            id="moreProductsCarousel"
+          ></div>
+
+          <div class="text-center mt-4">
+            <a href="products.html" class="btn btn-viewall">
+              <i class="fa-solid fa-gears me-2"></i>View All Machines
+            </a>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- ==== PRODUCT QUOTE MODAL ==== -->
+    <div
+      class="modal fade product-quote-modal"
+      id="productQuoteModal"
+      tabindex="-1"
+      aria-labelledby="productQuoteModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="productQuoteModalLabel">
+              Request Product Quote
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="product-info-badge" id="selectedProductBadge">
+              Product: <span id="selectedProductName">Select a product</span>
+            </div>
+
+            <form id="productQuoteForm">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="quoteName" class="form-label">Full Name *</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="quoteName"
+                    placeholder="Your full name"
+                    required
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="quoteEmail" class="form-label"
+                    >Email Address *</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="quoteEmail"
+                    placeholder="you@example.com"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="quotePhone" class="form-label"
+                    >Phone Number *</label
+                  >
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="quotePhone"
+                    placeholder="+91 70144 05301"
+                    required
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="quoteCompany" class="form-label"
+                    >Company Name</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="quoteCompany"
+                    placeholder="Your company name"
+                  />
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="quoteProduct" class="form-label"
+                  >Product of Interest *</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="quoteProduct"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="quoteQuantity" class="form-label"
+                  >Estimated Quantity</label
+                >
+                <select class="form-select" id="quoteQuantity">
+                  <option value="">Select quantity</option>
+                  <option value="1">1 unit</option>
+                  <option value="2-5">2-5 units</option>
+                  <option value="6-10">6-10 units</option>
+                  <option value="10+">10+ units</option>
+                  <option value="custom">Custom requirement</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="quoteMessage" class="form-label"
+                  >Additional Requirements</label
+                >
+                <textarea
+                  class="form-control"
+                  id="quoteMessage"
+                  rows="3"
+                  placeholder="Tell us about your specific requirements, timeline, or any other details..."
+                ></textarea>
+              </div>
+
+              <div class="inquiry-options">
+                <div class="inquiry-option-btn active" data-type="email">
+                  <i class="fa-solid fa-envelope me-1"></i> Email Quote
+                </div>
+                <div class="inquiry-option-btn" data-type="whatsapp">
+                  <i class="fa-brands fa-whatsapp me-1"></i> WhatsApp
+                </div>
+              </div>
+
+              <input type="hidden" id="inquiryType" value="email" />
+
+              <div id="emailInquirySection">
+                <button type="submit" class="btn-quote-submit">
+                  <i class="fa-solid fa-paper-plane me-2"></i> Submit Quote
+                  Request
+                </button>
+                <p class="form-note">
+                  We'll email you a detailed quote within 24 hours
+                </p>
+              </div>
+
+              <div id="whatsappInquirySection" style="display: none">
+                <a
+                  href="#"
+                  class="whatsapp-inquiry"
+                  id="whatsappInquiryLink"
+                  target="_blank"
+                >
+                  <i class="fa-brands fa-whatsapp me-2"></i> Contact on WhatsApp
+                </a>
+                <p class="form-note">We'll respond immediately on WhatsApp</p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="productModalsContainer"></div>
+
+    <!-- ==== REVIEWS ==== -->
+    <section class="review-section py-5">
+      <div class="container text-center">
+        <h2 class="fw-bold mb-5 text-gradient">What Our Clients Say</h2>
+        <div class="owl-carousel owl-theme">
+          <div class="review-card">
+            <i class="fa-solid fa-quote-left quote-icon"></i>
+            <p>
+              "Baneshwari Industries delivers top-quality machines with
+              outstanding support."
+            </p>
+            <h5>— Rahul Mehta</h5>
+            <p>Industrial Engineer</p>
+          </div>
+          <div class="review-card">
+            <i class="fa-solid fa-quote-left quote-icon"></i>
+            <p>
+              "Amazing service and reliable performance. The precision exceeded
+              expectations."
+            </p>
+            <h5>— Priya Desai</h5>
+            <p>Manufacturing Unit Owner</p>
+          </div>
+          <div class="review-card">
+            <i class="fa-solid fa-quote-left quote-icon"></i>
+            <p>
+              "Their edge-cutting machines run smoothly with minimal
+              maintenance."
+            </p>
+            <h5>— Arjun Patel</h5>
+            <p>Operations Manager</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==== FOOTER ==== -->
+    <div id="footer"></div>
+
+    <!-- ==== JS ==== -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!-- <script src="js/navbtn.js"></script> -->
+    <!-- EmailJS Integration -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+
+    <script>
+      // === MODAL BACKDROP FIX ===
+      $(document).on("hidden.bs.modal", ".modal", function (e) {
+        // Remove all backdrops
+        $(".modal-backdrop").remove();
+
+        // Reset body
+        $("body").removeClass("modal-open");
+        $("body").css({
+          overflow: "",
+          "padding-right": "",
+        });
+
+        // Reset modal state
+        $(this).removeClass("show");
+        $(this).css("display", "");
+
+        // Force reflow
+        $(this).hide();
+      });
+
+      // Prevent multiple modals from opening
+      $(document).on("show.bs.modal", ".modal", function () {
+        // Hide any other open modals
+        $(".modal.show").modal("hide");
+      });
+
+      // Typing effect
+      const text = "Engineering Excellence in Hydraulic Machinery";
+      let index = 0;
+      const speed = 70;
+
+      function type() {
+        if (index < text.length) {
+          document.getElementById("typed-text").innerHTML += text.charAt(index);
+          index++;
+          setTimeout(type, speed);
+        }
+      }
+
+      // Start typing when page loads
+      window.onload = type;
+
+      // Counter Animation
+      document.addEventListener("DOMContentLoaded", function () {
+        const counters = document.querySelectorAll(".counter");
+        counters.forEach((counter) => {
+          const updateCount = () => {
+            const target = +counter.getAttribute("data-target");
+            const count = +counter.innerText;
+            const speed = 100;
+            const increment = target / speed;
+            if (count < target) {
+              counter.innerText = Math.ceil(count + increment);
+              setTimeout(updateCount, 40);
+            } else {
+              counter.innerText = target;
+            }
+          };
+          updateCount();
+        });
+      });
+
+      // === COMPREHENSIVE PRODUCT DATA ===
+      const allProducts = [
+        {
+          id: 1,
+          name: "Hydraulic Barrel Drum Cutting Machine",
+          modalId: 1,
+          img: "assets/images/Hydraulic Barrel drum cutting machine manual.png",
+          thumbs: [
+            "assets/images/Hydraulic Barrel drum cutting machine manual.png",
+          ],
+          features: [
+            "**High-performance** hydraulic operation for consistent cuts",
+            "Emergency stop mechanism and guarded blade chamber for **enhanced safety**",
+            "Durable steel construction ensuring long operational life",
+            "Adjustable cutting depth for varying drum materials and thickness",
+          ],
+          specs: [
+            ["Power", "2 HP (1.5 kW)"],
+            ["Cutting Capacity", "200 L Standard Drum"],
+            ["Weight", "350 Kg (Approx)"],
+            ["Operation", "Manual/Semi-Auto"],
+            ["Cycle Time", "< 30 seconds"],
+          ],
+          details: {
+            description:
+              "This **Hydraulic Barrel Drum Cutting Machine** is designed for maximum safety and efficiency in industrial recycling and decommissioning. The high-performance hydraulic system ensures a clean, smooth cut through thick steel drums, significantly reducing manual effort and processing time.",
+            applications: [
+              "Chemical and Petrochemical Waste Management",
+              "Industrial Recycling Facilities",
+              "Drum Reconditioning Centers",
+            ],
+          },
+          ribbon: "Featured",
+          category: "drum",
+          shortDescription:
+            "High-performance hydraulic drum cutting machine for safe and smooth operation.",
+        },
+        {
+          id: 2,
+          name: "Hydraulic Bottle Cap Threading Machine",
+          modalId: 2,
+          img: "assets/images/Hydraulic manual Bottle cap threading machine.png",
+          thumbs: [
+            "assets/images/Hydraulic manual Bottle cap threading machine.png",
+          ],
+          features: [
+            "**Precision threading control** for leak-proof seals",
+            "Durable mechanism for long life and low maintenance",
+            "Ergonomic handle and base plate for stable manual operation",
+            "Quick-change mandrel system for different cap sizes",
+          ],
+          specs: [
+            ["Power", "1.5 HP"],
+            ["Cap Diameter", "30mm - 110mm"],
+            ["Height Adjustment", "Manual lock"],
+            ["Accuracy", "±0.1 mm"],
+          ],
+          details: {
+            description:
+              "The **Hydraulic Bottle Cap Threading Machine** is engineered for precision and consistency in capping small to medium batches. Its manual hydraulic system provides superior torque control compared to basic hand tools.",
+            applications: [
+              "Pharmaceutical Bottling",
+              "Small-Batch Beverage Production",
+              "Cosmetic and Essential Oil Packaging",
+            ],
+          },
+          ribbon: "New",
+          category: "bottle",
+          shortDescription:
+            "Precision threading machine with durable hydraulic mechanism for consistent output.",
+        },
+        {
+          id: 3,
+          name: "Hydraulic Semi Auto Edge Cutting Machine",
+          modalId: 3,
+          img: "assets/images/Hydraulic semi auto edge cutting & tooling machine.png",
+          thumbs: [
+            "assets/images/Hydraulic semi auto edge cutting & tooling machine.png",
+          ],
+          features: [
+            "**High precision** circular cutting and tooling for clean metal edges",
+            "Semi-automatic operation requiring minimal operator intervention",
+            "Heavy-duty frame for enhanced stability and **vibration reduction**",
+            "Integrated coolant system for prolonged tool life",
+          ],
+          specs: [
+            ["Power", "3 HP"],
+            ["Cutting Capacity", "500 mm (Max Diameter)"],
+            ["Tolerance", "±0.05 mm"],
+            ["Coolant Tank", "5 L capacity"],
+          ],
+          details: {
+            description:
+              "The **Hydraulic Semi Auto Edge Cutting Machine** is designed for the high-tolerance finishing of industrial metal components. Utilizing a semi-automatic process, it delivers consistent, clean edge trimming and tooling.",
+            applications: [
+              "Automotive Component Manufacturing",
+              "Metal Fabrication and Tooling",
+              "Precision Machinery Finishing",
+            ],
+          },
+          ribbon: "Best Seller",
+          category: "edge",
+          shortDescription:
+            "Advanced semi-auto machine for high-precision edge cutting and tooling operations.",
+        },
+        {
+          id: 4,
+          name: "Hydraulic Semi Auto Edge Cutting Machine 2",
+          modalId: 4,
+          img: "assets/images/Hydraulic semi auto edge cutting & tooling machine.png",
+          thumbs: [
+            "assets/images/Hydraulic semi auto edge cutting & tooling machine.png",
+          ],
+          features: [
+            "**Advanced precision** cutting with digital controls",
+            "Fully automatic operation with programmable settings",
+            "Reinforced steel frame for heavy-duty applications",
+            "Advanced coolant circulation system",
+          ],
+          specs: [
+            ["Power", "4 HP"],
+            ["Cutting Capacity", "600 mm (Max Diameter)"],
+            ["Tolerance", "±0.02 mm"],
+            ["Coolant Tank", "8 L capacity"],
+            ["Automation Level", "Fully Automatic"],
+          ],
+          details: {
+            description:
+              "The **Hydraulic Semi Auto Edge Cutting Machine Pro** version offers advanced automation and precision for high-volume production environments. With programmable settings and digital controls, it ensures consistent quality across large batches.",
+            applications: [
+              "High-Volume Automotive Parts",
+              "Aerospace Component Manufacturing",
+              "Precision Engineering Workshops",
+            ],
+          },
+          ribbon: "Best Seller",
+          category: "edge",
+          shortDescription:
+            "Advanced semi-auto machine for high-precision edge cutting and tooling operations.",
+        },
+        {
+          id: 5,
+          name: "Hydraulic Round Beeding Machine",
+          modalId: 5,
+          img: "assets/images/Hydraulic Round beeding machine semi auto.png",
+          thumbs: [
+            "assets/images/Hydraulic Round beeding machine semi auto.png",
+          ],
+          features: [
+            "**Smooth round beeding** for perfect edge finishing",
+            "Semi-auto hydraulic operation for consistent results",
+            "Adjustable pressure settings for different materials",
+            "Easy-to-operate control panel",
+          ],
+          specs: [
+            ["Power", "2.5 HP"],
+            ["Beading Capacity", "Up to 300 mm diameter"],
+            ["Weight", "300 Kg"],
+            ["Operation", "Semi-Auto"],
+            ["Material Thickness", "1-6 mm"],
+          ],
+          details: {
+            description:
+              "The **Hydraulic Round Beeding Machine** is specially designed for creating perfect round edges on metal sheets and components. Its semi-automatic operation ensures consistent beeding quality with minimal operator intervention.",
+            applications: [
+              "Sheet Metal Fabrication",
+              "Automotive Body Works",
+              "Industrial Container Manufacturing",
+            ],
+          },
+          ribbon: "New",
+          category: "normal",
+          shortDescription:
+            "Semi-automatic hydraulic round beeding machine for perfect edge finishing.",
+        },
+        {
+          id: 6,
+          name: "Manual Square Beeding Machine",
+          modalId: 6,
+          img: "assets/images/Manual square beeding machine 01.png",
+          thumbs: ["assets/images/Manual square beeding machine 01.png"],
+          features: [
+            "**Precision square beeding** for sharp edges",
+            "Manual operation for small batch production",
+            "Robust construction for long-lasting performance",
+            "Easy maintenance and operation",
+          ],
+          specs: [
+            ["Power", "Manual Operation"],
+            ["Beading Capacity", "Up to 200 mm square"],
+            ["Weight", "150 Kg"],
+            ["Operation", "Manual"],
+            ["Material Compatibility", "Steel, Aluminum, Copper"],
+          ],
+          details: {
+            description:
+              "The **Manual Square Beeding Machine** is perfect for workshops and small-scale operations requiring precise square edges on metal components. Its manual operation provides excellent control for custom projects.",
+            applications: [
+              "Small-scale Fabrication Shops",
+              "Custom Metal Work",
+              "Prototype Development",
+            ],
+          },
+          ribbon: "Best Seller",
+          category: "normal",
+          shortDescription:
+            "Manual square beeding machine for precise edge finishing in small workshops.",
+        },
+        {
+          id: 7,
+          name: "Manual Square Beeding Machine 2",
+          modalId: 7,
+          img: "assets/images/Manual square beeding machine.png",
+          thumbs: ["assets/images/Manual square beeding machine.png"],
+          features: [
+            "**Enhanced square beeding** with improved precision",
+            "Heavy-duty manual operation for tougher materials",
+            "Upgraded clamping mechanism for better stability",
+            "Extended tool life with hardened components",
+          ],
+          specs: [
+            ["Power", "Manual Operation"],
+            ["Beading Capacity", "Up to 250 mm square"],
+            ["Weight", "180 Kg"],
+            ["Operation", "Manual"],
+            ["Max Material Thickness", "8 mm"],
+          ],
+          details: {
+            description:
+              "The **Manual Square Beeding Machine Pro** version offers enhanced capabilities for handling thicker materials and larger components while maintaining precision in square edge formation.",
+            applications: [
+              "Heavy-duty Metal Fabrication",
+              "Industrial Equipment Manufacturing",
+              "Structural Steel Works",
+            ],
+          },
+          ribbon: "New",
+          category: "normal",
+          shortDescription:
+            "Enhanced manual square beeding machine with improved precision and durability.",
+        },
+        {
+          id: 8,
+          name: "Out Cutter Machine",
+          modalId: 8,
+          img: "assets/images/Out cutter machine.png",
+          thumbs: ["assets/images/Out cutter machine.png"],
+          features: [
+            "**Efficient external cutting** for various materials",
+            "Compact design for space-efficient operation",
+            "Easy blade replacement system",
+            "Safety guards for operator protection",
+          ],
+          specs: [
+            ["Power", "1 HP"],
+            ["Cutting Type", "External"],
+            ["Weight", "120 Kg"],
+            ["Operation", "Manual"],
+            ["Blade Type", "Replaceable Steel Blades"],
+          ],
+          details: {
+            description:
+              "The **Out Cutter Machine** is designed for efficient external cutting operations on various materials. Its compact design makes it ideal for workshops with limited space while delivering reliable performance.",
+            applications: [
+              "Pipe Cutting Operations",
+              "Rod Cutting Workshops",
+              "General Metal Cutting",
+            ],
+          },
+          ribbon: "Featured",
+          category: "normal",
+          shortDescription:
+            "Efficient external cutting machine for various materials with compact design.",
+        },
+        {
+          id: 9,
+          name: "Round Circle Cutting Machine",
+          modalId: 9,
+          img: "assets/images/Round circle cutting machine.png",
+          thumbs: ["assets/images/Round circle cutting machine.png"],
+          features: [
+            "**High-speed circular cutting** with precision",
+            "Adjustable cutting diameter for versatility",
+            "Stable base for vibration-free operation",
+            "Quick setup and operation",
+          ],
+          specs: [
+            ["Power", "2 HP"],
+            ["Cutting Capacity", "50-500 mm diameter"],
+            ["Weight", "250 Kg"],
+            ["Operation", "Semi-Auto"],
+            ["Cutting Speed", "Adjustable"],
+          ],
+          details: {
+            description:
+              "The **Round Circle Cutting Machine** excels in producing perfect circular cuts on various materials. With adjustable diameter settings, it offers versatility for different project requirements while maintaining high cutting speed.",
+            applications: [
+              "Disc Manufacturing",
+              "Gasket Production",
+              "Circular Component Fabrication",
+            ],
+          },
+          ribbon: "Best Seller",
+          category: "normal",
+          shortDescription:
+            "High-speed circular cutting machine with adjustable diameter for versatile applications.",
+        },
+        {
+          id: 10,
+          name: "SS Coil De-Coiler",
+          modalId: 10,
+          img: "assets/images/Ss coil de coiler.png",
+          thumbs: ["assets/images/Ss coil de coiler.png"],
+          features: [
+            "**Heavy-duty construction** for stainless steel coils",
+            "Smooth de-coiling operation without material damage",
+            "Adjustable tension control for different coil weights",
+            "Robust frame for stability during operation",
+          ],
+          specs: [
+            ["Capacity", "Up to 1000 kg coils"],
+            ["Coil Width", "Up to 1500 mm"],
+            ["Weight", "600 Kg"],
+            ["Operation", "Manual/Semi-Auto"],
+            ["Material", "Stainless Steel Construction"],
+          ],
+          details: {
+            description:
+              "The **SS Coil De-Coiler** is engineered specifically for handling stainless steel coils in industrial settings. Its heavy-duty construction ensures reliable performance while protecting the coil material from damage during the de-coiling process.",
+            applications: [
+              "Stainless Steel Processing Plants",
+              "Coil Feeding Lines",
+              "Sheet Metal Production Facilities",
+            ],
+          },
+          ribbon: "New",
+          category: "normal",
+          shortDescription:
+            "Heavy-duty stainless steel coil de-coiler for smooth material handling.",
+        },
+        {
+          id: 11,
+          name: "Vertical Beeding Machine",
+          modalId: 11,
+          img: "assets/images/Vertical beeding machine.png",
+          thumbs: ["assets/images/Vertical beeding machine.png"],
+          features: [
+            "**Space-saving vertical design** for compact workshops",
+            "Precise vertical beeding for specialized applications",
+            "Easy material loading and unloading",
+            "Stable vertical operation mechanism",
+          ],
+          specs: [
+            ["Power", "1.5 HP"],
+            ["Operation", "Vertical"],
+            ["Weight", "200 Kg"],
+            ["Beading Type", "Vertical Edge"],
+            ["Floor Space", "Compact Design"],
+          ],
+          details: {
+            description:
+              "The **Vertical Beeding Machine** features a space-saving vertical design ideal for workshops with limited floor space. It provides precise vertical beeding operations while maintaining the quality and consistency of horizontal machines.",
+            applications: [
+              "Space-constrained Workshops",
+              "Vertical Edge Applications",
+              "Specialized Metal Fabrication",
+            ],
+          },
+          ribbon: "Featured",
+          category: "normal",
+          shortDescription:
+            "Space-saving vertical beeding machine for compact workshops.",
+        },
+      ];
+
+      // === DYNAMIC PRODUCT MODALS GENERATION ===
+      function generateAllProductModals() {
+        // Remove existing container if any
+        const existingContainer = document.getElementById(
+          "productModalsContainer"
+        );
+        if (existingContainer) {
+          existingContainer.remove();
+        }
+
+        const container = document.createElement("div");
+        container.id = "productModalsContainer";
+        document.body.appendChild(container);
+
+        // Generate modals for ALL products
+        allProducts.forEach((product) => {
+          const modalId = product.modalId || product.id;
+          const modalHTML = `
+              <div class="modal fade" id="productModal${modalId}" tabindex="-1" aria-labelledby="productModalLabel${modalId}" aria-hidden="true">
+                <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                  <div class="modal-content">
+                    <div class="modal-header border-0 pb-0">
+                      <h3 class="modal-title text-gradient fw-bold" id="productModalLabel${modalId}">${product.name}</h3>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body pt-0">
+                      <hr />
+                      <div class="row g-4">
+                        <div class="col-lg-6 col-12">
+                          <div class="image-container shadow-lg">
+                            <img id="modalMainImg${modalId}" src="${product.img}" class="img-fluid rounded" alt="${product.name}" />
+                          </div>
+                          <div id="productThumbnails${modalId}" class="mt-3 d-flex gap-2 flex-wrap justify-content-center"></div>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                          <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                              <h5 class="text-primary fw-bold mb-3">Key Features:</h5>
+                              <ul id="productFeatures${modalId}" class="list-unstyled product-feature-list"></ul>
+                              <h5 class="text-primary fw-bold mt-4 mb-3">Technical Specifications:</h5>
+                              <div class="table-responsive">
+                                <table class="table table-striped table-bordered" id="productSpecs${modalId}"></table>
+                              </div>
+                              <div class="mt-4 pt-3 border-top text-center">
+                                <a href="tel:+917014405301" class="btn btn-outline-primary me-2 w-40">
+                                  <i class="fa-solid fa-phone me-1"></i> Call Now
+                                </a>
+                                <button class="btn btn-primary w-40 btn-quote" data-product="${product.name}" data-bs-toggle="modal" data-bs-target="#productQuoteModal">
+                                  <i class="fa-solid fa-quote-right me-1"></i> Inquire Now
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <hr class="mt-5" />
+                      <p class="text-center">
+                        <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#detailedDescription${modalId}" aria-expanded="false" aria-controls="detailedDescription${modalId}">
+                          View Detailed Description & Applications
+                          <i class="fa-solid fa-chevron-down ms-1 collapse-icon-${modalId}"></i>
+                        </button>
+                      </p>
+                      <div class="collapse" id="detailedDescription${modalId}">
+                        <div class="card card-body bg-light" id="detailedContent${modalId}"></div>
+                      </div>
+                      <div class="related-products mt-5">
+                        <h4 class="text-center text-gradient mb-4">You May Also Like</h4>
+                        <div class="owl-carousel owl-theme" id="relatedProducts${modalId}"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+
+          container.innerHTML += modalHTML;
+        });
+      }
+
+      // === DYNAMIC PRODUCT CARDS GENERATION ===
+      function generateHomepageProductCards() {
+        const container = document.getElementById("productCardsContainer");
+        if (!container) return;
+
+        container.innerHTML = "";
+
+        // Show only first 3 products on homepage
+        const homepageProducts = allProducts.slice(0, 3);
+
+        homepageProducts.forEach((product) => {
+          const modalId = product.modalId || product.id;
+          const cardHTML = `
+              <div class="col-md-4 col-sm-6 d-flex align-items-stretch">
+                <div class="product-card shadow-lg d-flex flex-column justify-content-between w-100 position-relative">
+                  ${
+                    product.ribbon
+                      ? `<span class="ribbon position-absolute top-0 start-0 m-2">${product.ribbon}</span>`
+                      : ""
+                  }
+                  <div>
+                    <div class="product-image" data-bs-toggle="modal" data-bs-target="#productModal${modalId}">
+                      <img src="${product.img}" alt="${
+            product.name
+          }" class="main-img" />
+                      <div class="product-overlay">
+                        <p>${
+                          product.shortDescription ||
+                          "High-performance hydraulic machine"
+                        }</p>
+                      </div>
+                    </div>
+                    <div class="product-content p-3 d-flex flex-column flex-grow-1">
+                      <h5>${product.name}</h5>
+                      <div class="features d-flex justify-content-center flex-wrap gap-2 mb-3">
+                        ${product.specs
+                          .slice(0, 3)
+                          .map(
+                            (spec) =>
+                              `<span class="feature-badge">${spec[1]}</span>`
+                          )
+                          .join("")}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="p-3">
+                    <div class="row g-2">
+                      <div class="col-12">
+                        <a href="tel:+917014405301" class="btn btn-outline w-100">
+                          <i class="fa-solid fa-phone me-1"></i> Call Now
+                        </a>
+                      </div>
+                      <div class="col-12">
+                        <button class="btn btn-primary w-100" data-product="${
+                          product.name
+                        }" data-bs-toggle="modal" data-bs-target="#productQuoteModal">
+                          <i class="fa-solid fa-quote-right me-1"></i> Get Quote
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+
+          container.innerHTML += cardHTML;
+        });
+      }
+
+      // === MODAL FUNCTIONS ===
+      function updateInquiryLink(modalId, productName) {
+        const $inquireButton = $(`#productModal${modalId}`).find(
+          ".mt-4 .btn-quote"
+        );
+        $inquireButton.attr("data-product", productName);
+      }
+
+      function updateDetailedDescription(modalId, details) {
+        const applicationsHTML = details.applications
+          .map((app) => `<li>${app}</li>`)
+          .join("");
+        const contentHTML = `
+            <p class="text-muted">${details.description}</p>
+            <h6 class="text-primary fw-bold mt-3">Applications:</h6>
+            <ul class="text-muted list-unstyled">${applicationsHTML}</ul>
+          `;
+        $(`#detailedContent${modalId}`).html(contentHTML);
+      }
+
+      window.changeMainImage = function (modalId, thumbElement) {
+        const mainImgId = `modalMainImg${modalId}`;
+        document.getElementById(mainImgId).src = thumbElement.src;
+        $(`#productThumbnails${modalId} .small-img`).removeClass("active");
+        $(thumbElement).addClass("active");
+      };
+
+      function showProduct(modalId, index) {
+        const product = allProducts.find(
+          (p) => p.modalId === parseInt(modalId) || p.id === parseInt(modalId)
+        );
+        if (!product) return;
+
+        const modalElement = $(`#productModal${modalId}`);
+        if (modalElement.length === 0) {
+          console.error(`Modal element not found: #productModal${modalId}`);
+          return;
+        }
+
+        modalElement.find(".image-container").scrollLeft(0).scrollTop(0);
+        $(`#productModalLabel${modalId}`).text(product.name);
+        $(`#modalMainImg${modalId}`).attr("src", product.img);
+        updateInquiryLink(modalId, product.name);
+        updateDetailedDescription(modalId, product.details);
+
+        const $thumbsContainer = $(`#productThumbnails${modalId}`);
+        $thumbsContainer.html("");
+        const thumbnails = product.thumbs || [product.img];
+        thumbnails.forEach((src, i) => {
+          $("<img>")
+            .attr({
+              src: src,
+              class: `img-thumbnail small-img ${i === 0 ? "active" : ""}`,
+              alt: "Product Thumbnail",
+            })
+            .on("click", function () {
+              window.changeMainImage(modalId, this);
+            })
+            .appendTo($thumbsContainer);
+        });
+
+        $(`#productFeatures${modalId}`).html(
+          product.features
+            .map(
+              (f) =>
+                `<li><i class="fa-solid fa-check text-success me-2"></i>${f}</li>`
+            )
+            .join("")
+        );
+
+        const specsHTML = product.specs
+          .map(
+            (s) => `<tr><td class="fw-bold">${s[0]}</td><td>${s[1]}</td></tr>`
+          )
+          .join("");
+        $(`#productSpecs${modalId}`).html(specsHTML);
+
+        // Build related products for this modal
+        buildRelated(modalId, product.id);
+      }
+
+      function buildRelated(modalId, currentProductId) {
+        const container = $(`#relatedProducts${modalId}`);
+
+        if (container.hasClass("owl-loaded")) {
+          container.trigger("destroy.owl.carousel").removeClass("owl-loaded");
+        }
+
+        container.html("");
+
+        // Get ALL products except the current one (from all 9 products)
+        const relatedProducts = allProducts.filter(
+          (p) => p.id !== currentProductId
+        );
+
+        // Show ALL related products
+        relatedProducts.forEach((product) => {
+          // Get first 2 specs for badges
+          const featureBadges = product.specs
+            .slice(0, 2)
+            .map((spec) => `<span class="feature-badge">${spec[1]}</span>`)
+            .join("");
+
+          container.append(`
+              <div class="item text-center" data-product-id="${product.id}" data-modal-id="${modalId}">
+                <div class="card shadow-sm h-100 border-0">
+                  <div class="card-body p-3">
+                    <div class="product-image-small mb-3" style="height: 250px; overflow: hidden; border-radius: 8px;">
+                      <img src="${product.img}" class="w-100 h-100 object-fit-contain" alt="${product.name}">
+                    </div>
+                    <h6 class="fw-bold text-dark mb-2" style="font-size: 0.9rem;">${product.name}</h6>
+                    <div class="features d-flex justify-content-center flex-wrap gap-1 mb-3">${featureBadges}</div>
+                    
+                    <div class="mt-2">
+                      <button class="btn btn-sm btn-outline-primary view-product-btn w-100" data-product-id="${product.id}">
+                        View Details
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `);
+        });
+
+        container.owlCarousel({
+          loop: true,
+          margin: 15,
+          nav: true,
+          dots: false,
+          autoplay: true,
+          autoplayTimeout: 4000,
+          autoplayHoverPause: true,
+          responsive: {
+            0: { items: 1 },
+            576: { items: 1 },
+            768: { items: 3 },
+            992: { items: 3 },
+            1200: { items: 3 },
+          },
+          navText: [
+            '<i class="fa-solid fa-chevron-left" style="background:#00B4FF; color:white; width:45px; height:45px; display:flex; justify-content:center; align-items:center; font-size:18px; cursor:pointer;"></i>',
+            '<i class="fa-solid fa-chevron-right" style="background:#00B4FF; color:white; width:45px; height:45px; display:flex; justify-content:center; align-items:center; font-size:18px; cursor:pointer;"></i>',
+          ],
+        });
+
+        // Handle click on related products
+        container.on("click", ".view-product-btn", function (e) {
+          e.stopPropagation();
+          const productId = $(this).data("product-id");
+          const product = allProducts.find((p) => p.id === productId);
+
+          if (product) {
+            // Close current modal
+            const currentModal = bootstrap.Modal.getInstance(
+              $(`#productModal${modalId}`)[0]
+            );
+            currentModal.hide();
+
+            // Open the target product modal after a short delay
+            setTimeout(() => {
+              const targetModal = new bootstrap.Modal(
+                $(`#productModal${product.modalId}`)[0]
+              );
+              targetModal.show();
+
+              // Initialize the target modal
+              showProduct(product.modalId, 0);
+            }, 300);
+          }
+        });
+
+        // Also make the whole card clickable
+        container.on("click", ".item .card", function () {
+          const productId = $(this)
+            .find(".view-product-btn")
+            .data("product-id");
+          const product = allProducts.find((p) => p.id === productId);
+
+          if (product) {
+            // Close current modal
+            const currentModal = bootstrap.Modal.getInstance(
+              $(`#productModal${modalId}`)[0]
+            );
+            currentModal.hide();
+
+            // Open the target product modal after a short delay
+            setTimeout(() => {
+              const targetModal = new bootstrap.Modal(
+                $(`#productModal${product.modalId}`)[0]
+              );
+              targetModal.show();
+
+              // Initialize the target modal
+              showProduct(product.modalId, 0);
+            }, 300);
+          }
+        });
+      }
+
+      // === INITIALIZE ALL PRODUCT MODALS ===
+      function initializeAllModals() {
+        // Initialize each modal for ALL products
+        allProducts.forEach((product) => {
+          const modalId = product.modalId || product.id;
+
+          // Set up modal event listeners
+          const modalElement = document.getElementById(
+            `productModal${modalId}`
+          );
+          if (modalElement) {
+            // Initialize product content
+            setTimeout(() => {
+              showProduct(modalId, 0);
+            }, 100);
+          }
+        });
+      }
+
+      // === INITIALIZE EVENT LISTENERS ===
+      function initializeEventListeners() {
+        // Event delegation for product image clicks
+        document.addEventListener("click", function (e) {
+          const productImage = e.target.closest(".product-image");
+          if (productImage) {
+            const card = productImage.closest(".product-card");
+            const quoteButton = card.querySelector(
+              '.btn-primary[data-bs-target="#productQuoteModal"]'
+            );
+
+            if (quoteButton) {
+              const productName = quoteButton.getAttribute("data-product");
+              document.getElementById("selectedProductName").textContent =
+                productName;
+              document.getElementById("quoteProduct").value = productName;
+            }
+          }
+        });
+      }
+
+      // === SEPARATE EMAILJS CONFIGURATIONS ===
+      const NAVBAR_EMAILJS_CONFIG = {
+        SERVICE_ID: "service_z5kmbe6",
+        TEMPLATE_ID: "template_u9q1v4o",
+        PUBLIC_KEY: "Xy0PDh2q0TOTBm6Zj",
+      };
+
+      const PRODUCT_EMAILJS_CONFIG = {
+        SERVICE_ID: "service_reyptje",
+        TEMPLATE_ID: "template_0zrlh2n",
+        PUBLIC_KEY: "RyAqOEUn1RuSVk-cN",
+      };
+
+      // Initialize EmailJS
+      emailjs.init(NAVBAR_EMAILJS_CONFIG.PUBLIC_KEY);
+
+      // === MAIN INITIALIZATION ===
+      document.addEventListener("DOMContentLoaded", function () {
+        // Generate modals for ALL products
+        generateAllProductModals();
+
+        // Generate only 3 product cards on homepage
+        generateHomepageProductCards();
+
+        // Initialize all modals
+        initializeAllModals();
+
+        // Initialize event listeners
+        initializeEventListeners();
+
+        // === PRODUCT SELECTION FOR QUOTE MODAL ===
+        document.addEventListener("click", function (e) {
+          // When any "Get Quote" button is clicked on product cards
+          if (
+            e.target.closest(
+              '.btn-primary[data-bs-target="#productQuoteModal"]'
+            )
+          ) {
+            const button = e.target.closest(
+              '.btn-primary[data-bs-target="#productQuoteModal"]'
+            );
+            const productName = button.getAttribute("data-product");
+
+            // Set the product name in the quote modal
+            document.getElementById("selectedProductName").textContent =
+              productName;
+            document.getElementById("quoteProduct").value = productName;
+
+            // Update WhatsApp link with selected product
+            updateWhatsAppLinkWithFormData(productName);
+          }
+        });
+
+        // Navbar scroll effect
+        window.addEventListener("scroll", () => {
+          const nav = document.querySelector(".next-level-navbar");
+          nav.classList.toggle("scrolled", window.scrollY > 40);
+        });
+
+        // Active link highlight
+        const current = window.location.pathname.split("/").pop();
+        document.querySelectorAll(".nav-link").forEach((link) => {
+          const href = link.getAttribute("href");
+          if (href.includes(current) && current !== "")
+            link.classList.add("active");
+          else if (current === "" && href.includes("index.html"))
+            link.classList.add("active");
+        });
+
+        // Fix toggler open/close for mobile
+        const toggler = document.querySelector(".navbar-toggler");
+        const menu = document.querySelector("#mainMenu");
+        if (toggler && menu) {
+          toggler.addEventListener("click", () => {
+            const isShown = menu.classList.contains("show");
+            toggler.querySelector("i").classList.toggle("fa-bars", isShown);
+            toggler.querySelector("i").classList.toggle("fa-bars", !isShown);
+          });
+        }
+
+        // === NAVBAR QUOTE FORM HANDLER ===
+        const quoteForm = document.getElementById("quoteForm");
+        if (quoteForm) {
+          quoteForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const submitBtn = this.querySelector("button");
+            const originalText = submitBtn.innerHTML;
+
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML =
+              "Sending... <i class='fa-solid fa-spinner fa-spin ms-2'></i>";
+
+            // Send email using NAVBAR EmailJS configuration
+            emailjs
+              .sendForm(
+                NAVBAR_EMAILJS_CONFIG.SERVICE_ID,
+                NAVBAR_EMAILJS_CONFIG.TEMPLATE_ID,
+                this
+              )
+              .then(function (response) {
+                console.log("NAVBAR SUCCESS!", response.status, response.text);
+                Swal.fire({
+                  icon: "success",
+                  title: "Request Sent!",
+                  text: "We'll contact you soon.",
+                  confirmButtonColor: "#007bff",
+                });
+                quoteForm.reset();
+
+                // Close modal
+                const modal = bootstrap.Modal.getInstance(
+                  document.getElementById("quoteModal")
+                );
+                modal.hide();
+              })
+              .catch(function (error) {
+                console.log("NAVBAR FAILED...", error);
+                Swal.fire({
+                  icon: "error",
+                  title: "Failed to send",
+                  text: "Please try again or contact us directly.",
+                });
+              })
+              .finally(function () {
+                // Reset button state
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+              });
+          });
+        }
+
+        // === PRODUCT QUOTE MODAL FUNCTIONALITY ===
+        const productQuoteModal = document.getElementById("productQuoteModal");
+        const productQuoteForm = document.getElementById("productQuoteForm");
+        const selectedProductName = document.getElementById(
+          "selectedProductName"
+        );
+        const quoteProduct = document.getElementById("quoteProduct");
+        const inquiryOptionBtns = document.querySelectorAll(
+          ".inquiry-option-btn"
+        );
+        const inquiryType = document.getElementById("inquiryType");
+        const emailInquirySection = document.getElementById(
+          "emailInquirySection"
+        );
+        const whatsappInquirySection = document.getElementById(
+          "whatsappInquirySection"
+        );
+        const whatsappInquiryLink = document.getElementById(
+          "whatsappInquiryLink"
+        );
+
+        // Initialize Product EmailJS when product modal is shown
+        if (productQuoteModal) {
+          productQuoteModal.addEventListener("show.bs.modal", function () {
+            // Re-initialize EmailJS for products
+            emailjs.init(PRODUCT_EMAILJS_CONFIG.PUBLIC_KEY);
+          });
+        }
+
+        // Set product when quote button is clicked from modal
+        document.addEventListener("click", function (e) {
+          if (
+            e.target.classList.contains("btn-quote") ||
+            e.target.closest(".btn-quote")
+          ) {
+            const btn = e.target.classList.contains("btn-quote")
+              ? e.target
+              : e.target.closest(".btn-quote");
+            const productName = btn.getAttribute("data-product");
+
+            if (productName && productName !== "Select a product") {
+              selectedProductName.textContent = productName;
+              quoteProduct.value = productName;
+              if (productQuoteForm) productQuoteForm.reset();
+              updateWhatsAppLinkWithFormData(productName);
+            }
+          }
+        });
+
+        // Inquiry type selection
+        inquiryOptionBtns.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            inquiryOptionBtns.forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+
+            const type = this.getAttribute("data-type");
+            if (inquiryType) inquiryType.value = type;
+
+            if (type === "email") {
+              if (emailInquirySection)
+                emailInquirySection.style.display = "block";
+              if (whatsappInquirySection)
+                whatsappInquirySection.style.display = "none";
+            } else {
+              if (emailInquirySection)
+                emailInquirySection.style.display = "none";
+              if (whatsappInquirySection)
+                whatsappInquirySection.style.display = "block";
+              updateWhatsAppLinkWithFormData();
+            }
+          });
+        });
+
+        // Product Quote Form submission
+        if (productQuoteForm) {
+          productQuoteForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const formData = {
+              name: document.getElementById("quoteName").value,
+              email: document.getElementById("quoteEmail").value,
+              phone: document.getElementById("quotePhone").value,
+              company: document.getElementById("quoteCompany").value,
+              product: document.getElementById("quoteProduct").value,
+              quantity: document.getElementById("quoteQuantity").value,
+              message: document.getElementById("quoteMessage").value,
+              inquiryType: document.getElementById("inquiryType").value,
+            };
+
+            // Validate required fields
+            if (
+              !formData.name ||
+              !formData.email ||
+              !formData.phone ||
+              !formData.product
+            ) {
+              alert(
+                "Please fill in all required fields (Name, Email, Phone, Product)."
+              );
+              return;
+            }
+
+            if (formData.inquiryType === "email") {
+              submitProductEmailInquiry(formData);
+            }
+          });
+        }
+
+        // WhatsApp link click handler
+        if (whatsappInquiryLink) {
+          whatsappInquiryLink.addEventListener("click", function (e) {
+            const name = document.getElementById("quoteName").value;
+            const phone = document.getElementById("quotePhone").value;
+            const product = document.getElementById("quoteProduct").value;
+
+            if (!name || !phone || !product) {
+              e.preventDefault();
+              alert(
+                "Please fill in Name, Phone, and Product fields before contacting on WhatsApp."
+              );
+              return;
+            }
+
+            setTimeout(() => {
+              const modal = bootstrap.Modal.getInstance(productQuoteModal);
+              modal.hide();
+            }, 500);
+          });
+        }
+
+        // Function to update WhatsApp link with form data
+        function updateWhatsAppLinkWithFormData(productName = null) {
+          const phoneNumber = "917014405301";
+
+          const name =
+            document.getElementById("quoteName")?.value || "Not provided";
+          const phone =
+            document.getElementById("quotePhone")?.value || "Not provided";
+          const company =
+            document.getElementById("quoteCompany")?.value || "Not provided";
+          const product =
+            productName ||
+            document.getElementById("quoteProduct")?.value ||
+            "Not provided";
+          const quantity =
+            document.getElementById("quoteQuantity")?.value || "Not specified";
+          const message =
+            document.getElementById("quoteMessage")?.value ||
+            "No additional details";
+
+          let whatsappMessage = `🛠️ *Product Inquiry - Baneshwari Industries* 🛠️\n\n`;
+          whatsappMessage += `Hello, I'm interested in your products:\n\n`;
+          whatsappMessage += `*Product Interested In:* ${product}\n`;
+          whatsappMessage += `*Name:* ${name}\n`;
+          whatsappMessage += `*Phone:* ${phone}\n`;
+          whatsappMessage += `*Company:* ${company}\n`;
+          whatsappMessage += `*Estimated Quantity:* ${quantity}\n\n`;
+
+          if (message !== "No additional details") {
+            whatsappMessage += `*Additional Requirements:*\n${message}\n\n`;
+          }
+
+          whatsappMessage += `Please provide me with:\n• Detailed specifications\n• Pricing information\n• Delivery timeline\n• Any available discounts`;
+
+          const encodedMessage = encodeURIComponent(whatsappMessage);
+          const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+          if (whatsappInquiryLink) {
+            whatsappInquiryLink.href = whatsappURL;
+          }
+        }
+
+        // Function to submit PRODUCT email inquiry
+        function submitProductEmailInquiry(formData) {
+          const submitBtn = productQuoteForm.querySelector(".btn-quote-submit");
+          const originalText = submitBtn.innerHTML;
+
+          // Show loading state
+          submitBtn.disabled = true;
+          submitBtn.innerHTML =
+            "Sending... <i class='fa-solid fa-spinner fa-spin ms-2'></i>";
+
+          emailjs
+            .send(
+              PRODUCT_EMAILJS_CONFIG.SERVICE_ID,
+              PRODUCT_EMAILJS_CONFIG.TEMPLATE_ID,
+              {
+                to_email: "sahilibm43@gmail.com",
+                from_name: formData.name,
+                from_email: formData.email,
+                phone: formData.phone,
+                company: formData.company,
+                product: formData.product,
+                quantity: formData.quantity,
+                message: formData.message,
+              }
+            )
+            .then(function (response) {
+              console.log("PRODUCT SUCCESS!", response.status, response.text);
+              Swal.fire({
+                icon: "success",
+                title: "Quote Request Sent!",
+                text: "We will contact you within 24 hours.",
+                confirmButtonColor: "#007bff",
+              });
+              productQuoteForm.reset();
+
+              // Close modal
+              const modal = bootstrap.Modal.getInstance(productQuoteModal);
+              modal.hide();
+            })
+            .catch(function (error) {
+              console.log("PRODUCT FAILED...", error);
+              Swal.fire({
+                icon: "error",
+                title: "Failed to send",
+                text: "Please try again or contact us directly.",
+              });
+            })
+            .finally(function () {
+              // Reset button state
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = originalText;
+            });
+        }
+
+        // Update WhatsApp link when form fields change
+        const formFields = [
+          "quoteName",
+          "quotePhone",
+          "quoteCompany",
+          "quoteProduct",
+          "quoteQuantity",
+          "quoteMessage",
+        ];
+        formFields.forEach((fieldId) => {
+          const field = document.getElementById(fieldId);
+          if (field) {
+            field.addEventListener("input", updateWhatsAppLinkWithFormData);
+          }
+        });
+
+        // Initialize Owl Carousel for reviews
+        $(document).ready(function () {
+          $(".owl-carousel").owlCarousel({
+            loop: true,
+            margin: 20,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            responsive: {
+              0: { items: 1 },
+              768: { items: 2 },
+              1200: { items: 3 },
+            },
+            nav: true,
+            dots: false,
+            navText: [
+              '<i class="fa-solid fa-chevron-left" style=""></i>',
+              '<i class="fa-solid fa-chevron-right"></i>',
+            ],
+          });
+
+          // GSAP animations
+          gsap.utils.toArray("[data-animate]").forEach((el) => {
+            gsap.from(el, {
+              opacity: 0,
+              y: 60,
+              duration: 1.2,
+              scrollTrigger: {
+                trigger: el,
+                start: "top 85%",
+                toggleActions: "play none none reverse",
+              },
+            });
+          });
+        });
+
+        // Initialize collapse icons for modals
+        allProducts.forEach((product) => {
+          const modalId = product.modalId || product.id;
+          const collapseElement = $(`#detailedDescription${modalId}`);
+          const iconElement = $(`.collapse-icon-${modalId}`);
+          if (collapseElement.length && iconElement.length) {
+            collapseElement.on("shown.bs.collapse", function () {
+              iconElement
+                .removeClass("fa-chevron-down")
+                .addClass("fa-chevron-up");
+            });
+            collapseElement.on("hidden.bs.collapse", function () {
+              iconElement
+                .removeClass("fa-chevron-up")
+                .addClass("fa-chevron-down");
+            });
+          }
+        });
+
+        // Reset modal when closed
+        $(".modal").on("hidden.bs.modal", function () {
+          const id = $(this).attr("id").replace("productModal", "");
+          if (
+            id &&
+            allProducts.some(
+              (p) => p.modalId === parseInt(id) || p.id === parseInt(id)
+            )
+          ) {
+            showProduct(id, 0);
+            $(`#detailedDescription${id}`).collapse("hide");
+            $(this).find(".modal-body").scrollTop(0);
+          }
+        });
+
+        // Fetch footer
+        fetch("/components/footer.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("footer").innerHTML = data;
+          })
+          .catch((err) => {
+            console.log("Footer not found, continuing without it");
+          });
+      });
+
+      // Scroll to Top functionality
+      const scrollTopBtn = document.getElementById("scrollTopBtn");
+      window.onscroll = function () {
+        scrollTopBtn.style.display =
+          document.body.scrollTop > 300 ||
+          document.documentElement.scrollTop > 300
+            ? "flex"
+            : "none";
+      };
+      scrollTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    </script>
+  </body>
+</html>

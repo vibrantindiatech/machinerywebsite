@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="assets/images/logoB.png" type="image/png" />
+<title>About Us | Baneshwari Industries</title>
+<meta name="description" content="Learn about Baneshwari Industries, a leading manufacturer of industrial hydraulic machinery. Discover our mission, vision, core values, leadership team, and company history." />
+
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="/css/style.css"/>
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<style>
+  
+body {
+  background: radial-gradient(circle at top right, #081019, #0f1729);
+  color: #e9f2f9;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background: white;
+}
+/* === Fix for all Font Awesome icons === */
+.fa,
+.fas,
+.far,
+.fab,
+.fa-solid,
+.fa-brands {
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
+}
+
+/* === Add this line specifically for brands === */
+.fa-brands {
+  font-family: "Font Awesome 6 Brands" !important;
+  font-weight: 400 !important;
+}
+
+/* Hero Section */
+.hero {
+  background: url('/assets/images/aboutbanner.png') center/cover no-repeat;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #00ffcc;
+  position: relative;
+  padding: 60px 15px;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+.hero .container { position: relative; z-index: 2; }
+.hero h1 { font-size: 2.8rem; margin-bottom:15px; }
+.hero p { font-size:1.2rem; color:#d8f7ff; }
+
+/* Section Titles */
+h2.section-title {
+  color: #000000;
+  font-weight:700;
+  margin-bottom:2rem;
+  text-align:center;
+}
+
+/* Company Intro */
+.company-intro { padding:80px 0; }
+.company-intro img {
+  border-radius:20px;
+  width:100%;
+  height:auto;
+  box-shadow:0 10px 30px rgba(0, 0, 0, 0.2);
+  background: white;
+  object-fit:cover;
+}
+.company-intro .intro-text h3 { color:#000000; margin-bottom:20px; }
+.company-intro .intro-text p { color:#000000; font-size:1rem; line-height:1.6; }
+
+/* Core Values / Mission / Vision Cards */
+/* Make all columns stretch evenly */
+.core-values .col-sm-6 {
+  display: flex;
+}
+
+/* Card Styling */
+.values-card, .mv-card, .leadership-card {
+  background: black;
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  height: 100%; /* force equal height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.values-card:hover, .mv-card:hover, .leadership-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 255, 204, 0.35);
+}
+
+/* Icon Style */
+.values-card i, .mv-card i {
+  font-size: 3rem;
+  background: linear-gradient(90deg, #00ffcc, #00b4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+}
+
+/* Headings */
+.values-card h4, .mv-card h4 {
+  color: #00ffcc;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* Text */
+.values-card p, .mv-card p {
+  color: #d8f7ff;
+  margin-top: auto;
+}
+
+/* Leadership */
+.leadership-card img {
+  width:120px;
+  height:120px;
+  object-fit:cover;
+  border-radius:50%;
+  margin-bottom:15px;
+  box-shadow:0 8px 25px rgba(0,255,204,0.2);
+}
+.leadership-card h5 { color:#00ffcc; margin-bottom:5px; }
+.leadership-card p { color:#d8f7ff; font-size:0.95rem; }
+
+/* Timeline Section */
+.timeline-section { padding: 80px 0; }
+.timeline {
+  position: relative;
+  max-width: 950px;
+  margin: auto;
+  padding: 40px 0;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 50%;
+  width: 4px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, #00ffcc, #00b4ff);
+  border-radius: 2px;
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
+}
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px 40px;
+  box-sizing: border-box;
+}
+.timeline-item .content-box {
+  background: rgba(255, 255, 255, 0.55);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 255, 204, 0.25);
+  transition: all 0.4s ease;
+}
+.timeline-item .content-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(0, 255, 204, 0.35);
+}
+.timeline-item h5 {
+  color: #00ffcc;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.timeline-item p {
+  color: #d8f7ff;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.timeline-item.left { left: 0; text-align: right; }
+.timeline-item.right { left: 50%; }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 25px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: #00ffcc;
+  border: 4px solid #0f1729;
+  z-index: 2;
+  animation: pulse 2s infinite;
+}
+.timeline-item.left::before { right: -10px; }
+.timeline-item.right::before { left: -10px; }
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 255, 204, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(0, 255, 204, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 255, 204, 0); }
+}
+
+/* Responsive */
+@media(max-width: 992px){
+  .company-intro .row { flex-direction: column-reverse; gap:30px; }
+  .hero h1 { font-size:2rem; }
+}
+@media(max-width: 768px){
+  .timeline::before { left: 10px; }
+  .timeline-item {
+    width: 100%;
+    padding-left: 40px;
+    text-align: left;
+  }
+  .timeline-item.left, .timeline-item.right { left: 0; }
+  .timeline-item::before { left: -2px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero p { font-size: 1rem; }
+  .section-title { font-size: 1.6rem; }
+}
+</style>
+</head>
+<body>
+
+    <!-- Scroll to Top Button -->
+<button class="scroll-top-btn" id="scrollTopBtn">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<!-- Floating Buttons -->
+<div class="floating-buttons">
+  <a href="https://wa.me/917014405301" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
+<style>
+  /* ==== FLOATING BUTTONS ==== */
+    .floating-buttons a {
+      position: fixed;
+      right: 22px;
+      bottom: 80px;
+      z-index: 1100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: #fff;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      font-size: 28px;
+      transition: all 0.35s ease;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+      text-decoration: none;
+    }
+    .floating-buttons a:hover {
+      transform: scale(1.15) rotate(5deg);
+      box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
+    }
+
+    /* ==== SCROLL TOP BUTTON ==== */
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 160px;
+      right: 22px;
+      background: linear-gradient(135deg, #007bff, #00b4d8);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 24px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1100;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      transition: all 0.35s ease;
+    }
+    .scroll-top-btn:hover {
+      transform: scale(1.1);
+      background: linear-gradient(135deg, #0d6efd, #23a6d5);
+    }
+
+    /* ==== RESPONSIVE ==== */
+    @media (max-width: 992px) {
+      .hero { min-height: 60vh; }
+      .hero-title { font-size: 2.2rem; }
+    }
+
+    @media (max-width: 768px) {
+      .hero { min-height: 55vh; }
+      .hero-title { font-size: 1.8rem;margin-top: 50px; }
+      .hero-subtitle { font-size: 1rem; }
+      .floating-buttons a,
+      .scroll-top-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+        right: 16px;
+      }
+      .scroll-top-btn { bottom: 140px; }
+      .floating-buttons a { bottom: 70px; }
+    }
+</style>
+
+<!-- Header -->
+  <style>
+    /* === Global Font === */
+    * {
+      font-family: "Poppins", sans-serif !important;
+      box-sizing: border-box;
+    }
+
+    /* === Navbar Base === */
+    .next-level-navbar {
+      background: #fff;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      box-shadow: 0 4px 25px rgba(0,0,0,0.05);
+      backdrop-filter: blur(10px);
+      transition: all 0.4s ease;
+      z-index: 1000;
+    }
+
+    /* === Scroll Effect === */
+    .next-level-navbar.scrolled {
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 6px 30px rgba(0,0,0,0.1);
+      padding: 0.5rem 0;
+    }
+
+    /* === Brand === */
+    .navbar-brand {
+      background: linear-gradient(90deg, #007bff, #00ccff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: 0.3s ease;
+    }
+
+    .navbar-brand:hover {
+      text-shadow: 0 0 10px rgba(0, 204, 255, 0.4);
+      transform: scale(1.03);
+    }
+
+    .brand-text span {
+      color: #333;
+      font-weight: 400;
+    }
+
+    /* === Nav Links === */
+    .nav-link {
+      color: #111 !important;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+      position: relative;
+      
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #007bff !important;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #007bff, #00ccff);
+      transition: width 0.35s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 60%;
+    }
+
+    .nav-link.active {
+      color: #007bff !important;
+      text-shadow: 0 0 6px rgba(0,123,255,0.4);
+    }
+
+    /* === Quote Button === */
+    .btn-glow {
+      background: linear-gradient(90deg, #00ccff, #007bff);
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(0,123,255,0.3);
+    }
+
+    .btn-glow:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 0 25px rgba(0,123,255,0.5);
+    }
+
+    /* === Toggler Button - Fixed === */
+    .navbar-toggler {
+      border: none;
+      background: transparent;
+      padding: 4px 8px;
+      font-size: 1.5rem;
+      color: #007bff !important;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: none;
+      outline: none;
+    }
+
+    .navbar-toggler:hover {
+      transform: scale(1.1);
+    }
+
+    /* === Responsive === */
+  /* === Responsive === */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: #f9f9f9;
+    border-radius: 12px;
+    padding: 20px 10px;
+    margin-top: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+  }
+  .nav-link {
+    text-align: center;
+    font-size: 1.05rem;
+    padding: 10px 0;
+  }
+  .navbar-toggler {
+    color: #007bff !important;
+  }
+  .navbar-toggler i {
+    font-size: 1.8rem;
+  }
+  .btn-glow {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .navbar-brand {
+    font-size: 0.9rem;
+    flex-direction: row;
+    align-items: center;
+    line-height: 1.3;
+  }
+  .navbar-toggler i {
+    font-size: 1.5rem;
+  }
+  .nav-link {
+    font-size: 0.95rem;
+  }
+}
+
+/* Hide brand text on mobile */
+@media (max-width: 425px) {
+  .navbar-brand .brand-text {
+    display: none !important;
+  }
+  
+  .navbar-brand img {
+    margin-right: 0;
+  }
+  
+  .navbar-brand {
+    padding: 5px 0;
+  }
+}
+
+    /* Make columns flex for equal height cards */
+.meet-leadership .col-sm-6 {
+  display: flex;
+}
+
+/* Leadership Cards Styling (shared style base) */
+.leadership-card {
+  background: #000;
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: .35s ease-in-out;
+  border: 1px solid rgba(0,255,204,0.1);
+}
+
+/* Hover Effect */
+.leadership-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 18px 45px rgba(0,255,204,0.35);
+  border-color: #00ffcc;
+}
+
+/* Profile Image */
+.leadership-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  transition: .35s;
+  border: 3px solid rgba(0,255,204,0.3);
+}
+
+/* Glow on hover */
+.leadership-card:hover img {
+  box-shadow: 0 12px 30px rgba(0,255,204,0.4);
+  border-color: #00ffcc;
+}
+
+/* Name */
+.leadership-card h5 {
+  color: #00ffcc;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+
+/* Description */
+.leadership-card p {
+  color: #d8f7ff;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-top: auto;
+}
+
+  </style>
+</head>
+
+
+<!-- ✅ Navbar - Fixed Toggle -->
+<nav class="navbar navbar-expand-lg next-level-navbar fixed-top">
+  <div class="container-fluid px-3 py-1 px-md-4 px-lg-5">
+
+    <!-- Brand -->
+    <a class="navbar-brand fw-bold me-2" href="index.html">
+      <img src="assets/images/logoB.png" alt="" height="65px" class="me-2" />
+      <span class="brand-text">Baneshwari <span>Industries</span></span>
+    </a>
+
+    <!-- Toggler - Fixed with perfect open/close functionality -->
+    <button
+      class="navbar-toggler border-0 shadow-none"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#mainMenu"
+      aria-controls="mainMenu"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      id="navbarToggler"
+    >
+      <i class="fa-solid fa-bars" id="togglerIcon"></i>
+    </button>
+
+    <!-- Nav Links -->
+    <div class="collapse navbar-collapse justify-content-lg-center mt-3 mt-lg-0" id="mainMenu">
+      <ul class="navbar-nav align-items-lg-center gap-2 gap-lg-4">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+
+      <!-- ✅ Mobile Quote Button -->
+      <div class="d-lg-none text-center mt-3">
+        <button class="btn btn-glow py-2 fw-semibold rounded-pill" data-bs-toggle="modal" data-bs-target="#quoteModal">
+          Get Quote <i class="fa-solid fa-arrow-right ms-2"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- ✅ Desktop Quote Button -->
+    <div class="d-none d-lg-block ms-auto">
+      <button class="btn btn-glow px-4 py-2 fw-semibold rounded-pill" data-bs-toggle="modal" data-bs-target="#quoteModal">
+        Get Quote <i class="fa-solid fa-arrow-right ms-2"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ✅ Quote Form Modal -->
+<div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content border-0 shadow-lg rounded-4">
+      <div class="modal-header border-0 bg-primary text-white rounded-top-4">
+        <h5 class="modal-title fw-semibold" id="quoteModalLabel">
+          <i class="fa-solid fa-file-signature me-2"></i> Request a Quote
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body p-4">
+        <form>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Name</label>
+              <input type="text" class="form-control rounded-3" placeholder="Enter your name" required />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Email</label>
+              <input type="email" class="form-control rounded-3" placeholder="Enter your email" required />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Phone</label>
+              <input type="tel" class="form-control rounded-3" placeholder="Enter your phone number" required />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Service Interested In</label>
+              <select class="form-select rounded-3" required>
+                <option value="">Select service...</option>
+                <option>Hydraulic Equipment</option>
+                <option>Industrial Solutions</option>
+                <option>Custom Fabrication</option>
+                <option>Repair & Maintenance</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-label fw-semibold">Message</label>
+              <textarea class="form-control rounded-3" rows="3" placeholder="Write your requirements..."></textarea>
+            </div>
+          </div>
+          <div class="text-center mt-4">
+            <button type="submit" class="btn btn-glow px-4 py-2 fw-semibold rounded-pill">
+              Submit Request <i class="fa-solid fa-paper-plane ms-2"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ✅ Required Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<style> 
+/* ✅ Softer & clearer modal background */
+.modal-backdrop.show {
+  background-color: rgba(0, 0, 0, 0.25); /* lower opacity for clearer background */
+  backdrop-filter: blur(8px); /* gentle blur */
+}
+
+/* Smooth modal animation */
+.modal-content {
+  animation: scaleIn 0.3s ease;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+</style>
+
+  <!-- ✅ Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Navbar scroll effect
+  window.addEventListener("scroll", () => {
+    const nav = document.querySelector(".next-level-navbar");
+    if (nav) nav.classList.toggle("scrolled", window.scrollY > 40);
+  });
+
+  // Active link highlight
+  document.addEventListener("DOMContentLoaded", () => {
+    const current = window.location.pathname.split("/").pop();
+    document.querySelectorAll(".nav-link").forEach((link) => {
+      const href = link.getAttribute("href");
+      if (href && href.includes(current) && current !== "") {
+        link.classList.add("active");
+      } else if (current === "" && href && href.includes("index.html")) {
+        link.classList.add("active");
+      }
+    });
+  });
+
+  // ✅ PERFECT TOGGLE FUNCTIONALITY - ENHANCED
+  document.addEventListener("DOMContentLoaded", function() {
+    const navbarToggler = document.getElementById("navbarToggler");
+    const togglerIcon = document.getElementById("togglerIcon");
+    const mainMenu = document.getElementById("mainMenu");
+    
+    if (navbarToggler && togglerIcon && mainMenu) {
+      let isMenuOpen = false;
+
+      // Initialize Bootstrap collapse
+      const bsCollapse = new bootstrap.Collapse(mainMenu, {
+        toggle: false
+      });
+
+      // Main toggle click handler
+      navbarToggler.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        if (!isMenuOpen) {
+          // Open the menu
+          bsCollapse.show();
+          togglerIcon.classList.remove('fa-bars');
+          togglerIcon.classList.add('fa-xmark');
+          isMenuOpen = true;
+          navbarToggler.setAttribute('aria-expanded', 'true');
+        } else {
+          // Close the menu
+          bsCollapse.hide();
+          togglerIcon.classList.remove('fa-xmark');
+          togglerIcon.classList.add('fa-bars');
+          isMenuOpen = false;
+          navbarToggler.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Bootstrap event listeners for state sync
+      mainMenu.addEventListener('show.bs.collapse', function () {
+        togglerIcon.classList.remove('fa-bars');
+        togglerIcon.classList.add('fa-xmark');
+        isMenuOpen = true;
+        navbarToggler.setAttribute('aria-expanded', 'true');
+      });
+      
+      mainMenu.addEventListener('hide.bs.collapse', function () {
+        togglerIcon.classList.remove('fa-xmark');
+        togglerIcon.classList.add('fa-bars');
+        isMenuOpen = false;
+        navbarToggler.setAttribute('aria-expanded', 'false');
+      });
+
+      // Close menu when clicking on nav links (mobile)
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth < 992 && isMenuOpen) {
+            bsCollapse.hide();
+            togglerIcon.classList.remove('fa-xmark');
+            togglerIcon.classList.add('fa-bars');
+            isMenuOpen = false;
+            navbarToggler.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+
+      // Close menu when clicking outside (optional enhancement)
+      document.addEventListener('click', function(event) {
+        const isClickInside = navbarToggler.contains(event.target) || 
+                             mainMenu.contains(event.target);
+        
+        if (!isClickInside && isMenuOpen && window.innerWidth < 992) {
+          bsCollapse.hide();
+          togglerIcon.classList.remove('fa-xmark');
+          togglerIcon.classList.add('fa-bars');
+          isMenuOpen = false;
+          navbarToggler.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Reset menu state on window resize
+      window.addEventListener('resize', function() {
+        if (window.innerWidth >= 992 && isMenuOpen) {
+          bsCollapse.hide();
+          togglerIcon.classList.remove('fa-xmark');
+          togglerIcon.classList.add('fa-bars');
+          isMenuOpen = false;
+          navbarToggler.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  });
+
+  // GSAP Animations
+  if (typeof gsap !== 'undefined') {
+    // Animate elements with data-animate attribute
+    gsap.utils.toArray('[data-animate]').forEach((el, i) => {
+      gsap.from(el, {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        delay: i * 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+          toggleActions: "play none none reverse"
+        }
+      });
+    });
+
+    // Timeline animations
+    gsap.utils.toArray(".timeline-item").forEach((item) => {
+      const isLeft = item.classList.contains("left");
+      gsap.fromTo(item, {
+        x: isLeft ? -100 : 100,
+        opacity: 0
+      }, {
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: item,
+          start: "top 85%",
+          toggleActions: "play none none reverse"
+        }
+      });
+    });
+
+    // Animate timeline content boxes
+    const timelineContents = document.querySelectorAll('.timeline-content');
+    if (timelineContents.length > 0) {
+      timelineContents.forEach(content => {
+        gsap.fromTo(content, {
+          opacity: 0,
+          y: 30
+        }, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: content,
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        });
+      });
+    }
+  }
+
+  // Additional animation for cards on hover
+  document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.values-card, .mv-card, .leadership-card');
+    
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        gsap.to(this, {
+          y: -8,
+          scale: 1.02,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        gsap.to(this, {
+          y: 0,
+          scale: 1,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      });
+    });
+  });
+
+  // Hero section animation
+  if (typeof gsap !== 'undefined') {
+    const hero = document.querySelector('.hero');
+    if (hero) {
+      gsap.from('.hero h1', {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        delay: 0.2,
+        ease: "power3.out"
+      });
+      
+      gsap.from('.hero p', {
+        y: 30,
+        opacity: 0,
+        duration: 1,
+        delay: 0.5,
+        ease: "power3.out"
+      });
+    }
+  }
+
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Form submission handling (for quote modal)
+  const quoteForm = document.querySelector('#quoteModal form');
+  if (quoteForm) {
+    quoteForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Add your form submission logic here
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      
+      // Simulate form submission
+      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+      submitBtn.disabled = true;
+      
+      setTimeout(() => {
+        submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Sent Successfully!';
+        setTimeout(() => {
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+          bootstrap.Modal.getInstance(document.getElementById('quoteModal')).hide();
+          quoteForm.reset();
+        }, 2000);
+      }, 1500);
+    });
+  }
+
+  // Intersection Observer for timeline animation
+  const timelineObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  // Observe all timeline content elements
+  document.querySelectorAll('.timeline-content').forEach(content => {
+    timelineObserver.observe(content);
+  });
+
+  // Page load animations
+  window.addEventListener('load', function() {
+    if (typeof gsap !== 'undefined') {
+      gsap.to('body', {
+        opacity: 1,
+        duration: 0.5,
+        ease: "power2.out"
+      });
+    }
+  });
+
+  // Initialize page opacity
+  document.body.style.opacity = '0';
+</script>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <h1>About Baneshwari Industries</h1>
+    <p>Innovation, Precision & Excellence in Industrial Machinery</p>
+  </div>
+</section>
+<style>
+  /* Hero */
+.hero {
+  background: url('/assets/images/aboutbanner.png') center/cover no-repeat;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+.hero::after {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:rgba(0, 0, 0, 0.37);
+}
+.hero .container { position: relative; z-index:2; }
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg,#00ffcc,#00b4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero p { font-size: 1.2rem; margin: 15px 0 25px; color:#fff; }
+/* Responsive */
+@media(max-width:767px){
+  .hero h1{font-size:2rem;margin-top: 60px;}
+  .hero p{font-size:1rem;}
+}
+
+</style>
+
+
+<!-- Who We Are -->
+<section class="company-intro" data-animate>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <img src="assets/images/machine1.jpg" alt="Baneshwari Industries">
+      </div>
+      <div class="col-lg-6 intro-text">
+        <h3>Who We Are</h3>
+        <p>Baneshwari Industries is a leading manufacturer of industrial hydraulic machinery, delivering innovative, high-performance solutions for industries worldwide. Our commitment to precision, technology, and customer satisfaction sets us apart.</p>
+        <p>Founded in Ahmedabad, we combine decades of experience with modern smart manufacturing techniques, ensuring every product meets international quality standards.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Core Values -->
+<section class="core-values py-5" data-animate>
+  <div class="container">
+    <h2 class="section-title">Our Core Values</h2>
+    <div class="row g-4 justify-content-center">
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="values-card">
+          <i class="fa-solid fa-lightbulb"></i>
+          <h4>Innovation</h4>
+          <p>We push the boundaries of technology to deliver innovative machinery solutions.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="values-card">
+          <i class="fa-solid fa-leaf"></i>
+          <h4>Sustainability</h4>
+          <p>Eco-friendly production and responsible resource management are our priorities.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="values-card">
+          <i class="fa-solid fa-handshake"></i>
+          <h4>Integrity</h4>
+          <p>We uphold the highest standards of professionalism and trust with clients.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="values-card">
+          <i class="fa-solid fa-users"></i>
+          <h4>Teamwork</h4>
+          <p>Collaboration and skill sharing are at the heart of our success.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mission & Vision -->
+<section class="mission-vision py-5" data-animate>
+  <div class="container">
+    <h2 class="section-title">Our Mission & Vision</h2>
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-6">
+        <div class="mv-card">
+          <i class="fa-solid fa-bullseye"></i>
+          <h4>Our Mission</h4>
+          <p>To provide innovative hydraulic machinery solutions that empower industries with efficiency, precision, and safety.</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mv-card">
+          <i class="fa-solid fa-eye"></i>
+          <h4>Our Vision</h4>
+          <p>To become a globally recognized industrial machinery brand known for excellence, innovation, and customer satisfaction.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Leadership -->
+<section class="meet-leadership py-5">
+  <div class="container">
+    <h2 class="section-title text-center">Meet Our Leadership</h2>
+    <div class="row g-4 justify-content-center">
+      
+      <div class="col-sm-6 col-lg-3">
+        <div class="leadership-card">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="CEO">
+          <h5>John Doe</h5>
+          <p>Chief Executive Officer – Driving innovation and global expansion.</p>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-3">
+        <div class="leadership-card">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="COO">
+          <h5>Jane Smith</h5>
+          <p>Chief Operating Officer – Ensuring operational excellence across all units.</p>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-3">
+        <div class="leadership-card">
+          <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="CTO">
+          <h5>Robert Brown</h5>
+          <p>Chief Technology Officer – Leading product innovation and R&D initiatives.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Roadmap Timeline -->
+<section class="timeline-section py-5" data-animate>
+  <div class="container text-center">
+    <h2 class="section-title mb-5 gradient-text">Our Journey: 2010 – 2025</h2>
+
+    <div class="timeline">
+      <!-- 2010 -->
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h4>2010 – Foundation Year</h4>
+          <p>Baneshwari Industriesbegan with a mission to bring efficient and innovative hydraulic solutions to Indian industries.</p>
+        </div>
+      </div>
+
+      <!-- 2013 -->
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h4>2013 – First Breakthrough</h4>
+          <p>Introduced our first Hydraulic Barrel Cutting Machine, establishing a reputation for quality and reliability.</p>
+        </div>
+      </div>
+
+      <!-- 2016 -->
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h4>2016 – Nationwide Growth</h4>
+          <p>Expanded our operations with a modern facility and strong service network to support growing demand.</p>
+        </div>
+      </div>
+
+      <!-- 2019 -->
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h4>2019 – Global Reach</h4>
+          <p>Started exporting to Middle East and African markets with high-performance, precision-engineered machines.</p>
+        </div>
+      </div>
+
+      <!-- 2022 -->
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h4>2022 – Smart Innovation</h4>
+          <p>Launched semi-automatic and IoT-enabled machinery focused on smarter, data-driven manufacturing.</p>
+        </div>
+      </div>
+
+      <!-- 2025 -->
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h4>2025 – Future Ahead</h4>
+          <p>Continuing to drive sustainable, AI-powered industrial solutions for the global manufacturing industry.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CSS ===== -->
+<style>
+.timeline-section {
+  background: radial-gradient(circle at top right, #ffffff, #ffffff);
+  color: #fff;
+  overflow: hidden;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: 2.4rem;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #000000, #000000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Timeline wrapper */
+.timeline {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+/* Center line */
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  background: linear-gradient(180deg, #ffffff, #00b4ff);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+  border-radius: 2px;
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
+}
+
+/* Each item */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px 40px;
+  box-sizing: border-box;
+}
+
+.timeline-item.left { left: 0; text-align: right; }
+.timeline-item.right { left: 50%; text-align: left; }
+
+/* Circle markers */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: #00ffcc;
+  border-radius: 50%;
+  top: 30px;
+  z-index: 10;
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.8);
+}
+
+.timeline-item.left::before { right: -9px; }
+.timeline-item.right::before { left: -9px; }
+
+/* Content box */
+.timeline-content {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 255, 204, 0.15);
+  transition: all 0.6s ease;
+  opacity: 0;
+  transform: translateY(50px);
+  position: relative;
+  z-index: 5;
+}
+
+.timeline-content.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-content h4 {
+  color: #000000;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.timeline-content p {
+  color: #000000;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Hover animation */
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 35px rgba(0, 255, 204, 0.3);
+}
+
+/* ===== RESPONSIVE FIX ===== */
+@media (max-width: 992px) {
+  .timeline::after {
+    left: 20px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding: 20px 25px 20px 60px;
+    text-align: left !important;
+  }
+
+  .timeline-item::before {
+    left: 20px;
+  }
+
+  .timeline-item.left,
+  .timeline-item.right {
+    left: 0;
+  }
+
+  .timeline-content {
+    margin-top: 15px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+  .timeline::after {
+    left: 15px;
+  }
+  .timeline-item {
+    padding: 15px 20px 15px 50px;
+  }
+  .timeline-content {
+    padding: 20px;
+  }
+}
+</style>
+
+
+<!-- ===== Animation JS ===== -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const items = document.querySelectorAll(".timeline-content");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("active");
+    });
+  }, { threshold: 0.2 });
+  items.forEach(i => observer.observe(i));
+});
+</script>
+
+  <!-- ==== FOOTER ==== -->
+  <div id="footer"></div>
+
+
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  fetch("/components/footer.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("footer").innerHTML = data;
+    });
+</script>
+
+<script>
+gsap.utils.toArray('[data-animate]').forEach((el,i)=>{
+  gsap.from(el,{ y:50, opacity:0, duration:1, delay:i*0.2, ease:"power3.out",
+    scrollTrigger:{ trigger:el, start:"top 85%" }
+  });
+});
+const scrollBtn=document.getElementById("scrollTopBtn");
+window.addEventListener("scroll",()=>{scrollBtn.style.display=window.scrollY>300?"flex":"none";});
+scrollBtn.addEventListener("click",()=>{window.scrollTo({top:0,behavior:'smooth'});});
+gsap.utils.toArray(".timeline-item").forEach((item)=>{
+  const isLeft=item.classList.contains("left");
+  gsap.fromTo(item,{x:isLeft?-100:100,opacity:0},{x:0,opacity:1,duration:1,ease:"power3.out",
+    scrollTrigger:{trigger:item,start:"top 85%"}
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,312 @@
+/* ==== QUOTE MODAL STYLES ==== */
+:root {
+  --primary-color: #007bff; /* Your primary color */
+  --secondary-color: #0056b3; /* Your secondary color */
+}
+#quoteModal .modal-dialog {
+  max-width: 600px;
+}
+
+#quoteModal .modal-content {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: none;
+}
+
+#quoteModal .modal-header {
+  background: linear-gradient(135deg, #007bff, #0056b3); /* Fixed colors */
+  border-bottom: none;
+  padding: 1.5rem 2rem;
+  position: relative;
+}
+
+#quoteModal .modal-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  width: 90%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+}
+
+#quoteModal .modal-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: white;
+}
+
+#quoteModal .btn-close {
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  filter: invert(1); /* Makes the close button white */
+}
+
+#quoteModal .btn-close:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+#quoteModal .modal-body {
+  padding: 2rem;
+  background: #fafbfc;
+}
+
+#quoteModal .form-label {
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+#quoteModal .form-control,
+#quoteModal .form-select {
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background: #fff;
+}
+
+#quoteModal .form-control:focus,
+#quoteModal .form-select:focus {
+  border-color: #007bff; /* Fixed color */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  background: #fff;
+}
+
+#quoteModal .form-control::placeholder {
+  color: #a0aec0;
+  font-size: 0.9rem;
+}
+
+#quoteModal textarea.form-control {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Submit Button Styles */
+#quoteModal .btn-glow {
+  background: linear-gradient(135deg, #007bff, #0056b3); /* Fixed colors */
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 0.875rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+#quoteModal .btn-glow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+#quoteModal .btn-glow:hover::before {
+  left: 100%;
+}
+
+#quoteModal .btn-glow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+}
+
+#quoteModal .btn-glow:active {
+  transform: translateY(0);
+}
+
+/* Form Row Spacing */
+#quoteModal .row.g-3 {
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #quoteModal .modal-dialog {
+    margin: 1rem;
+  }
+
+  #quoteModal .modal-header {
+    padding: 1.25rem 1.5rem;
+  }
+
+  #quoteModal .modal-body {
+    padding: 1.5rem;
+  }
+
+  #quoteModal .modal-title {
+    font-size: 1.2rem;
+  }
+
+  #quoteModal .btn-glow {
+    width: 100%;
+    padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  #quoteModal .modal-body {
+    padding: 1.25rem;
+  }
+
+  #quoteModal .form-control,
+  #quoteModal .form-select {
+    padding: 0.675rem 0.875rem;
+  }
+
+  #quoteModal .row.g-3 {
+    margin-bottom: 0;
+  }
+}
+
+/* Loading State */
+#quoteModal .btn-glow.loading {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+#quoteModal .btn-glow.loading::after {
+  content: "";
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-left: 0.5rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Success/Error States */
+#quoteModal .form-control.is-valid {
+  border-color: #28a745;
+}
+
+#quoteModal .form-control.is-invalid {
+  border-color: #dc3545;
+}
+
+#quoteModal .invalid-feedback {
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+/* ===== FIX: UNIFORM RELATED PRODUCT CARD HEIGHTS ===== */
+.owl-stage {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+.owl-item {
+  display: flex !important;
+  height: auto !important;
+}
+
+.related-products .item {
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.related-products .item .card {
+  height: 420px !important;
+  min-height: 420px !important;
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.related-products .card-body {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 1rem !important;
+  height: 100% !important;
+}
+
+.related-products .product-image-small {
+  height: 180px !important;
+  min-height: 180px !important;
+  max-height: 180px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #f8f9fa !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  margin-bottom: 1rem !important;
+}
+
+.related-products .product-image-small img {
+  max-height: 100% !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+
+.related-products h6 {
+  height: 50px !important;
+  min-height: 50px !important;
+  max-height: 50px !important;
+  overflow: hidden !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical !important;
+  margin-bottom: 0.75rem !important;
+  font-size: 0.9rem !important;
+  line-height: 1.3 !important;
+  text-align: center !important;
+}
+
+.related-products .features {
+  height: 40px !important;
+  min-height: 40px !important;
+  max-height: 40px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 4px !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.related-products .view-product-btn {
+  margin-top: auto !important;
+  width: 100% !important;
+  flex-shrink: 0 !important;
+}
